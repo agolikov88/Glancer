@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
-		C2ECC90F29BEAC97001AC352 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* ContentView.swift */; };
+		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
 		C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91029BEAC98001AC352 /* Assets.xcassets */; };
 		C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91329BEAC98001AC352 /* Preview Assets.xcassets */; };
 		C2ECC91E29BEAC98001AC352 /* GlancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC91D29BEAC98001AC352 /* GlancerTests.swift */; };
 		C2ECC92829BEAC98001AC352 /* GlancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC92729BEAC98001AC352 /* GlancerUITests.swift */; };
 		C2ECC92A29BEAC98001AC352 /* GlancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC92929BEAC98001AC352 /* GlancerUITestsLaunchTests.swift */; };
+		C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC93B29BEB09A001AC352 /* ImagesConfig.swift */; };
+		C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC93C29BEB09A001AC352 /* ShareWatchfaceService.swift */; };
+		C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC93D29BEB09A001AC352 /* ShareWatchfaceWorker.swift */; };
+		C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C2ECC94229BEB151001AC352 /* ZIPFoundation */; };
+		C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */; };
+		C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94829BEB33B001AC352 /* Topic.swift */; };
+		C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94929BEB33B001AC352 /* TopicCard.swift */; };
+		C2ECC95329BEB5A7001AC352 /* snapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC94E29BEB5A7001AC352 /* snapshot.png */; };
+		C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95029BEB5A7001AC352 /* metadata.json */; };
+		C2ECC95529BEB5A7001AC352 /* face.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95129BEB5A7001AC352 /* face.json */; };
+		C2ECC95629BEB5A7001AC352 /* no_borders_snapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95229BEB5A7001AC352 /* no_borders_snapshot.png */; };
+		C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC95D29BEBC7A001AC352 /* CardsPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,7 @@
 /* Begin PBXFileReference section */
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
-		C2ECC90E29BEAC97001AC352 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2ECC91029BEAC98001AC352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2ECC91329BEAC98001AC352 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2ECC91929BEAC98001AC352 /* GlancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +56,18 @@
 		C2ECC92329BEAC98001AC352 /* GlancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC92729BEAC98001AC352 /* GlancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerUITests.swift; sourceTree = "<group>"; };
 		C2ECC92929BEAC98001AC352 /* GlancerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C2ECC93629BEAE07001AC352 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C2ECC93B29BEB09A001AC352 /* ImagesConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesConfig.swift; sourceTree = "<group>"; };
+		C2ECC93C29BEB09A001AC352 /* ShareWatchfaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareWatchfaceService.swift; sourceTree = "<group>"; };
+		C2ECC93D29BEB09A001AC352 /* ShareWatchfaceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareWatchfaceWorker.swift; sourceTree = "<group>"; };
+		C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Watermark.swift"; sourceTree = "<group>"; };
+		C2ECC94829BEB33B001AC352 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		C2ECC94929BEB33B001AC352 /* TopicCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCard.swift; sourceTree = "<group>"; };
+		C2ECC94E29BEB5A7001AC352 /* snapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapshot.png; sourceTree = "<group>"; };
+		C2ECC95029BEB5A7001AC352 /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
+		C2ECC95129BEB5A7001AC352 /* face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face.json; sourceTree = "<group>"; };
+		C2ECC95229BEB5A7001AC352 /* no_borders_snapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_borders_snapshot.png; sourceTree = "<group>"; };
+		C2ECC95D29BEBC7A001AC352 /* CardsPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsPreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +119,12 @@
 		C2ECC90B29BEAC97001AC352 /* Glancer */ = {
 			isa = PBXGroup;
 			children = (
+				C2ECC95729BEB61D001AC352 /* Features */,
+				C2ECC94C29BEB55A001AC352 /* Resources */,
+				C2ECC94429BEB1DC001AC352 /* Extensions */,
+				C2ECC93729BEAFBB001AC352 /* Application */,
+				C2ECC93629BEAE07001AC352 /* Info.plist */,
 				C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */,
-				C2ECC90E29BEAC97001AC352 /* ContentView.swift */,
-				C2ECC91029BEAC98001AC352 /* Assets.xcassets */,
 				C2ECC91229BEAC98001AC352 /* Preview Content */,
 			);
 			path = Glancer;
@@ -127,6 +155,127 @@
 			path = GlancerUITests;
 			sourceTree = "<group>";
 		};
+		C2ECC93729BEAFBB001AC352 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC94729BEB324001AC352 /* Model */,
+				C2ECC93829BEB018001AC352 /* Domain */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		C2ECC93829BEB018001AC352 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC93929BEB026001AC352 /* Services */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C2ECC93929BEB026001AC352 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC93A29BEB031001AC352 /* ShareWatchFaceService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C2ECC93A29BEB031001AC352 /* ShareWatchFaceService */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC93B29BEB09A001AC352 /* ImagesConfig.swift */,
+				C2ECC93C29BEB09A001AC352 /* ShareWatchfaceService.swift */,
+				C2ECC93D29BEB09A001AC352 /* ShareWatchfaceWorker.swift */,
+			);
+			path = ShareWatchFaceService;
+			sourceTree = "<group>";
+		};
+		C2ECC94429BEB1DC001AC352 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C2ECC94729BEB324001AC352 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC94829BEB33B001AC352 /* Topic.swift */,
+				C2ECC94929BEB33B001AC352 /* TopicCard.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2ECC94C29BEB55A001AC352 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC91029BEAC98001AC352 /* Assets.xcassets */,
+				C2ECC94D29BEB5A7001AC352 /* WatchFace_Template */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C2ECC94D29BEB5A7001AC352 /* WatchFace_Template */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC94E29BEB5A7001AC352 /* snapshot.png */,
+				C2ECC95029BEB5A7001AC352 /* metadata.json */,
+				C2ECC95129BEB5A7001AC352 /* face.json */,
+				C2ECC95229BEB5A7001AC352 /* no_borders_snapshot.png */,
+			);
+			path = WatchFace_Template;
+			sourceTree = "<group>";
+		};
+		C2ECC95729BEB61D001AC352 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC95B29BEBC7A001AC352 /* CardsPreview */,
+				C2ECC95829BEB6F6001AC352 /* MainView */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C2ECC95829BEB6F6001AC352 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC95A29BEB70E001AC352 /* ViewModel */,
+				C2ECC95929BEB708001AC352 /* View */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		C2ECC95929BEB708001AC352 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC90E29BEAC97001AC352 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2ECC95A29BEB70E001AC352 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C2ECC95B29BEBC7A001AC352 /* CardsPreview */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC95C29BEBC7A001AC352 /* View */,
+			);
+			path = CardsPreview;
+			sourceTree = "<group>";
+		};
+		C2ECC95C29BEBC7A001AC352 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2ECC95D29BEBC7A001AC352 /* CardsPreviewView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +292,9 @@
 			dependencies = (
 			);
 			name = Glancer;
+			packageProductDependencies = (
+				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
+			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Glancer.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +367,9 @@
 				Base,
 			);
 			mainGroup = C2ECC90029BEAC97001AC352;
+			packageReferences = (
+				C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,7 +386,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ECC95629BEB5A7001AC352 /* no_borders_snapshot.png in Resources */,
+				C2ECC95329BEB5A7001AC352 /* snapshot.png in Resources */,
 				C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */,
+				C2ECC95529BEB5A7001AC352 /* face.json in Resources */,
+				C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */,
 				C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,8 +416,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ECC90F29BEAC97001AC352 /* ContentView.swift in Sources */,
+				C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */,
+				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
+				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
+				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
+				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
+				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
+				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
+				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,21 +586,29 @@
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Glancer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Glancer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.Glancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -449,21 +623,29 @@
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Glancer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Glancer;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.Glancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -583,6 +765,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2ECC94229BEB151001AC352 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2ECC90129BEAC97001AC352 /* Project object */;
 }
