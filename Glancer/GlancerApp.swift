@@ -11,7 +11,7 @@ import SwiftUI
 struct GlancerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(viewModel: MainViewModel())
                 .accentColor(Color(.systemOrange))
         }
     }

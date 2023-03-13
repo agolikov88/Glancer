@@ -26,6 +26,7 @@
 		C2ECC95529BEB5A7001AC352 /* face.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95129BEB5A7001AC352 /* face.json */; };
 		C2ECC95629BEB5A7001AC352 /* no_borders_snapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95229BEB5A7001AC352 /* no_borders_snapshot.png */; };
 		C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC95D29BEBC7A001AC352 /* CardsPreviewView.swift */; };
+		C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC95F29BEDB37001AC352 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C2ECC95129BEB5A7001AC352 /* face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = face.json; sourceTree = "<group>"; };
 		C2ECC95229BEB5A7001AC352 /* no_borders_snapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_borders_snapshot.png; sourceTree = "<group>"; };
 		C2ECC95D29BEBC7A001AC352 /* CardsPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsPreviewView.swift; sourceTree = "<group>"; };
+		C2ECC95F29BEDB37001AC352 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 		C2ECC95A29BEB70E001AC352 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C2ECC95F29BEDB37001AC352 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
+				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,

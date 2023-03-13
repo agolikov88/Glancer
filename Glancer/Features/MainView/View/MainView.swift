@@ -9,15 +9,18 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var address = ""
+    @ObservedObject var viewModel: MainViewModel
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         NavigationView {
             VStack {
                 CardsPreviewView(topic: Topic(), topicCards: [], currentBackgroundIndex: 0)
                     .padding(.top)
-                // test...
-                TextField("Type your text here", text: $address, axis: .vertical)
+                TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
                     .lineLimit(6, reservesSpace: true)
                     .padding(8)
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
@@ -35,7 +38,7 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewModel: MainViewModel())
             .accentColor(Color(.systemOrange))
     }
 }
