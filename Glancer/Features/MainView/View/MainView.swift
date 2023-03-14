@@ -18,7 +18,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CardsPreviewView(topic: Topic(), topicCards: [], currentBackgroundIndex: 0)
+                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
                     .padding(.top)
                 TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
                     .lineLimit(6, reservesSpace: true)
