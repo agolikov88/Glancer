@@ -28,6 +28,17 @@ struct MainView: View {
                     .padding(8)
                     .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
                     .focused($isInputActive)
+                    .padding(.bottom)
+                Button(action: {
+                }) {
+                    Text("Send to Watch")
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.buttonBackgroundOrange)
+                        .cornerRadius(16)
+                        .foregroundColor(.white)
+                }
             }
             .padding()
             .navigationBarTitle("GLANCER", displayMode: .inline)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
 		C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91029BEAC98001AC352 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
 		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */,
+				C2AB154629C1815500593D69 /* Color+CustomColors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
+				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
