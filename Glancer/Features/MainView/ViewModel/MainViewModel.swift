@@ -25,6 +25,8 @@ final class MainViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+    func 
+    
     private func updateCardPreview() {
         topicCard.cardDefinition = cardText
     }

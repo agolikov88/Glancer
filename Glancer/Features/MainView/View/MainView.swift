@@ -31,6 +31,7 @@ struct MainView: View {
                     .padding(.bottom)
                 if !isInputActive {
                     Button(action: {
+                        
                     }) {
                         Text("Send to Watch")
                             .fontWeight(.bold)
@@ -39,6 +40,13 @@ struct MainView: View {
                             .background(Color.buttonBackgroundOrange)
                             .cornerRadius(16)
                             .foregroundColor(.white)
+                    }
+                    .padding(.bottom)
+                    Button(action: {
+                        launchWatchApp()
+                    }) {
+                        Text("Manage Watch Faces")
+                            .fontWeight(.bold)
                     }
                 }
             }
@@ -54,6 +62,14 @@ struct MainView: View {
                         }
                     }
             )
+        }
+    }
+    
+    private func launchWatchApp() {
+        if let url = URL(string: "itms-watchs://bridge:root=GENERAL_LINK") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
 }
