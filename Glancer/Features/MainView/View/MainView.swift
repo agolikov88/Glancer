@@ -31,7 +31,7 @@ struct MainView: View {
                     .padding(.bottom)
                 if !isInputActive {
                     Button(action: {
-                        
+                        viewModel.addWatchFace()
                     }) {
                         Text("Send to Watch")
                             .fontWeight(.bold)
@@ -76,7 +76,7 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: MainViewModel())
+        MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker()))
             .accentColor(Color(.systemOrange))
     }
 }

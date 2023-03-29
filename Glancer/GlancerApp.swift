@@ -11,7 +11,7 @@ import SwiftUI
 struct GlancerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewModel())
+            MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker()))
                 .accentColor(Color(.systemOrange))
         }
     }
