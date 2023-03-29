@@ -13,6 +13,8 @@ struct MainView: View {
     
     @FocusState var isInputActive: Bool
     
+    @State var showCompletionStateView = false
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
@@ -71,6 +73,14 @@ struct MainView: View {
                         }
                     }
             )
+            .onChange(of: viewModel.watchFaceState, perform: { value in
+                if (viewModel.watchFaceState == .created || viewModel.watchFaceState == .failed) {
+                    showCompletionStateView = true
+                }
+            })
+            .sheet(isPresented: $showCompletionStateView) {
+                CompletionStateView(isShowing: $showCompletionStateView)
+            }
         }
     }
     
