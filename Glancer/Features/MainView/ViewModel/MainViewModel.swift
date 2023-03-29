@@ -8,12 +8,22 @@
 import Foundation
 import Combine
 
+enum WatchFaceState {
+    
+    case initial
+    case generating
+    case created
+    case failed
+}
+
 final class MainViewModel: ObservableObject {
     
     private let shareWatchFaceService: ShareWatchfaceService
     
     @Published var cardText = ""
     @Published var topicCard = TopicCard()
+    
+    @Published private(set) var watchFaceState: WatchFaceState = .initial
     
     private var cancellable = [AnyCancellable]()
     
@@ -30,6 +40,7 @@ final class MainViewModel: ObservableObject {
     }
     
     func addWatchFace() {
+        watchFaceState = .generating
         shareWatchFaceService.generateWatchFace(topic: Topic(), topicCards: [topicCard])
             .flatMap { watchFaceURL in
                 self.shareWatchFaceService.addWatchFace(watchFaceUrl: watchFaceURL)
@@ -39,9 +50,14 @@ final class MainViewModel: ObservableObject {
             }
             .sink(receiveCompletion: { completion in
                 switch completion {
-                case .failure(let error): print("Error \(error)")
-                case .finished: print("Publisher is finished")
-                }}, receiveValue: {result in print("Result: \(result)")}
+                case .failure(_): self.watchFaceState = .failed
+                case .finished: self.watchFaceState = .created
+                }}, receiveValue: {[weak self] result in
+                    if !result {
+                        self?.watchFaceState = .failed
+                        
+                    }
+                }
             )
             .store(in: &cancellable)
     }

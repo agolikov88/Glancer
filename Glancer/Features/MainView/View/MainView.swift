@@ -33,14 +33,23 @@ struct MainView: View {
                     Button(action: {
                         viewModel.addWatchFace()
                     }) {
-                        Text("Send to Watch")
-                            .fontWeight(.bold)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.buttonBackgroundOrange)
-                            .cornerRadius(16)
-                            .foregroundColor(.white)
+                        if viewModel.watchFaceState == .generating {
+                            ProgressView()
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.buttonBackgroundOrange)
+                                .cornerRadius(16)
+                        } else {
+                            Text("Send to Watch")
+                                .fontWeight(.bold)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.buttonBackgroundOrange)
+                                .cornerRadius(16)
+                                .foregroundColor(.white)
+                        }
                     }
+                    .disabled(viewModel.watchFaceState == .generating)
                     .padding(.bottom)
                     Button(action: {
                         launchWatchApp()
