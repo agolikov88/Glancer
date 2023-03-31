@@ -12,7 +12,6 @@ struct GlancerApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker()))
-                .accentColor(Color(.systemOrange))
         }
     }
 }

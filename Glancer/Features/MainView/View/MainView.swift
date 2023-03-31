@@ -79,8 +79,9 @@ struct MainView: View {
                 }
             })
             .sheet(isPresented: $showCompletionStateView) {
-                CompletionStateView(isShowing: $showCompletionStateView)
+                CompletionStateView(isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
+            .accentColor(Color(.systemOrange))
         }
     }
     
