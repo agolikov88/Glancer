@@ -14,6 +14,7 @@ struct MainView: View {
     @FocusState var isInputActive: Bool
     
     @State var showCompletionStateView = false
+    @State var clearTextFieldRequested = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -79,7 +80,7 @@ struct MainView: View {
                 }
             })
             .sheet(isPresented: $showCompletionStateView) {
-                CompletionStateView(isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
+                CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.cardText, succesful: viewModel.watchFaceState == .created)
             }
             .accentColor(Color(.systemOrange))
         }

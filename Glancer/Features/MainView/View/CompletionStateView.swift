@@ -10,6 +10,7 @@ import SwiftUI
 struct CompletionStateView: View {
     
     @Binding var isShowing: Bool
+    @Binding var textField: String
     
     var succesful = true
     
@@ -18,14 +19,14 @@ struct CompletionStateView: View {
             Text("Watch face \(succesful ? "created!" : "failed:(")").font(.system(size: 28, weight: .bold))
                 .padding(.top)
             Spacer()
-            Image(systemName: "checkmark.circle.fill")
+            Image(systemName: succesful ? "checkmark.circle.fill" : "xmark.circle.fill")
                 .font(.system(size: 96, weight: .bold, design: .default))
-                .foregroundColor(Color(.systemGreen))
+                .foregroundColor(Color(succesful ? .systemGreen : .systemRed))
                 .background(Color(.white))
                 .clipShape(Circle())
             Spacer()
             Button(action: {
-                
+                isShowing = false
             }) {
                 Text("Okay")
                     .fontWeight(.bold)
@@ -37,7 +38,8 @@ struct CompletionStateView: View {
             }
             .padding(.bottom)
             Button(action: {
-                
+                textField = ""
+                isShowing = false
             }) {
                 Text("Clear entered text")
                     .fontWeight(.bold)
@@ -50,6 +52,6 @@ struct CompletionStateView: View {
 
 struct CompletionStateView_Previews: PreviewProvider {
     static var previews: some View {
-        CompletionStateView(isShowing: .constant(true), succesful: true)
+        CompletionStateView(isShowing: .constant(true), textField: .constant(""), succesful: true)
     }
 }
