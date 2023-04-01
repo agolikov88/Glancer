@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314529D3DBEC009BD82B /* CompletionStateView.swift */; };
+		C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314829D8AD97009BD82B /* SettingsView.swift */; };
+		C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314929D8AD97009BD82B /* SendFeedbackView.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		C218314529D3DBEC009BD82B /* CompletionStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionStateView.swift; sourceTree = "<group>"; };
+		C218314829D8AD97009BD82B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C218314929D8AD97009BD82B /* SendFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFeedbackView.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -102,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C218314729D8AD39009BD82B /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				C218314829D8AD97009BD82B /* SettingsView.swift */,
+				C218314929D8AD97009BD82B /* SendFeedbackView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		C2ECC90029BEAC97001AC352 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,7 @@
 		C2ECC95729BEB61D001AC352 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C218314729D8AD39009BD82B /* SettingsView */,
 				C2ECC95B29BEBC7A001AC352 /* CardsPreview */,
 				C2ECC95829BEB6F6001AC352 /* MainView */,
 			);
@@ -434,9 +448,11 @@
 				C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */,
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
+				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
 				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,
+				C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

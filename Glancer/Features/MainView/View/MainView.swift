@@ -15,6 +15,7 @@ struct MainView: View {
     
     @State var showCompletionStateView = false
     @State var clearTextFieldRequested = false
+    @State var showSettingsView = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -67,7 +68,7 @@ struct MainView: View {
             .navigationBarItems(
                 trailing:
                     HStack {
-                        Button(action: {}, label: { Image(systemName: "info.circle")
+                        Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
                         })
                         if isInputActive {
                             Button(action: {isInputActive = false}, label: { Text("Done") })
@@ -81,6 +82,9 @@ struct MainView: View {
             })
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.cardText, succesful: viewModel.watchFaceState == .created)
+            }
+            .sheet(isPresented: $showSettingsView) {
+                SettingsView()
             }
             .accentColor(Color(.systemOrange))
         }
