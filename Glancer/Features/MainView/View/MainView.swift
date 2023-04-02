@@ -65,7 +65,12 @@ struct MainView: View {
                 }
             }
             .padding()
-            .navigationBarTitle("GLANCER", displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Glancer").font(.custom("Cookie-Regular", size: 36))
+                }
+            }
             .navigationBarItems(
                 trailing:
                     HStack {

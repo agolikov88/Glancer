@@ -12,6 +12,7 @@
 		C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314929D8AD97009BD82B /* SendFeedbackView.swift */; };
 		C218314E29D8CFB1009BD82B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314D29D8CFB1009BD82B /* TutorialView.swift */; };
 		C218315029DA1133009BD82B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314F29DA1133009BD82B /* AppSettings.swift */; };
+		C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -58,6 +59,7 @@
 		C218314929D8AD97009BD82B /* SendFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFeedbackView.swift; sourceTree = "<group>"; };
 		C218314D29D8CFB1009BD82B /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		C218314F29DA1133009BD82B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 		C2ECC94C29BEB55A001AC352 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */,
 				C2ECC91029BEAC98001AC352 /* Assets.xcassets */,
 				C2ECC94D29BEB5A7001AC352 /* WatchFace_Template */,
 			);
@@ -425,6 +428,7 @@
 			files = (
 				C2ECC95629BEB5A7001AC352 /* no_borders_snapshot.png in Resources */,
 				C2ECC95329BEB5A7001AC352 /* snapshot.png in Resources */,
+				C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */,
 				C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */,
 				C2ECC95529BEB5A7001AC352 /* face.json in Resources */,
 				C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */,
