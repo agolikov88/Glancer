@@ -15,6 +15,7 @@ struct SettingsView: View {
     @State var showSendFeedbackView = false
     @State var showSendFeedbackSuccessAlertDialog = false
     @State var showSendFeedbackFailureAlertDialog = false
+    @State var showTutorialView = false
     
     var body: some View {
         VStack {
@@ -61,7 +62,7 @@ struct SettingsView: View {
                 Alert(title: Text(""), message: Text("Error sending feedback email! Please try again"), dismissButton: .default(Text("Ok")))
             }
             Button(action: {
-                
+                showTutorialView = true
             }) {
                 Text("Repeat tutorial")
                     .fontWeight(.bold)
@@ -70,6 +71,9 @@ struct SettingsView: View {
         }
         .alert(isPresented: $showSendFeedbackSuccessAlertDialog) {
             Alert(title: Text(""), message: Text("Feedback sent! Thank you!"), dismissButton: .default(Text("Ok")))
+        }
+        .sheet(isPresented: $showTutorialView) {
+            TutorialView(isShowing: $showTutorialView)
         }
         .accentColor(Color(.systemOrange))
     }

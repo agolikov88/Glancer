@@ -16,6 +16,7 @@ struct MainView: View {
     @State var showCompletionStateView = false
     @State var clearTextFieldRequested = false
     @State var showSettingsView = false
+    @State var showTutorialView = !AppSettings.isTutorialViewed()
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -85,6 +86,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()
+            }
+            .sheet(isPresented: $showTutorialView) {
+                TutorialView(isShowing: $showTutorialView)
             }
             .accentColor(Color(.systemOrange))
         }
