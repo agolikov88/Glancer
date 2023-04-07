@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SlideOverCard
 
 struct MainView: View {
     
@@ -17,6 +18,7 @@ struct MainView: View {
     @State var clearTextFieldRequested = false
     @State var showSettingsView = false
     @State var showTutorialView = !AppSettings.isTutorialViewed()
+    @State var showCustomizationView = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -26,6 +28,11 @@ struct MainView: View {
         NavigationView {
             VStack {
                 CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
+                    .onTapGesture {
+                        SOCManager.present(isPresented: $showCustomizationView) {
+                            CustomizationView()
+                        }
+                    }
                     .padding(.top)
                 Spacer()
                 TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)

@@ -48,12 +48,6 @@ struct CardsPreviewView: View {
                 .frame(width: 222)
         }
         .frame(width: 222)
-        .onTapGesture {
-            guard !topic.topicBackgrounds.isEmpty else {
-                return
-            }
-            currentBackgroundIndex = currentBackgroundIndex < topic.topicBackgrounds.count - 1 ? currentBackgroundIndex + 1 : 0
-        }
         .onReceive(timer) { _ in
             timer.upstream.connect().cancel()
             showActivityIndicator = false
