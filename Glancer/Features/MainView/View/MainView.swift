@@ -29,9 +29,7 @@ struct MainView: View {
             VStack {
                 CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
                     .onTapGesture {
-                        SOCManager.present(isPresented: $showCustomizationView) {
-                            CustomizationView()
-                        }
+                        showCustomizationView = true
                     }
                     .padding(.top)
                 Spacer()
@@ -101,6 +99,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showTutorialView) {
                 TutorialView(isShowing: $showTutorialView)
+            }
+            .slideOverCard(isPresented: $showCustomizationView) {
+                CustomizationView()
             }
             .accentColor(Color(.systemOrange))
         }
