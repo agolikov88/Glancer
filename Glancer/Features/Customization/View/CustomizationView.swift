@@ -17,15 +17,24 @@ struct CustomizationView: View {
         VStack {
             Text("Customize")
             Button(action: {}, label: {
-                Text("Select backgrounds")
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .cornerRadius(16)
-                    .foregroundColor(.white)
+                HStack {
+                    Image(systemName: "photo")
+                        .font(.system(size: 24, design: .default))
+                        .foregroundColor(Color(.systemOrange))
+                    Text("Select backgrounds")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .frame(height: 32)
+                .padding()
+                .background(Color(.systemGray5))
+                .cornerRadius(16)
+                .foregroundColor(.white)
             })
             .accentColor(.white)
             HStack {
+                Image(systemName: "textformat")
+                    .font(.system(size: 24, design: .default))
+                    .foregroundColor(Color(.systemOrange))
                 Text("Font")
                 Spacer()
                 Picker("Font", selection: $font) {
@@ -35,16 +44,19 @@ struct CustomizationView: View {
                 }
             }
             .frame(maxWidth: .infinity)
+            .frame(height: 32)
             .padding()
             .background(Color(.systemGray5))
             .cornerRadius(16)
             Slider(value: $fontStyle, in: 0...2, step: 1)
                 .frame(maxWidth: .infinity)
+                .frame(height: 32)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(16)
             ColorPicker("Font color", selection: $fontColor, supportsOpacity: false)
                 .frame(maxWidth: .infinity)
+                .frame(height: 32)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(16)

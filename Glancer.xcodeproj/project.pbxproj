@@ -13,8 +13,13 @@
 		C218314E29D8CFB1009BD82B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314D29D8CFB1009BD82B /* TutorialView.swift */; };
 		C218315029DA1133009BD82B /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314F29DA1133009BD82B /* AppSettings.swift */; };
 		C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */; };
-		C218315529DFA537009BD82B /* SlideOverCard in Frameworks */ = {isa = PBXBuildFile; productRef = C218315429DFA537009BD82B /* SlideOverCard */; };
 		C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315829DFA71C009BD82B /* CustomizationView.swift */; };
+		C218316229E11306009BD82B /* Previews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315C29E11306009BD82B /* Previews.swift */; };
+		C218316329E11306009BD82B /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315D29E11306009BD82B /* Manager.swift */; };
+		C218316429E11306009BD82B /* Accessories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315E29E11306009BD82B /* Accessories.swift */; };
+		C218316529E11306009BD82B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315F29E11306009BD82B /* Modifiers.swift */; };
+		C218316629E11306009BD82B /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316029E11306009BD82B /* Deprecated.swift */; };
+		C218316729E11306009BD82B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316129E11306009BD82B /* SlideOverCard.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -63,6 +68,12 @@
 		C218314F29DA1133009BD82B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cookie-Regular.ttf"; sourceTree = "<group>"; };
 		C218315829DFA71C009BD82B /* CustomizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationView.swift; sourceTree = "<group>"; };
+		C218315C29E11306009BD82B /* Previews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Previews.swift; sourceTree = "<group>"; };
+		C218315D29E11306009BD82B /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		C218315E29E11306009BD82B /* Accessories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessories.swift; sourceTree = "<group>"; };
+		C218315F29E11306009BD82B /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		C218316029E11306009BD82B /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
+		C218316129E11306009BD82B /* SlideOverCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -94,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C218315529DFA537009BD82B /* SlideOverCard in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +159,27 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C218315A29E1127F009BD82B /* 3rdparty */ = {
+			isa = PBXGroup;
+			children = (
+				C218315B29E11306009BD82B /* SlideOverCard */,
+			);
+			path = 3rdparty;
+			sourceTree = "<group>";
+		};
+		C218315B29E11306009BD82B /* SlideOverCard */ = {
+			isa = PBXGroup;
+			children = (
+				C218315C29E11306009BD82B /* Previews.swift */,
+				C218315D29E11306009BD82B /* Manager.swift */,
+				C218315E29E11306009BD82B /* Accessories.swift */,
+				C218315F29E11306009BD82B /* Modifiers.swift */,
+				C218316029E11306009BD82B /* Deprecated.swift */,
+				C218316129E11306009BD82B /* SlideOverCard.swift */,
+			);
+			path = SlideOverCard;
+			sourceTree = "<group>";
+		};
 		C2ECC90029BEAC97001AC352 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +203,7 @@
 		C2ECC90B29BEAC97001AC352 /* Glancer */ = {
 			isa = PBXGroup;
 			children = (
+				C218315A29E1127F009BD82B /* 3rdparty */,
 				C2ECC95729BEB61D001AC352 /* Features */,
 				C2ECC94C29BEB55A001AC352 /* Resources */,
 				C2ECC94429BEB1DC001AC352 /* Extensions */,
@@ -355,7 +387,6 @@
 			name = Glancer;
 			packageProductDependencies = (
 				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
-				C218315429DFA537009BD82B /* SlideOverCard */,
 			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Glancer.app */;
@@ -431,7 +462,6 @@
 			mainGroup = C2ECC90029BEAC97001AC352;
 			packageReferences = (
 				C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
-				C218315329DFA537009BD82B /* XCRemoteSwiftPackageReference "SlideOverCard" */,
 			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
@@ -480,12 +510,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C218316429E11306009BD82B /* Accessories.swift in Sources */,
 				C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */,
 				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
 				C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
+				C218316229E11306009BD82B /* Previews.swift in Sources */,
+				C218316329E11306009BD82B /* Manager.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
+				C218316729E11306009BD82B /* SlideOverCard.swift in Sources */,
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
 				C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */,
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
@@ -493,6 +527,8 @@
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
 				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
+				C218316629E11306009BD82B /* Deprecated.swift in Sources */,
+				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
 				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
@@ -839,14 +875,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C218315329DFA537009BD82B /* XCRemoteSwiftPackageReference "SlideOverCard" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/joogps/SlideOverCard";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -858,11 +886,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C218315429DFA537009BD82B /* SlideOverCard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C218315329DFA537009BD82B /* XCRemoteSwiftPackageReference "SlideOverCard" */;
-			productName = SlideOverCard;
-		};
 		C2ECC94229BEB151001AC352 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;

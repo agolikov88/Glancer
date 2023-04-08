@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SlideOverCard
 
 struct MainView: View {
     
@@ -29,7 +28,9 @@ struct MainView: View {
             VStack {
                 CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
                     .onTapGesture {
-                        showCustomizationView = true
+                        SOCManager.present(isPresented: $showCustomizationView) {
+                            CustomizationView()
+                        }
                     }
                     .padding(.top)
                 Spacer()
@@ -99,9 +100,6 @@ struct MainView: View {
             }
             .sheet(isPresented: $showTutorialView) {
                 TutorialView(isShowing: $showTutorialView)
-            }
-            .slideOverCard(isPresented: $showCustomizationView) {
-                CustomizationView()
             }
             .accentColor(Color(.systemOrange))
         }
