@@ -78,7 +78,7 @@ public struct SlideOverCard<Content: View, Style: ShapeStyle>: View {
             HStack {
                 Spacer()
                 content
-                    .padding([.horizontal, options.contains(.hideDismissButton) ? .vertical : .bottom], 14)
+                    .padding([.bottom], 14)
                 Spacer()
             }
         }.padding(style.innerPadding)

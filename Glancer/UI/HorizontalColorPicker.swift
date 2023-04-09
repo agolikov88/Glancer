@@ -27,10 +27,6 @@ struct HorizontalColorPicker: View {
                 }
             }
             .padding()
-            //                .background(.thinMaterial)
-            //                .cornerRadius(20)
-            //                .padding(.horizontal)
-            
         }
     }
 }
