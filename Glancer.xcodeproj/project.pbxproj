@@ -20,6 +20,7 @@
 		C218316529E11306009BD82B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218315F29E11306009BD82B /* Modifiers.swift */; };
 		C218316629E11306009BD82B /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316029E11306009BD82B /* Deprecated.swift */; };
 		C218316729E11306009BD82B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316129E11306009BD82B /* SlideOverCard.swift */; };
+		C218316A29E26CDD009BD82B /* HorizontalColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -74,6 +75,7 @@
 		C218315F29E11306009BD82B /* Modifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		C218316029E11306009BD82B /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 		C218316129E11306009BD82B /* SlideOverCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
+		C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalColorPicker.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 			path = SlideOverCard;
 			sourceTree = "<group>";
 		};
+		C218316829E26C75009BD82B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		C2ECC90029BEAC97001AC352 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +213,7 @@
 		C2ECC90B29BEAC97001AC352 /* Glancer */ = {
 			isa = PBXGroup;
 			children = (
+				C218316829E26C75009BD82B /* UI */,
 				C218315A29E1127F009BD82B /* 3rdparty */,
 				C2ECC95729BEB61D001AC352 /* Features */,
 				C2ECC94C29BEB55A001AC352 /* Resources */,
@@ -523,6 +534,7 @@
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
 				C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */,
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
+				C218316A29E26CDD009BD82B /* HorizontalColorPicker.swift in Sources */,
 				C218314E29D8CFB1009BD82B /* TutorialView.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
 				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
