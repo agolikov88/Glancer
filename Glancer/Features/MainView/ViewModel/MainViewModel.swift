@@ -19,16 +19,22 @@ enum WatchFaceState {
 final class MainViewModel: ObservableObject {
     
     private let shareWatchFaceService: ShareWatchfaceService
+    private let watchFaceCustomizationService: WatchFaceCustomizationService
     
     @Published var cardText = ""
     @Published var topicCard = TopicCard()
     
     @Published private(set) var watchFaceState: WatchFaceState = .initial
     
+    let supportedFonts: CustomFonts
+    
     private var cancellable = [AnyCancellable]()
     
-    init(shareWatchFaceService: ShareWatchfaceService) {
+    init(shareWatchFaceService: ShareWatchfaceService, watchFaceCustomizationService: WatchFaceCustomizationService) {
         self.shareWatchFaceService = shareWatchFaceService
+        self.watchFaceCustomizationService = watchFaceCustomizationService
+        
+        supportedFonts = watchFaceCustomizationService.readCustomFontsConfiguration()
         
         $cardText
             .removeDuplicates()
@@ -64,5 +70,29 @@ final class MainViewModel: ObservableObject {
     
     private func updateCardPreview() {
         topicCard.cardDefinition = cardText
+    }
+    
+    private func readJSONFile(fileName: String) -> Data? {
+        do {
+            if let filePath = Bundle.main.path(forResource: fileName, ofType: "json") {
+                let fileUrl = URL(fileURLWithPath: filePath)
+                let data = try Data(contentsOf: fileUrl)
+                return data
+            }
+        } catch {
+            print("error: \(error)")
+        }
+        
+        return nil
+    }
+    
+    private func parse(jsonData: Data) -> CustomFonts {
+        do {
+            let decodedData = try JSONDecoder().decode(CustomFonts.self, from: jsonData)
+            return decodedData
+        } catch {
+            print("error: \(error)")
+        }
+        return CustomFonts()
     }
 }

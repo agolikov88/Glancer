@@ -116,7 +116,7 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker()))
+        MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker()))
             .accentColor(Color(.systemOrange))
     }
 }

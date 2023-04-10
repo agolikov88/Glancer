@@ -21,6 +21,10 @@
 		C218316629E11306009BD82B /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316029E11306009BD82B /* Deprecated.swift */; };
 		C218316729E11306009BD82B /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316129E11306009BD82B /* SlideOverCard.swift */; };
 		C218316A29E26CDD009BD82B /* HorizontalColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */; };
+		C218316D29E372EC009BD82B /* WatchFaceCustomizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316C29E372EC009BD82B /* WatchFaceCustomizationService.swift */; };
+		C218316F29E3764A009BD82B /* CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218316E29E3764A009BD82B /* CustomFonts.swift */; };
+		C218317129E38BCE009BD82B /* CustomFonts.json in Resources */ = {isa = PBXBuildFile; fileRef = C218317029E38BCE009BD82B /* CustomFonts.json */; };
+		C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -76,6 +80,10 @@
 		C218316029E11306009BD82B /* Deprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deprecated.swift; sourceTree = "<group>"; };
 		C218316129E11306009BD82B /* SlideOverCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
 		C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalColorPicker.swift; sourceTree = "<group>"; };
+		C218316C29E372EC009BD82B /* WatchFaceCustomizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFaceCustomizationService.swift; sourceTree = "<group>"; };
+		C218316E29E3764A009BD82B /* CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFonts.swift; sourceTree = "<group>"; };
+		C218317029E38BCE009BD82B /* CustomFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CustomFonts.json; sourceTree = "<group>"; };
+		C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFaceCustomizationWorker.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -190,6 +198,16 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		C218316B29E3728A009BD82B /* WatchFaceCustomizationService */ = {
+			isa = PBXGroup;
+			children = (
+				C218316E29E3764A009BD82B /* CustomFonts.swift */,
+				C218316C29E372EC009BD82B /* WatchFaceCustomizationService.swift */,
+				C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */,
+			);
+			path = WatchFaceCustomizationService;
+			sourceTree = "<group>";
+		};
 		C2ECC90029BEAC97001AC352 = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +290,7 @@
 		C2ECC93929BEB026001AC352 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C218316B29E3728A009BD82B /* WatchFaceCustomizationService */,
 				C2ECC93A29BEB031001AC352 /* ShareWatchFaceService */,
 			);
 			path = Services;
@@ -308,6 +327,7 @@
 		C2ECC94C29BEB55A001AC352 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C218317029E38BCE009BD82B /* CustomFonts.json */,
 				C218315129DA2FE8009BD82B /* Cookie-Regular.ttf */,
 				C2ECC91029BEAC98001AC352 /* Assets.xcassets */,
 				C2ECC94D29BEB5A7001AC352 /* WatchFace_Template */,
@@ -495,6 +515,7 @@
 				C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */,
 				C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */,
 				C2ECC95529BEB5A7001AC352 /* face.json in Resources */,
+				C218317129E38BCE009BD82B /* CustomFonts.json in Resources */,
 				C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */,
 				C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */,
 			);
@@ -526,6 +547,7 @@
 				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
 				C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
+				C218316D29E372EC009BD82B /* WatchFaceCustomizationService.swift in Sources */,
 				C218316229E11306009BD82B /* Previews.swift in Sources */,
 				C218316329E11306009BD82B /* Manager.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
@@ -536,9 +558,11 @@
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
 				C218316A29E26CDD009BD82B /* HorizontalColorPicker.swift in Sources */,
 				C218314E29D8CFB1009BD82B /* TutorialView.swift in Sources */,
+				C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
 				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
+				C218316F29E3764A009BD82B /* CustomFonts.swift in Sources */,
 				C218316629E11306009BD82B /* Deprecated.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
