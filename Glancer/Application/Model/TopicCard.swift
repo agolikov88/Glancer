@@ -13,4 +13,5 @@ struct TopicCard: Identifiable {
     var id: String = UUID().uuidString
     var topicId: String = ""
     var cardDefinition: String = ""
+    var background: String = "background1"
 }

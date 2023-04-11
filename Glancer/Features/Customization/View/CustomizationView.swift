@@ -9,14 +9,22 @@ import SwiftUI
 
 struct CustomizationView: View {
     
+    @ObservedObject var viewModel: MainViewModel
+    
     @State private var font = "Avenir"
     @State private var fontStyle: Float = 0
     @State private var fontColor = Color.white
     
+    @State private var showSelectBackgroundView = false
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
         VStack {
             Text("Customize")
-            Button(action: {}, label: {
+            Button(action: {showSelectBackgroundView = true}, label: {
                 HStack {
                     Image(systemName: "photo")
                         .font(.system(size: 24, design: .default))
@@ -31,6 +39,13 @@ struct CustomizationView: View {
                 .foregroundColor(.white)
             })
             .accentColor(.white)
+            .sheet(isPresented: $showSelectBackgroundView) {
+                SelectCardBackgroundView(backgrounds: viewModel.customizationConfiguration.supportedBackgrounds) { selectedBackgrounds in
+                    if !selectedBackgrounds.isEmpty {
+                        viewModel.topicCard.background = selectedBackgrounds[0]
+                    }
+                }
+            }
             HStack {
                 Image(systemName: "textformat")
                     .font(.system(size: 24, design: .default))
@@ -67,6 +82,6 @@ struct CustomizationView: View {
 
 struct CustomizationView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomizationView()
+        CustomizationView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker()))
     }
 }

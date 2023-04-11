@@ -23,24 +23,24 @@ final class WatchFaceCustomizationWorker {
         return nil
     }
     
-    private func parseJSONData(data: Data) -> CustomFonts {
+    private func parseJSONData(data: Data) -> CustomizationConfiguration {
         do {
-            let decodedData = try JSONDecoder().decode(CustomFonts.self, from: data)
+            let decodedData = try JSONDecoder().decode(CustomizationConfiguration.self, from: data)
             return decodedData
         } catch {
             print("error: \(error)")
         }
-        return CustomFonts()
+        return CustomizationConfiguration()
     }
 }
 
 extension WatchFaceCustomizationWorker: WatchFaceCustomizationService {
     
-    func readCustomFontsConfiguration() -> CustomFonts {
-        if let jsonData = readJSONFile(fileName: "CustomFonts") {
+    func readCustomizationConfiguration() -> CustomizationConfiguration {
+        if let jsonData = readJSONFile(fileName: "CustomizationConfiguration") {
             return parseJSONData(data: jsonData)
         }
         
-        return CustomFonts()
+        return CustomizationConfiguration()
     }
 }

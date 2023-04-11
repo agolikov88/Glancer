@@ -9,5 +9,5 @@ import Foundation
 
 protocol WatchFaceCustomizationService {
     
-    func readCustomFontsConfiguration() -> CustomFonts
+    func readCustomizationConfiguration() -> CustomizationConfiguration
 }

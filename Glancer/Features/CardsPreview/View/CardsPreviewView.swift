@@ -31,7 +31,7 @@ struct CardsPreviewView: View {
             if (showActivityIndicator) {
                 ProgressView().padding()
             } else {
-                Image(uiImage: UIImage(named: topic.topicBackgrounds.isEmpty ? "background1" : topic.topicBackgrounds[currentBackgroundIndex])?.waterMarkedImage(text: topicCards.isEmpty ? "Test Text" : topicCards[0].cardDefinition, font: topic.topicFont) ?? UIImage())
+                Image(uiImage: UIImage(named: topicCards[0].background)?.waterMarkedImage(text: topicCards.isEmpty ? "Test Text" : topicCards[0].cardDefinition, font: topic.topicFont) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 198)

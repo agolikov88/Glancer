@@ -26,7 +26,7 @@ final class MainViewModel: ObservableObject {
     
     @Published private(set) var watchFaceState: WatchFaceState = .initial
     
-    let supportedFonts: CustomFonts
+    let customizationConfiguration: CustomizationConfiguration
     
     private var cancellable = [AnyCancellable]()
     
@@ -34,7 +34,7 @@ final class MainViewModel: ObservableObject {
         self.shareWatchFaceService = shareWatchFaceService
         self.watchFaceCustomizationService = watchFaceCustomizationService
         
-        supportedFonts = watchFaceCustomizationService.readCustomFontsConfiguration()
+        customizationConfiguration = watchFaceCustomizationService.readCustomizationConfiguration()
         
         $cardText
             .removeDuplicates()
@@ -70,29 +70,5 @@ final class MainViewModel: ObservableObject {
     
     private func updateCardPreview() {
         topicCard.cardDefinition = cardText
-    }
-    
-    private func readJSONFile(fileName: String) -> Data? {
-        do {
-            if let filePath = Bundle.main.path(forResource: fileName, ofType: "json") {
-                let fileUrl = URL(fileURLWithPath: filePath)
-                let data = try Data(contentsOf: fileUrl)
-                return data
-            }
-        } catch {
-            print("error: \(error)")
-        }
-        
-        return nil
-    }
-    
-    private func parse(jsonData: Data) -> CustomFonts {
-        do {
-            let decodedData = try JSONDecoder().decode(CustomFonts.self, from: jsonData)
-            return decodedData
-        } catch {
-            print("error: \(error)")
-        }
-        return CustomFonts()
     }
 }

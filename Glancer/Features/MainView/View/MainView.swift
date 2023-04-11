@@ -29,7 +29,7 @@ struct MainView: View {
                 CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
                     .onTapGesture {
                         SOCManager.present(isPresented: $showCustomizationView) {
-                            CustomizationView()
+                            CustomizationView(viewModel: viewModel)
                         }
                     }
                     .padding(.top)

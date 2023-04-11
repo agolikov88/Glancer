@@ -29,7 +29,8 @@ enum SupportedFontWeights: Int, CaseIterable {
     }
 }
 
-struct CustomFonts: Decodable {
+struct CustomizationConfiguration: Decodable {
     
     var supportedFonts: [String: [Int: String]] = ["Avenir Next Condensed": [0: "Regular", 1: "Medium", 2: "Bold"]]
+    var supportedBackgrounds: [String] = ["background1"]
 }
