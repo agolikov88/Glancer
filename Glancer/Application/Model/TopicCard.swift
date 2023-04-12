@@ -14,4 +14,6 @@ struct TopicCard: Identifiable {
     var topicId: String = ""
     var cardDefinition: String = ""
     var background: String = "background1"
+    var fontName: String = "Avenir Next Condensed"
+    var fontStyle: String = "Regular"
 }

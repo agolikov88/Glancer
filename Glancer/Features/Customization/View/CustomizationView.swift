@@ -11,7 +11,7 @@ struct CustomizationView: View {
     
     @ObservedObject var viewModel: MainViewModel
     
-    @State private var font = "Avenir"
+    @State private var font = "Avenir Next Condensed"
     @State private var fontStyle: Float = 0
     @State private var fontColor = Color.white
     
@@ -53,9 +53,9 @@ struct CustomizationView: View {
                 Text("Font")
                 Spacer()
                 Picker("Font", selection: $font) {
-                    Text("Avenir")
-                    Text("Courier")
-                    Text("Chalkboard")
+                    ForEach(Array(viewModel.customizationConfiguration.supportedFonts.keys).sorted(), id: \.self) {
+                        Text($0)
+                    }
                 }
             }
             .frame(maxWidth: .infinity)
@@ -63,7 +63,7 @@ struct CustomizationView: View {
             .padding()
             .background(Color(.systemGray5))
             .cornerRadius(16)
-            Slider(value: $fontStyle, in: 0...2, step: 1)
+            Slider(value: $fontStyle, in: 0...2, step: 1)   // TODO: use actual number of supported styles depending on selected font...
                 .frame(maxWidth: .infinity)
                 .frame(height: 32)
                 .padding()
