@@ -39,13 +39,13 @@ final class ShareWatchfaceWorker {
         }
     }
     
-    private func createImagesWithText(backgroundImageNames: [String], font: String, textData: [String], storeUrl: URL) -> [String] {
+    private func createImagesWithText(backgroundImageNames: [String], font: String, fontColor: String, textData: [String], storeUrl: URL) -> [String] {
         var imageNames: [String] = []
         for text in textData {
             let backgroundImageName = backgroundImageNames.isEmpty ? defaultBackgroundImageName : backgroundImageNames[Int.random(in: 0..<backgroundImageNames.count)]
             var image: UIImage?
             DispatchQueue.main.sync {
-                image = UIImage(named: backgroundImageName)?.waterMarkedImage(text: text, font: font.isEmpty ? defaultFont : font) ?? UIImage()
+                image = UIImage(named: backgroundImageName)?.waterMarkedImage(text: text, color: fontColor, font: font.isEmpty ? defaultFont : font) ?? UIImage()
             }
             guard let image = image, let imageData = image.jpegData(compressionQuality: 0.7) else {
                 continue
@@ -98,7 +98,8 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                     let bundleResourcesNames = ["face.json", "metadata.json", "no_borders_snapshot.png", "snapshot.png"]
                     try copyBundleResources(resourceNames: bundleResourcesNames, destination: watchFaceFolder)
                     
-                    try generateImagesPlist(imageNames: createImagesWithText(backgroundImageNames: topic.topicBackgrounds, font: topic.topicFont, textData: topicCards.map{$0.cardDefinition}, storeUrl: watchFaceResourcesFolder), storeUrl: watchFaceResourcesFolder)
+                    // TODO: need to adjust to properly generate multiple images with different backgrounds and font settings...
+                    try generateImagesPlist(imageNames: createImagesWithText(backgroundImageNames: [topicCards[0].background], font: topicCards[0].completeFontName(), fontColor: topicCards[0].fontColor, textData: topicCards.map{$0.cardDefinition}, storeUrl: watchFaceResourcesFolder), storeUrl: watchFaceResourcesFolder)
                     
                     let watchFaceURL = rootFolder.appendingPathComponent(UUID().uuidString + ".watchface")
                     try fileManager.zipItem(at: watchFaceFolder, to: watchFaceURL, shouldKeepParent: false, compressionMethod: .deflate)

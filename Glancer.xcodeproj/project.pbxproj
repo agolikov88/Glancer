@@ -26,6 +26,7 @@
 		C218317129E38BCE009BD82B /* CustomizationConfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C218317029E38BCE009BD82B /* CustomizationConfiguration.json */; };
 		C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */; };
 		C218317529E50571009BD82B /* SelectCardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317429E50571009BD82B /* SelectCardBackgroundView.swift */; };
+		C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317629EE4D63009BD82B /* Color+Hex.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -86,6 +87,7 @@
 		C218317029E38BCE009BD82B /* CustomizationConfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CustomizationConfiguration.json; sourceTree = "<group>"; };
 		C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFaceCustomizationWorker.swift; sourceTree = "<group>"; };
 		C218317429E50571009BD82B /* SelectCardBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCardBackgroundView.swift; sourceTree = "<group>"; };
+		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 		C2ECC94429BEB1DC001AC352 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C218317629EE4D63009BD82B /* Color+Hex.swift */,
 				C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */,
 				C2AB154629C1815500593D69 /* Color+CustomColors.swift */,
 			);
@@ -568,6 +571,7 @@
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C218316F29E3764A009BD82B /* CustomizationConfiguration.swift in Sources */,
 				C218316629E11306009BD82B /* Deprecated.swift in Sources */,
+				C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
 				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,

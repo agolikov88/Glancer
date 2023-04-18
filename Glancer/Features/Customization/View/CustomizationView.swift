@@ -76,6 +76,20 @@ struct CustomizationView: View {
                 .background(Color(.systemGray5))
                 .cornerRadius(16)
         }
+        .onChange(of: font, perform: {fontValue in
+            if let fontStyle = viewModel.customizationConfiguration.supportedFonts[fontValue]![Int(fontStyle)] {
+                viewModel.topicCard.fontName = fontValue
+                viewModel.topicCard.fontStyle = fontStyle
+            }
+        })
+        .onChange(of: fontStyle, perform: {fontStyleValue in
+            if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyleValue)] {
+                viewModel.topicCard.fontStyle = fontStyle
+            }
+        })
+        .onChange(of: fontColor, perform: {fontColorValue in
+            viewModel.topicCard.fontColor =  fontColorValue.toHex() ?? "0xFFFFFF"
+        })
         .accentColor(Color(.systemOrange))
     }
 }

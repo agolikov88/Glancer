@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIImage
 {
     
-    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 20, y: 20), font: String = "Avenir Next Condensed Regular", background: UIColor = UIColor.clear) -> UIImage?
+    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 20, y: 20), color: String = "FFFFFF", font: String = "Avenir Next Condensed Regular", background: UIColor = UIColor.clear) -> UIImage?
     {
         let defaultWatchScreenWidth: CGFloat = 396
         
@@ -23,7 +24,7 @@ extension UIImage
         
         let textView = UITextView()
         textView.text = text
-        textView.textColor = UIColor.white
+        textView.textColor = UIColor(Color(hex: color) ?? Color.white)
         textView.font = UIFont(name: font.isEmpty ? "Avenir Next Condensed Regular" : font, size: 40)
         var textHeight = text.height(withConstrainedWidth: defaultWatchScreenWidth - margin.x*2, font: textView.font!)
 

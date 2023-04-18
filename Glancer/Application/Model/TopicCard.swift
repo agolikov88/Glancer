@@ -16,4 +16,9 @@ struct TopicCard: Identifiable {
     var background: String = "background1"
     var fontName: String = "Avenir Next Condensed"
     var fontStyle: String = "Regular"
+    var fontColor: String = "FFFFFF"
+    
+    func completeFontName() -> String {
+        return "\(fontName) \(fontStyle)"
+    }
 }
