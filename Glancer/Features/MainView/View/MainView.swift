@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIPager
 
 struct MainView: View {
     
@@ -19,6 +20,10 @@ struct MainView: View {
     @State var showTutorialView = !AppSettings.isTutorialViewed()
     @State var showCustomizationView = false
     
+    // test...
+    @StateObject var page: Page = .first()
+    var items = Array(0..<24)
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
     }
@@ -26,20 +31,41 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             VStack {
-                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
-                    .onTapGesture {
-                        SOCManager.present(isPresented: $showCustomizationView) {
-                            CustomizationView(viewModel: viewModel)
-                        }
+                Pager(page: page,
+                      data: items,
+                      id: \.hashValue,
+                      content: { index in
+                    VStack {
+                        CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
+                            .onTapGesture {
+                                SOCManager.present(isPresented: $showCustomizationView) {
+                                    CustomizationView(viewModel: viewModel)
+                                }
+                            }
+                            .padding(.top)
+                        Spacer()
+                        TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
+                            .lineLimit(2, reservesSpace: true)
+                            .padding(8)
+                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
+                            .focused($isInputActive)
+                            .padding(.bottom)
                     }
-                    .padding(.top)
-                Spacer()
-                TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
-                    .lineLimit(2, reservesSpace: true)
-                    .padding(8)
-                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
-                    .focused($isInputActive)
-                    .padding(.bottom)
+                })
+//                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
+//                    .onTapGesture {
+//                        SOCManager.present(isPresented: $showCustomizationView) {
+//                            CustomizationView(viewModel: viewModel)
+//                        }
+//                    }
+//                    .padding(.top)
+//                Spacer()
+//                TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
+//                    .lineLimit(2, reservesSpace: true)
+//                    .padding(8)
+//                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
+//                    .focused($isInputActive)
+//                    .padding(.bottom)
                 if !isInputActive {
                     Button(action: {
                         viewModel.addWatchFace()

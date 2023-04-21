@@ -20,10 +20,8 @@ struct CustomizationView: View {
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         _font = State(initialValue: viewModel.topicCard.fontName)
-        print(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCard.fontName]!)
-        _fontStyle = State(initialValue: Float(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCard.fontName]!.first(where: { print($1); return $1 == viewModel.topicCard.fontStyle })!.key))
+        _fontStyle = State(initialValue: Float(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCard.fontName]!.first(where: { $1 == viewModel.topicCard.fontStyle })!.key))
         _fontColor = State(initialValue: Color(hex: viewModel.topicCard.fontColor) ?? Color.white)
-        print("\(font) \(fontStyle) \(fontColor)")
     }
     
     var body: some View {

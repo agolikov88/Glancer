@@ -27,6 +27,7 @@
 		C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */; };
 		C218317529E50571009BD82B /* SelectCardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317429E50571009BD82B /* SelectCardBackgroundView.swift */; };
 		C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317629EE4D63009BD82B /* Color+Hex.swift */; };
+		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
@@ -119,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +426,7 @@
 			name = Glancer;
 			packageProductDependencies = (
 				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
+				C218317929F2354E009BD82B /* SwiftUIPager */,
 			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Glancer.app */;
@@ -499,6 +502,7 @@
 			mainGroup = C2ECC90029BEAC97001AC352;
 			packageReferences = (
 				C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+				C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
@@ -919,6 +923,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -930,6 +942,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C218317929F2354E009BD82B /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
+		};
 		C2ECC94229BEB151001AC352 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
