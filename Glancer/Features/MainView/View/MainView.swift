@@ -52,6 +52,7 @@ struct MainView: View {
                             .padding(.bottom)
                     }
                 })
+                .swipeInteractionArea(.allAvailable)
 //                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
 //                    .onTapGesture {
 //                        SOCManager.present(isPresented: $showCustomizationView) {
