@@ -50,9 +50,14 @@ struct MainView: View {
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
                             .focused($isInputActive)
                             .padding(.bottom)
+                            .padding([.leading, .trailing], 1)
                     }
                 })
                 .swipeInteractionArea(.allAvailable)
+                .itemSpacing(10)
+                .onPageWillChange({ _ in
+                    isInputActive = false
+                })
 //                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
 //                    .onTapGesture {
 //                        SOCManager.present(isPresented: $showCustomizationView) {
