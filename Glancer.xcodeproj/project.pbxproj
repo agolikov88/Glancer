@@ -29,6 +29,7 @@
 		C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317629EE4D63009BD82B /* Color+Hex.swift */; };
 		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
+		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
 		C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91029BEAC98001AC352 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		C218317429E50571009BD82B /* SelectCardBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCardBackgroundView.swift; sourceTree = "<group>"; };
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
+		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
 		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				C218316929E26CDD009BD82B /* HorizontalColorPicker.swift */,
+				C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				C218316429E11306009BD82B /* Accessories.swift in Sources */,
 				C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */,
 				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
+				C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */,
 				C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
 				C218316D29E372EC009BD82B /* WatchFaceCustomizationService.swift in Sources */,

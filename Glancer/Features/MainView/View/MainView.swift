@@ -22,7 +22,8 @@ struct MainView: View {
     
     // test...
     @StateObject var page: Page = .first()
-    var items = Array(0..<24)
+    @State var currentPageIndex = 0
+    var items = Array(0..<3)
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -49,30 +50,18 @@ struct MainView: View {
                             .padding(8)
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
                             .focused($isInputActive)
-                            .padding(.bottom)
+                            //.padding(.bottom) // TODO: need to enable padding if pager indicator is hidden...
                             .padding([.leading, .trailing], 1)
                     }
                 })
                 .swipeInteractionArea(.allAvailable)
                 .itemSpacing(10)
-                .onPageWillChange({ _ in
+                .onPageWillChange({ pageNumber in
+                    currentPageIndex = pageNumber
                     isInputActive = false
                 })
-//                CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
-//                    .onTapGesture {
-//                        SOCManager.present(isPresented: $showCustomizationView) {
-//                            CustomizationView(viewModel: viewModel)
-//                        }
-//                    }
-//                    .padding(.top)
-//                Spacer()
-//                TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
-//                    .lineLimit(2, reservesSpace: true)
-//                    .padding(8)
-//                    .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
-//                    .focused($isInputActive)
-//                    .padding(.bottom)
                 if !isInputActive {
+                    PagerIndicator(currentPage: currentPageIndex, pagesNumber: 3)   // TODO: need to hide pager indicator if only one page is available in case of free version...
                     Button(action: {
                         viewModel.addWatchFace()
                     }) {
