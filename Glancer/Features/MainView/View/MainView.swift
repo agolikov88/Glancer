@@ -23,7 +23,8 @@ struct MainView: View {
     // test...
     @StateObject var page: Page = .first()
     @State var currentPageIndex = 0
-    var items = Array(0..<3)
+    @State var cardsNumber = 1
+    @State var cards = Array(0..<1)
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -33,7 +34,7 @@ struct MainView: View {
         NavigationView {
             VStack {
                 Pager(page: page,
-                      data: items,
+                      data: cards,
                       id: \.hashValue,
                       content: { index in
                     VStack {
@@ -61,7 +62,7 @@ struct MainView: View {
                     isInputActive = false
                 })
                 if !isInputActive {
-                    PagerIndicator(currentPage: currentPageIndex, pagesNumber: 3)   // TODO: need to hide pager indicator if only one page is available in case of free version...
+                    PagerIndicator(currentPage: currentPageIndex, pagesNumber: cardsNumber)   // TODO: need to hide pager indicator if only one page is available in case of free version...
                     Button(action: {
                         viewModel.addWatchFace()
                     }) {
@@ -101,6 +102,12 @@ struct MainView: View {
             .navigationBarItems(
                 trailing:
                     HStack {
+                        Button(action: {
+                            currentPageIndex = cardsNumber
+                            cardsNumber += 1
+                            cards.append(cardsNumber)
+                        }, label: { Image(systemName: "plus")
+                        })
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
                         })
                         if isInputActive {
@@ -112,6 +119,13 @@ struct MainView: View {
                 if (viewModel.watchFaceState == .created || viewModel.watchFaceState == .failed) {
                     showCompletionStateView = true
                 }
+            })
+            .onChange(of: cardsNumber, perform: { value in
+                // TODO: Move to closest card to the left in case of deletion...
+                withAnimation {
+                    page.update(.moveToLast)
+                }
+                isInputActive = false
             })
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.cardText, succesful: viewModel.watchFaceState == .created)

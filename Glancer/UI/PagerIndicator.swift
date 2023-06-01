@@ -23,6 +23,7 @@ struct PagerIndicator: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIPageControl, context: Context) {
+        uiView.numberOfPages = pagesNumber
         uiView.currentPage = currentPage
     }
 }
