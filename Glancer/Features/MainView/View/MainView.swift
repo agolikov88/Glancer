@@ -20,11 +20,11 @@ struct MainView: View {
     @State var showTutorialView = !AppSettings.isTutorialViewed()
     @State var showCustomizationView = false
     
-    // test...
     @StateObject var page: Page = .first()
     @State var currentPageIndex = 0
     @State var cardsNumber = 1
-    @State var cards = Array(0..<1)
+    @State var previousCardsNumber = 1
+    @State var cards = [UUID().uuidString]
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -100,12 +100,34 @@ struct MainView: View {
                 }
             }
             .navigationBarItems(
+                leading:
+                    HStack {
+                        if cardsNumber > 1 {
+                            Button(action: {
+                                withAnimation {
+                                    if currentPageIndex == 0 {
+                                        page.update(.moveToFirst)
+                                    } else {
+                                        page.update(.previous)
+                                    }
+                                }
+                                cards.remove(at: currentPageIndex)
+                                if currentPageIndex > 0 {
+                                    currentPageIndex -= 1
+                                }
+                                previousCardsNumber = cardsNumber
+                                cardsNumber -= 1
+                            }, label: { Image(systemName: "trash")
+                            })
+                        }
+                    },
                 trailing:
                     HStack {
                         Button(action: {
                             currentPageIndex = cardsNumber
+                            previousCardsNumber = cardsNumber
                             cardsNumber += 1
-                            cards.append(cardsNumber)
+                            cards.append(UUID().uuidString)
                         }, label: { Image(systemName: "plus")
                         })
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
@@ -121,9 +143,10 @@ struct MainView: View {
                 }
             })
             .onChange(of: cardsNumber, perform: { value in
-                // TODO: Move to closest card to the left in case of deletion...
                 withAnimation {
-                    page.update(.moveToLast)
+                    if previousCardsNumber < cardsNumber {
+                        page.update(.moveToLast)
+                    }
                 }
                 isInputActive = false
             })
