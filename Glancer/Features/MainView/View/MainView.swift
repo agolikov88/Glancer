@@ -19,6 +19,7 @@ struct MainView: View {
     @State var showSettingsView = false
     @State var showTutorialView = !AppSettings.isTutorialViewed()
     @State var showCustomizationView = false
+    @State var showCardDeleteConfirmation = false
     
     @StateObject var page: Page = .first()
     @State var currentPageIndex = 0
@@ -104,21 +105,30 @@ struct MainView: View {
                     HStack {
                         if cardsNumber > 1 {
                             Button(action: {
-                                withAnimation {
-                                    if currentPageIndex == 0 {
-                                        page.update(.moveToFirst)
-                                    } else {
-                                        page.update(.previous)
-                                    }
-                                }
-                                cards.remove(at: currentPageIndex)
-                                if currentPageIndex > 0 {
-                                    currentPageIndex -= 1
-                                }
-                                previousCardsNumber = cardsNumber
-                                cardsNumber -= 1
+                                showCardDeleteConfirmation = true
                             }, label: { Image(systemName: "trash")
                             })
+                            .confirmationDialog(
+                                "Delete this card?",
+                                isPresented: $showCardDeleteConfirmation,
+                                titleVisibility: .visible
+                            ) {
+                                Button("Yes", role: .destructive) {
+                                    withAnimation {
+                                        if currentPageIndex == 0 {
+                                            page.update(.moveToFirst)
+                                        } else {
+                                            page.update(.previous)
+                                        }
+                                    }
+                                    cards.remove(at: currentPageIndex)
+                                    if currentPageIndex > 0 {
+                                        currentPageIndex -= 1
+                                    }
+                                    previousCardsNumber = cardsNumber
+                                    cardsNumber -= 1
+                                }
+                            }
                         }
                     },
                 trailing:
