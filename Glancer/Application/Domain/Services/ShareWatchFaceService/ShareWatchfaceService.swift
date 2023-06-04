@@ -11,6 +11,6 @@ import Combine
 
 protocol ShareWatchfaceService {
 
-    func generateWatchFace(topic: Topic, topicCards: [TopicCard]) -> AnyPublisher<URL, Error>
+    func generateWatchFace(topicCards: [TopicCard]) -> AnyPublisher<URL, Error>
     func addWatchFace(watchFaceUrl: URL) -> AnyPublisher<Bool, Error>
 }

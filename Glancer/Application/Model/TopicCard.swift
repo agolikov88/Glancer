@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TopicCard: Identifiable {
+struct TopicCard: Identifiable, Equatable {
     
     var id: String = UUID().uuidString
     var topicId: String = ""

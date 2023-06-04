@@ -19,9 +19,9 @@ struct CustomizationView: View {
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        _font = State(initialValue: viewModel.topicCard.fontName)
-        _fontStyle = State(initialValue: Float(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCard.fontName]!.first(where: { $1 == viewModel.topicCard.fontStyle })!.key))
-        _fontColor = State(initialValue: Color(hex: viewModel.topicCard.fontColor) ?? Color.white)
+        _font = State(initialValue: viewModel.topicCards[viewModel.currentPageIndex].fontName)
+        _fontStyle = State(initialValue: Float(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCards[viewModel.currentPageIndex].fontName]!.first(where: { $1 == viewModel.topicCards[viewModel.currentPageIndex].fontStyle })!.key))
+        _fontColor = State(initialValue: Color(hex: viewModel.topicCards[viewModel.currentPageIndex].fontColor) ?? Color.white)
     }
     
     var body: some View {
@@ -45,7 +45,7 @@ struct CustomizationView: View {
             .sheet(isPresented: $showSelectBackgroundView) {
                 SelectCardBackgroundView(backgrounds: viewModel.customizationConfiguration.supportedBackgrounds) { selectedBackgrounds in
                     if !selectedBackgrounds.isEmpty {
-                        viewModel.topicCard.background = selectedBackgrounds[0]
+                        viewModel.topicCards[viewModel.currentPageIndex].background = selectedBackgrounds[0]
                     }
                 }
             }
@@ -81,17 +81,17 @@ struct CustomizationView: View {
         }
         .onChange(of: font, perform: {fontValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[fontValue]![Int(fontStyle)] {
-                viewModel.topicCard.fontName = fontValue
-                viewModel.topicCard.fontStyle = fontStyle
+                viewModel.topicCards[viewModel.currentPageIndex].fontName = fontValue
+                viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
         })
         .onChange(of: fontStyle, perform: {fontStyleValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyleValue)] {
-                viewModel.topicCard.fontStyle = fontStyle
+                viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
         })
         .onChange(of: fontColor, perform: {fontColorValue in
-            viewModel.topicCard.fontColor =  fontColorValue.toHex() ?? "0xFFFFFF"
+            viewModel.topicCards[viewModel.currentPageIndex].fontColor =  fontColorValue.toHex() ?? "0xFFFFFF"
         })
         .accentColor(Color(.systemOrange))
     }

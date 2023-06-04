@@ -22,10 +22,8 @@ struct MainView: View {
     @State var showCardDeleteConfirmation = false
     
     @StateObject var page: Page = .first()
-    @State var currentPageIndex = 0
     @State var cardsNumber = 1
     @State var previousCardsNumber = 1
-    @State var cards = [UUID().uuidString]
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -35,11 +33,11 @@ struct MainView: View {
         NavigationView {
             VStack {
                 Pager(page: page,
-                      data: cards,
-                      id: \.hashValue,
-                      content: { index in
+                      data: viewModel.topicCards,
+                      id: \.id,
+                      content: { _ in
                     VStack {
-                        CardsPreviewView(topic: Topic(), topicCards: [viewModel.topicCard], currentBackgroundIndex: 0)
+                        CardsPreviewView(topicCard: viewModel.topicCards[page.index], currentBackgroundIndex: 0)
                             .onTapGesture {
                                 SOCManager.present(isPresented: $showCustomizationView) {
                                     CustomizationView(viewModel: viewModel)
@@ -47,7 +45,7 @@ struct MainView: View {
                             }
                             .padding(.top)
                         Spacer()
-                        TextField("Type your text here", text: $viewModel.cardText, axis: .vertical)
+                        TextField("Type your text here", text: $viewModel.topicCards[page.index].cardDefinition, axis: .vertical)
                             .lineLimit(2, reservesSpace: true)
                             .padding(8)
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
@@ -59,11 +57,11 @@ struct MainView: View {
                 .swipeInteractionArea(.allAvailable)
                 .itemSpacing(10)
                 .onPageWillChange({ pageNumber in
-                    currentPageIndex = pageNumber
+                    viewModel.currentPageIndex = pageNumber
                     isInputActive = false
                 })
                 if !isInputActive {
-                    PagerIndicator(currentPage: currentPageIndex, pagesNumber: cardsNumber)   // TODO: need to hide pager indicator if only one page is available in case of free version...
+                    PagerIndicator(currentPage: viewModel.currentPageIndex, pagesNumber: cardsNumber)   // TODO: need to hide pager indicator if only one page is available in case of free version...
                     Button(action: {
                         viewModel.addWatchFace()
                     }) {
@@ -115,15 +113,15 @@ struct MainView: View {
                             ) {
                                 Button("Yes", role: .destructive) {
                                     withAnimation {
-                                        if currentPageIndex == 0 {
+                                        if viewModel.currentPageIndex == 0 {
                                             page.update(.moveToFirst)
                                         } else {
                                             page.update(.previous)
                                         }
                                     }
-                                    cards.remove(at: currentPageIndex)
-                                    if currentPageIndex > 0 {
-                                        currentPageIndex -= 1
+                                    viewModel.topicCards.remove(at: viewModel.currentPageIndex)
+                                    if viewModel.currentPageIndex > 0 {
+                                        viewModel.currentPageIndex -= 1
                                     }
                                     previousCardsNumber = cardsNumber
                                     cardsNumber -= 1
@@ -134,10 +132,10 @@ struct MainView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            currentPageIndex = cardsNumber
+                            viewModel.currentPageIndex = cardsNumber
                             previousCardsNumber = cardsNumber
                             cardsNumber += 1
-                            cards.append(UUID().uuidString)
+                            viewModel.topicCards.append(TopicCard())
                         }, label: { Image(systemName: "plus")
                         })
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
@@ -161,7 +159,7 @@ struct MainView: View {
                 isInputActive = false
             })
             .sheet(isPresented: $showCompletionStateView) {
-                CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.cardText, succesful: viewModel.watchFaceState == .created)
+                CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.topicCards[0].cardDefinition, succesful: viewModel.watchFaceState == .created)
             }
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()

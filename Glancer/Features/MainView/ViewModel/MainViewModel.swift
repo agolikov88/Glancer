@@ -21,8 +21,8 @@ final class MainViewModel: ObservableObject {
     private let shareWatchFaceService: ShareWatchfaceService
     private let watchFaceCustomizationService: WatchFaceCustomizationService
     
-    @Published var cardText = ""
-    @Published var topicCard = TopicCard()
+    @Published var topicCards = [TopicCard()]
+    @Published var currentPageIndex = 0
     
     @Published private(set) var watchFaceState: WatchFaceState = .initial
     
@@ -36,18 +36,19 @@ final class MainViewModel: ObservableObject {
         
         customizationConfiguration = watchFaceCustomizationService.readCustomizationConfiguration()
         
-        $cardText
-            .removeDuplicates()
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
-            .sink { text in
-                self.updateCardPreview()
-            }
-            .store(in: &cancellable)
+        // TODO: possibly bring back debounce support in future to avoid unnecessary preview images regenerations on every text input...
+//        $cardText
+//            .removeDuplicates()
+//            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+//            .sink { text in
+//                self.updateCardPreview()
+//            }
+//            .store(in: &cancellable)
     }
     
     func addWatchFace() {
         watchFaceState = .generating
-        shareWatchFaceService.generateWatchFace(topic: Topic(), topicCards: [topicCard])
+        shareWatchFaceService.generateWatchFace(topicCards: topicCards)
             .flatMap { watchFaceURL in
                 self.shareWatchFaceService.addWatchFace(watchFaceUrl: watchFaceURL)
             }
@@ -66,9 +67,5 @@ final class MainViewModel: ObservableObject {
                 }
             )
             .store(in: &cancellable)
-    }
-    
-    private func updateCardPreview() {
-        topicCard.cardDefinition = cardText
     }
 }

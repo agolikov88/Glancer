@@ -10,8 +10,7 @@ import SwiftUI
 
 struct CardsPreviewView: View {
     
-    private var topic: Topic
-    private var topicCards: [TopicCard]
+    private var topicCard: TopicCard
     private var watchfaceFrame = "customization_frame"
     
     private let timer = Timer.publish(every: 0.4, on: .main, in: .common).autoconnect()
@@ -19,9 +18,8 @@ struct CardsPreviewView: View {
     @State private var currentBackgroundIndex = 0
     @State private var showActivityIndicator = true
     
-    init(topic: Topic, topicCards: [TopicCard], currentBackgroundIndex: Int, watchfaceFrame: String = "customization_frame") {
-        self.topic = topic
-        self.topicCards = topicCards
+    init(topicCard: TopicCard, currentBackgroundIndex: Int, watchfaceFrame: String = "customization_frame") {
+        self.topicCard = topicCard
         self.currentBackgroundIndex = currentBackgroundIndex
         self.watchfaceFrame = watchfaceFrame
     }
@@ -31,7 +29,7 @@ struct CardsPreviewView: View {
             if (showActivityIndicator) {
                 ProgressView().padding()
             } else {
-                Image(uiImage: UIImage(named: topicCards[0].background)?.waterMarkedImage(text: topicCards.isEmpty ? "Test Text" : topicCards[0].cardDefinition, color: topicCards[0].fontColor, font: topicCards[0].completeFontName()) ?? UIImage())
+                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName()) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 198)
@@ -58,6 +56,6 @@ struct CardsPreviewView: View {
 struct CardsPreviewView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CardsPreviewView(topic: Topic(id: "111", topicName: "Test", cardsNumber: 1, lastAccessedDate: Date(), topicBackgrounds: ["background2"], topicFont: "Chalkboard SE", topicFontColor: ""), topicCards: [TopicCard(id: "0", topicId: "111", cardDefinition: "Test")], currentBackgroundIndex: 0)
+        CardsPreviewView(topicCard: TopicCard(id: "0", topicId: "111", cardDefinition: "Test"), currentBackgroundIndex: 0)
     }
 }
