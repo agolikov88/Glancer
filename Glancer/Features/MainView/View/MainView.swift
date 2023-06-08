@@ -95,7 +95,7 @@ struct MainView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Text("Glancer").font(.custom("Cookie-Regular", size: 36))
+                    Text("Cards").font(.custom("Cookie-Regular", size: 36))
                 }
             }
             .navigationBarItems(
