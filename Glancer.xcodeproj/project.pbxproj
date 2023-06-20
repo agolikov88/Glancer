@@ -28,6 +28,7 @@
 		C218317529E50571009BD82B /* SelectCardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317429E50571009BD82B /* SelectCardBackgroundView.swift */; };
 		C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317629EE4D63009BD82B /* Color+Hex.swift */; };
 		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
+		C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220B63E2A41703600B346C1 /* SubscriptionView.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
@@ -90,6 +91,7 @@
 		C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchFaceCustomizationWorker.swift; sourceTree = "<group>"; };
 		C218317429E50571009BD82B /* SelectCardBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCardBackgroundView.swift; sourceTree = "<group>"; };
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		C220B63E2A41703600B346C1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Watch Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,14 @@
 				C218317229E390C2009BD82B /* WatchFaceCustomizationWorker.swift */,
 			);
 			path = WatchFaceCustomizationService;
+			sourceTree = "<group>";
+		};
+		C220B63D2A416FF300B346C1 /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				C220B63E2A41703600B346C1 /* SubscriptionView.swift */,
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		C2ECC90029BEAC97001AC352 = {
@@ -360,6 +370,7 @@
 		C2ECC95729BEB61D001AC352 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C220B63D2A416FF300B346C1 /* Subscription */,
 				C218314C29D8CF94009BD82B /* Tutorial */,
 				C218314729D8AD39009BD82B /* Settings */,
 				C218315629DFA6CC009BD82B /* Customization */,
@@ -582,6 +593,7 @@
 				C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
+				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
 				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
 				C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */,

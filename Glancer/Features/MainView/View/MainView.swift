@@ -20,13 +20,23 @@ struct MainView: View {
     @State var showTutorialView = !AppSettings.isTutorialViewed()
     @State var showCustomizationView = false
     @State var showCardDeleteConfirmation = false
+    @State var showSubscriptionView = false
     
     @StateObject var page: Page = .first()
     @State var cardsNumber = 1
     @State var previousCardsNumber = 1
     
+    // test...
+    @State var isPaidSubscription = false
+    @State var maxAllowedCardsNumber = 2
+    private let maxCardsNumberPerAlbum = 24
+    
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
+        
+        if isPaidSubscription {
+            maxAllowedCardsNumber = maxCardsNumberPerAlbum
+        }
     }
     
     var body: some View {
@@ -128,16 +138,23 @@ struct MainView: View {
                                 }
                             }
                         }
+                        Text("\(cardsNumber)/\(maxAllowedCardsNumber)")
+                            .foregroundColor(Color(.systemOrange))
                     },
                 trailing:
                     HStack {
                         Button(action: {
-                            viewModel.currentPageIndex = cardsNumber
-                            previousCardsNumber = cardsNumber
-                            cardsNumber += 1
-                            viewModel.topicCards.append(TopicCard())
+                            if (!isPaidSubscription && cardsNumber == maxAllowedCardsNumber) {
+                                showSubscriptionView = true
+                            } else {
+                                viewModel.currentPageIndex = cardsNumber
+                                previousCardsNumber = cardsNumber
+                                cardsNumber += 1
+                                viewModel.topicCards.append(TopicCard())
+                            }
                         }, label: { Image(systemName: "plus")
                         })
+                        .disabled(cardsNumber == maxCardsNumberPerAlbum)
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
                         })
                         if isInputActive {
@@ -166,6 +183,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showTutorialView) {
                 TutorialView(isShowing: $showTutorialView)
+            }
+            .sheet(isPresented: $showSubscriptionView) {
+                SubscriptionView()
             }
             .accentColor(Color(.systemOrange))
         }
