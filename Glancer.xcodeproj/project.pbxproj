@@ -92,7 +92,7 @@
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
-		C2ECC90929BEAC97001AC352 /* Glancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2ECC90929BEAC97001AC352 /* Watch Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
 		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2ECC91029BEAC98001AC352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,7 +231,7 @@
 		C2ECC90A29BEAC97001AC352 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C2ECC90929BEAC97001AC352 /* Glancer.app */,
+				C2ECC90929BEAC97001AC352 /* Watch Cards.app */,
 				C2ECC91929BEAC98001AC352 /* GlancerTests.xctest */,
 				C2ECC92329BEAC98001AC352 /* GlancerUITests.xctest */,
 			);
@@ -414,9 +414,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C2ECC90829BEAC97001AC352 /* Glancer */ = {
+		C2ECC90829BEAC97001AC352 /* Watch Cards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C2ECC92D29BEAC98001AC352 /* Build configuration list for PBXNativeTarget "Glancer" */;
+			buildConfigurationList = C2ECC92D29BEAC98001AC352 /* Build configuration list for PBXNativeTarget "Watch Cards" */;
 			buildPhases = (
 				C2ECC90529BEAC97001AC352 /* Sources */,
 				C2ECC90629BEAC97001AC352 /* Frameworks */,
@@ -426,13 +426,13 @@
 			);
 			dependencies = (
 			);
-			name = Glancer;
+			name = "Watch Cards";
 			packageProductDependencies = (
 				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
 				C218317929F2354E009BD82B /* SwiftUIPager */,
 			);
 			productName = Glancer;
-			productReference = C2ECC90929BEAC97001AC352 /* Glancer.app */;
+			productReference = C2ECC90929BEAC97001AC352 /* Watch Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C2ECC91829BEAC98001AC352 /* GlancerTests */ = {
@@ -511,7 +511,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C2ECC90829BEAC97001AC352 /* Glancer */,
+				C2ECC90829BEAC97001AC352 /* Watch Cards */,
 				C2ECC91829BEAC98001AC352 /* GlancerTests */,
 				C2ECC92229BEAC98001AC352 /* GlancerUITests */,
 			);
@@ -610,12 +610,12 @@
 /* Begin PBXTargetDependency section */
 		C2ECC91B29BEAC98001AC352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2ECC90829BEAC97001AC352 /* Glancer */;
+			target = C2ECC90829BEAC97001AC352 /* Watch Cards */;
 			targetProxy = C2ECC91A29BEAC98001AC352 /* PBXContainerItemProxy */;
 		};
 		C2ECC92529BEAC98001AC352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C2ECC90829BEAC97001AC352 /* Glancer */;
+			target = C2ECC90829BEAC97001AC352 /* Watch Cards */;
 			targetProxy = C2ECC92429BEAC98001AC352 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -761,7 +761,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.Glancer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -798,7 +798,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.Glancer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -897,7 +897,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C2ECC92D29BEAC98001AC352 /* Build configuration list for PBXNativeTarget "Glancer" */ = {
+		C2ECC92D29BEAC98001AC352 /* Build configuration list for PBXNativeTarget "Watch Cards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2ECC92E29BEAC98001AC352 /* Debug */,
