@@ -162,6 +162,7 @@ struct MainView: View {
                         }
                     }
             )
+            .disabled(showCustomizationView)
             .onChange(of: viewModel.watchFaceState, perform: { value in
                 if (viewModel.watchFaceState == .created || viewModel.watchFaceState == .failed) {
                     showCompletionStateView = true
