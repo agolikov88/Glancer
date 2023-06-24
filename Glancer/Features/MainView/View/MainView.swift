@@ -49,8 +49,12 @@ struct MainView: View {
                     VStack {
                         CardsPreviewView(topicCard: viewModel.topicCards[page.index], currentBackgroundIndex: 0)
                             .onTapGesture {
-                                SOCManager.present(isPresented: $showCustomizationView) {
-                                    CustomizationView(viewModel: viewModel)
+                                if isPaidSubscription {
+                                    SOCManager.present(isPresented: $showCustomizationView) {
+                                        CustomizationView(viewModel: viewModel)
+                                    }
+                                } else {
+                                    showSubscriptionView = true
                                 }
                             }
                             .padding(.top)
