@@ -26,17 +26,11 @@ struct MainView: View {
     @State var cardsNumber = 1
     @State var previousCardsNumber = 1
     
-    // test...
-    @State var isPaidSubscription = false
     @State var maxAllowedCardsNumber = 2
     private let maxCardsNumberPerAlbum = 24
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
-        
-        if isPaidSubscription {
-            maxAllowedCardsNumber = maxCardsNumberPerAlbum
-        }
     }
     
     var body: some View {
@@ -49,7 +43,7 @@ struct MainView: View {
                     VStack {
                         CardsPreviewView(topicCard: viewModel.topicCards[page.index], currentBackgroundIndex: 0)
                             .onTapGesture {
-                                if isPaidSubscription {
+                                if AppSettings.isPaidSubscription() {
                                     SOCManager.present(isPresented: $showCustomizationView) {
                                         CustomizationView(viewModel: viewModel)
                                     }
@@ -142,13 +136,13 @@ struct MainView: View {
                                 }
                             }
                         }
-                        Text("\(cardsNumber)/\(maxAllowedCardsNumber)")
+                        Text("\(cardsNumber)/\(AppSettings.isPaidSubscription() ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
                             .foregroundColor(Color(.systemOrange))
                     },
                 trailing:
                     HStack {
                         Button(action: {
-                            if (!isPaidSubscription && cardsNumber == maxAllowedCardsNumber) {
+                            if (!AppSettings.isPaidSubscription() && cardsNumber == maxAllowedCardsNumber) {
                                 showSubscriptionView = true
                             } else {
                                 viewModel.currentPageIndex = cardsNumber
@@ -190,7 +184,7 @@ struct MainView: View {
                 TutorialView(isShowing: $showTutorialView)
             }
             .sheet(isPresented: $showSubscriptionView) {
-                SubscriptionView()
+                SubscriptionView(isShowing: $showSubscriptionView)
             }
             .accentColor(Color(.systemOrange))
         }

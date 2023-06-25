@@ -29,7 +29,7 @@ struct CardsPreviewView: View {
             if (showActivityIndicator) {
                 ProgressView().padding()
             } else {
-                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName()) ?? UIImage())
+                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName()) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 198)
@@ -56,6 +56,6 @@ struct CardsPreviewView: View {
 struct CardsPreviewView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CardsPreviewView(topicCard: TopicCard(id: "0", topicId: "111", cardDefinition: "Test"), currentBackgroundIndex: 0)
+        CardsPreviewView(topicCard: TopicCard(id: "0", topicId: "111", cardDefinition: ""), currentBackgroundIndex: 0)
     }
 }

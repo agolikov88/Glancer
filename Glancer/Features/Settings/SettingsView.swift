@@ -25,7 +25,7 @@ struct SettingsView: View {
                 .padding()
             List {
                 Section {
-                    Text("Glancer v0.5")
+                    Text("Glancer v0.7")
                         .foregroundColor(.white)
                     Button(action: {showSendFeedbackView = true}, label: { Text("Send feedback")
                     })
