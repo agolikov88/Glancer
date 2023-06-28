@@ -9,8 +9,9 @@ import SwiftUI
 
 struct CompletionStateView: View {
     
+    @ObservedObject var viewModel: MainViewModel
+    
     @Binding var isShowing: Bool
-    @Binding var textField: String
     
     var succesful = true
     
@@ -38,10 +39,10 @@ struct CompletionStateView: View {
             }
             .padding(.bottom)
             Button(action: {
-                textField = ""
+                viewModel.clearCards()
                 isShowing = false
             }) {
-                Text("Clear entered text")
+                Text("Start fresh")
                     .fontWeight(.bold)
             }
         }
@@ -52,6 +53,6 @@ struct CompletionStateView: View {
 
 struct CompletionStateView_Previews: PreviewProvider {
     static var previews: some View {
-        CompletionStateView(isShowing: .constant(true), textField: .constant(""), succesful: true)
+        CompletionStateView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker()), isShowing: .constant(true), succesful: true)
     }
 }

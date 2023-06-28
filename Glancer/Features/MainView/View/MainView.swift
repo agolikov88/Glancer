@@ -23,8 +23,6 @@ struct MainView: View {
     @State var showSubscriptionView = false
     
     @StateObject var page: Page = .first()
-    @State var cardsNumber = 1
-    @State var previousCardsNumber = 1
     
     @State var maxAllowedCardsNumber = 2
     private let maxCardsNumberPerAlbum = 24
@@ -58,7 +56,6 @@ struct MainView: View {
                             .padding(8)
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
                             .focused($isInputActive)
-                            //.padding(.bottom) // TODO: need to enable padding if pager indicator is hidden...
                             .padding([.leading, .trailing], 1)
                     }
                 })
@@ -69,7 +66,7 @@ struct MainView: View {
                     isInputActive = false
                 })
                 if !isInputActive {
-                    PagerIndicator(currentPage: viewModel.currentPageIndex, pagesNumber: cardsNumber)   // TODO: need to hide pager indicator if only one page is available in case of free version...
+                    PagerIndicator(currentPage: viewModel.currentPageIndex, pagesNumber: viewModel.topicCards.count)
                     Button(action: {
                         viewModel.addWatchFace()
                     }) {
@@ -109,7 +106,7 @@ struct MainView: View {
             .navigationBarItems(
                 leading:
                     HStack {
-                        if cardsNumber > 1 {
+                        if viewModel.topicCards.count > 1 {
                             Button(action: {
                                 showCardDeleteConfirmation = true
                             }, label: { Image(systemName: "trash")
@@ -131,28 +128,26 @@ struct MainView: View {
                                     if viewModel.currentPageIndex > 0 {
                                         viewModel.currentPageIndex -= 1
                                     }
-                                    previousCardsNumber = cardsNumber
-                                    cardsNumber -= 1
+                                    viewModel.previousCardsNumber = viewModel.topicCards.count
                                 }
                             }
                         }
-                        Text("\(cardsNumber)/\(AppSettings.isPaidSubscription() ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
+                        Text("\(viewModel.topicCards.count)/\(AppSettings.isPaidSubscription() ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
                             .foregroundColor(Color(.systemOrange))
                     },
                 trailing:
                     HStack {
                         Button(action: {
-                            if (!AppSettings.isPaidSubscription() && cardsNumber == maxAllowedCardsNumber) {
+                            if (!AppSettings.isPaidSubscription() && viewModel.topicCards.count == maxAllowedCardsNumber) {
                                 showSubscriptionView = true
                             } else {
-                                viewModel.currentPageIndex = cardsNumber
-                                previousCardsNumber = cardsNumber
-                                cardsNumber += 1
+                                viewModel.currentPageIndex = viewModel.topicCards.count
+                                viewModel.previousCardsNumber = viewModel.topicCards.count
                                 viewModel.topicCards.append(TopicCard())
                             }
                         }, label: { Image(systemName: "plus")
                         })
-                        .disabled(cardsNumber == maxCardsNumberPerAlbum)
+                        .disabled(viewModel.topicCards.count == maxCardsNumberPerAlbum)
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
                         })
                         if isInputActive {
@@ -166,16 +161,16 @@ struct MainView: View {
                     showCompletionStateView = true
                 }
             })
-            .onChange(of: cardsNumber, perform: { value in
+            .onChange(of: viewModel.topicCards.count, perform: { value in
                 withAnimation {
-                    if previousCardsNumber < cardsNumber {
+                    if viewModel.previousCardsNumber < viewModel.topicCards.count {
                         page.update(.moveToLast)
                     }
                 }
                 isInputActive = false
             })
             .sheet(isPresented: $showCompletionStateView) {
-                CompletionStateView(isShowing: $showCompletionStateView, textField: $viewModel.topicCards[0].cardDefinition, succesful: viewModel.watchFaceState == .created)
+                CompletionStateView(viewModel: viewModel, isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
             .sheet(isPresented: $showSettingsView) {
                 SettingsView()

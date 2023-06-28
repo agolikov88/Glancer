@@ -23,6 +23,7 @@ final class MainViewModel: ObservableObject {
     
     @Published var topicCards = [TopicCard()]
     @Published var currentPageIndex = 0
+    @Published var previousCardsNumber = 1
     
     @Published private(set) var watchFaceState: WatchFaceState = .initial
     
@@ -67,5 +68,11 @@ final class MainViewModel: ObservableObject {
                 }
             )
             .store(in: &cancellable)
+    }
+    
+    func clearCards() {
+        topicCards = [TopicCard()]
+        currentPageIndex = 0
+        previousCardsNumber = 1
     }
 }
