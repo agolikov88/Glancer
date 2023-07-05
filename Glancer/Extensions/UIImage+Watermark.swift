@@ -19,8 +19,24 @@ extension UIImage
         
         let imageSize = self.size
         
+        //test overlay...
+//        let gradientLayer = CAGradientLayer()
+//        gradientLayer.bounds = CGRect(x: 0, y: 180, width: imageSize.width, height: 304)
+//        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor, UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.black.withAlphaComponent(0.6).cgColor, UIColor.black.withAlphaComponent(0.8).cgColor]
+//        gradientLayer.locations = [0.1, 0.2, 0.3, 0.7, 1]
+//        gradientLayer.opacity = 1
+        
+        //test full overlay...
+        let gradientLayer = CALayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
+        gradientLayer.backgroundColor = UIColor.black.cgColor
+        gradientLayer.opacity = 0.4
+        
         UIGraphicsBeginImageContext(imageSize)
         self.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+        
+        //test...
+        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
         
         let textView = UITextView()
         textView.text = text

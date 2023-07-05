@@ -16,6 +16,7 @@ struct CustomizationView: View {
     @State private var fontColor = Color.white
     
     @State private var showSelectBackgroundView = false
+    @State private var enableImageOverlay = true
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -27,20 +28,40 @@ struct CustomizationView: View {
     var body: some View {
         VStack {
             Text("Customize")
-            Button(action: {showSelectBackgroundView = true}, label: {
-                HStack {
-                    Image(systemName: "photo")
-                        .font(.system(size: 24, design: .default))
-                        .foregroundColor(Color(.systemOrange))
-                    Text("Select backgrounds")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
+            HStack {
+                Button(action: {showSelectBackgroundView = true}, label: {
+                    HStack {
+                        Image(systemName: "photo")
+                            .font(.system(size: 28, design: .default))
+                            .foregroundColor(Color(.systemOrange))
+                    }
+                    .frame(height: 32)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(16)
+                    .foregroundColor(.white)
+                })
+                Button(action: {enableImageOverlay.toggle()}, label: {
+                    HStack {
+                        Image(systemName: enableImageOverlay ? "square.2.layers.3d.top.filled" : "square.2.layers.3d")
+                            .font(.system(size: 28, design: .default))
+                            .foregroundColor(Color(.systemOrange))
+                    }
+                    .frame(height: 32)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(16)
+                    .foregroundColor(.white)
+                })
                 .frame(height: 32)
+                .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(16)
                 .foregroundColor(.white)
-            })
+            }
             .accentColor(.white)
             .sheet(isPresented: $showSelectBackgroundView) {
                 SelectCardBackgroundView(backgrounds: viewModel.customizationConfiguration.supportedBackgrounds) { selectedBackgrounds in
