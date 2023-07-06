@@ -29,7 +29,7 @@ struct CardsPreviewView: View {
             if (showActivityIndicator) {
                 ProgressView().padding()
             } else {
-                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName()) ?? UIImage())
+                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage())
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 198)

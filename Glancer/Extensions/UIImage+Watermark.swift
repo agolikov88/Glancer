@@ -13,7 +13,7 @@ import SwiftUI
 extension UIImage
 {
     
-    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 20, y: 20), color: String = "FFFFFF", font: String = "Avenir Next Condensed Regular", background: UIColor = UIColor.clear) -> UIImage?
+    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 20, y: 20), color: String = "FFFFFF", font: String = "Avenir Next Condensed Regular", overlay: Bool = true) -> UIImage?
     {
         let defaultWatchScreenWidth: CGFloat = 396
         
@@ -26,17 +26,17 @@ extension UIImage
 //        gradientLayer.locations = [0.1, 0.2, 0.3, 0.7, 1]
 //        gradientLayer.opacity = 1
         
-        //test full overlay...
-        let gradientLayer = CALayer()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
-        gradientLayer.backgroundColor = UIColor.black.cgColor
-        gradientLayer.opacity = 0.4
-        
         UIGraphicsBeginImageContext(imageSize)
         self.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
         
-        //test...
-        gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        //test full overlay...
+        if overlay {
+            let gradientLayer = CALayer()
+            gradientLayer.frame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)
+            gradientLayer.backgroundColor = UIColor.black.cgColor
+            gradientLayer.opacity = 0.4
+            gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+        }
         
         let textView = UITextView()
         textView.text = text

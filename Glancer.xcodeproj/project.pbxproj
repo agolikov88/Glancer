@@ -43,7 +43,6 @@
 		C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC93D29BEB09A001AC352 /* ShareWatchfaceWorker.swift */; };
 		C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C2ECC94229BEB151001AC352 /* ZIPFoundation */; };
 		C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */; };
-		C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94829BEB33B001AC352 /* Topic.swift */; };
 		C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC94929BEB33B001AC352 /* TopicCard.swift */; };
 		C2ECC95329BEB5A7001AC352 /* snapshot.png in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC94E29BEB5A7001AC352 /* snapshot.png */; };
 		C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC95029BEB5A7001AC352 /* metadata.json */; };
@@ -109,7 +108,6 @@
 		C2ECC93C29BEB09A001AC352 /* ShareWatchfaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareWatchfaceService.swift; sourceTree = "<group>"; };
 		C2ECC93D29BEB09A001AC352 /* ShareWatchfaceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareWatchfaceWorker.swift; sourceTree = "<group>"; };
 		C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Watermark.swift"; sourceTree = "<group>"; };
-		C2ECC94829BEB33B001AC352 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		C2ECC94929BEB33B001AC352 /* TopicCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCard.swift; sourceTree = "<group>"; };
 		C2ECC94E29BEB5A7001AC352 /* snapshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapshot.png; sourceTree = "<group>"; };
 		C2ECC95029BEB5A7001AC352 /* metadata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = metadata.json; sourceTree = "<group>"; };
@@ -339,7 +337,6 @@
 		C2ECC94729BEB324001AC352 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C2ECC94829BEB33B001AC352 /* Topic.swift */,
 				C2ECC94929BEB33B001AC352 /* TopicCard.swift */,
 			);
 			path = Model;
@@ -594,7 +591,6 @@
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
 				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
-				C2ECC94A29BEB33B001AC352 /* Topic.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
 				C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */,
 			);

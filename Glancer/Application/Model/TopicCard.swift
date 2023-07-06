@@ -14,6 +14,7 @@ struct TopicCard: Identifiable, Equatable {
     var topicId: String = ""
     var cardDefinition: String = ""
     var background: String = "background1"
+    var overlay: Bool = true
     var fontName: String = "Avenir Next Condensed"
     var fontStyle: String = "Regular"
     var fontColor: String = "FFFFFF"
