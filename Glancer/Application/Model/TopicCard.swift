@@ -15,11 +15,11 @@ struct TopicCard: Identifiable, Equatable {
     var cardDefinition: String = ""
     var background: String = "background1"
     var overlay: Bool = true
-    var fontName: String = "Avenir Next Condensed"
-    var fontStyle: String = "Regular"
+    var fontName: String = "AvenirNextCondensed"
+    var fontStyle: String = "Medium"
     var fontColor: String = "FFFFFF"
     
     func completeFontName() -> String {
-        return "\(fontName) \(fontStyle)"
+        return fontStyle.isEmpty ? "\(fontName)" : "\(fontName)-\(fontStyle)"
     }
 }

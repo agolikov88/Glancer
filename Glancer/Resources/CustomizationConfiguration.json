@@ -1,7 +1,14 @@
 {"supportedFonts":{
-    "Avenir Next Condensed":{"0":"Regular","1":"Medium","2":"Bold"},
-    "Courier":{"0":"New","1":"Bold","2":"Bold Oblique"},
-    "Chalkboard SE":{"0":"Light","1":"Regular","2":"Bold"}
+    "AvenirNextCondensed":{"0":"Medium","1":"DemiBold","2":"Bold"},
+    "Courier":{"0":"","1":"Bold","2":"BoldOblique"},
+    "ChalkboardSE":{"0":"Light","1":"Regular","2":"Bold"},
+    "Futura":{"0":"CondensedMedium","1":"Medium","2":"Bold"},
+    "Baskerville":{"0":"","1":"SemiBold","2":"Bold"},
+    "HelveticaNeue":{"0":"","1":"Medium","2":"Bold"},
+    "AmericanTypewriter":{"0":"","1":"Semibold","2":"Bold"},
+    "Palatino":{"0":"Roman","1":"Bold","2":"BoldItalic"},
+    "Papyrus":{"0":"","1":"Condensed","2":"Condensed"},
+    "Optima":{"0":"Regular","1":"Bold","2":"BoldItalic"}
     },
  "supportedBackgrounds":["background1", "background13", "background14", "background15", "background16", "background17", "background18", "background2", "background3", "background4", "background5", "background6", "background7", "background8", "background9", "background10", "background11", "background12", "background19", "background20", "background21", "background22", "background23", "background24"]
 }

@@ -77,8 +77,6 @@ struct CustomizationView: View {
             HStack {
                 Image(systemName: "textformat")
                     .font(.system(size: 24, design: .default))
-                    .foregroundColor(Color(.systemOrange))
-                Text("Font")
                 Spacer()
                 Picker("Font", selection: $font) {
                     ForEach(Array(viewModel.customizationConfiguration.supportedFonts.keys).sorted(), id: \.self) {
