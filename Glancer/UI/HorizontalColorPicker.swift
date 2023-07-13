@@ -10,7 +10,7 @@ import SwiftUI
 struct HorizontalColorPicker: View {
     
     @Binding var selectedColor: Color
-    private let colors:[Color] = [.red, .yellow, .orange, .purple, .blue, .indigo, .green, .mint, .black, .white]
+    private let colors:[Color] = [.white, .black, .yellow, .green, .purple, .cyan, .mint, .red, .orange, .blue]
     
     var body: some View {
         ScrollView(.horizontal) {
