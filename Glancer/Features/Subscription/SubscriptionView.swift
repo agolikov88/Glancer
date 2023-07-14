@@ -13,6 +13,13 @@ struct SubscriptionView: View {
     
     @State private var showSubscriptionActivatedAlert = false
     
+    let onSubscribtionActivated: (() -> Void)?
+    
+    init(isShowing: Binding<Bool>, onSubscribtionActivated: (() -> Void)? = nil) {
+        self._isShowing = isShowing
+        self.onSubscribtionActivated = onSubscribtionActivated
+    }
+    
     var body: some View {
         VStack {
             Text("Unlock All")
@@ -108,7 +115,9 @@ struct SubscriptionView: View {
             Spacer()
         }
         .padding([.leading, .trailing], 28)
-        .alert("Subscription activated!", isPresented: $showSubscriptionActivatedAlert, actions: {Button("OK", action: {isShowing = false})})
+        .alert("Subscription activated!", isPresented: $showSubscriptionActivatedAlert, actions: {Button("OK", action: {
+            onSubscribtionActivated?()
+            isShowing = false})})
     }
 }
 
