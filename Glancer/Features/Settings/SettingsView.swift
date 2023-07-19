@@ -16,6 +16,7 @@ struct SettingsView: View {
     @State var showSendFeedbackSuccessAlertDialog = false
     @State var showSendFeedbackFailureAlertDialog = false
     @State var showTutorialView = false
+    @State var showSelectAppIconView = false
     
     var body: some View {
         VStack {
@@ -67,6 +68,37 @@ struct SettingsView: View {
                 Text("Repeat tutorial")
                     .fontWeight(.bold)
             }
+            // test...
+            Button(action: {
+                showSelectAppIconView = true
+            }) {
+                Text("Select alt icon")
+                    .fontWeight(.bold)
+            }
+            Button(action: {
+                UIApplication.shared.setAlternateIconName("AppIcon_alt1") { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("Success!")
+                    }
+                }
+            }) {
+                Text("Set alt icon")
+                    .fontWeight(.bold)
+            }
+            Button(action: {
+                UIApplication.shared.setAlternateIconName(nil) { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("Success!")
+                    }
+                }
+            }) {
+                Text("Reset alt icon")
+                    .fontWeight(.bold)
+            }
             Spacer()
         }
         .alert(isPresented: $showSendFeedbackSuccessAlertDialog) {
@@ -74,6 +106,9 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showTutorialView) {
             TutorialView(isShowing: $showTutorialView)
+        }
+        .sheet(isPresented: $showSelectAppIconView) {
+            SelectAppIconView()
         }
         .accentColor(Color(.systemOrange))
     }
