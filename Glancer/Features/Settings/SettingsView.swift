@@ -76,7 +76,7 @@ struct SettingsView: View {
                     .fontWeight(.bold)
             }
             Button(action: {
-                UIApplication.shared.setAlternateIconName("AppIcon_alt1") { error in
+                UIApplication.shared.setAlternateIconName("AppIcon_alt3") { error in
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
@@ -108,7 +108,7 @@ struct SettingsView: View {
             TutorialView(isShowing: $showTutorialView)
         }
         .sheet(isPresented: $showSelectAppIconView) {
-            SelectAppIconView()
+            SelectAppIconView(watchFaceCustomizationService: WatchFaceCustomizationWorker())
         }
         .accentColor(Color(.systemOrange))
     }
