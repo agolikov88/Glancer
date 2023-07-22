@@ -27,9 +27,18 @@ struct SettingsView: View {
                 .padding()
             List {
                 Section {
-                    Text("Glancer v0.7")
-                        .foregroundColor(.white)
-                    Button(action: {showSendFeedbackView = true}, label: { Text("Send feedback")
+                    HStack {
+                        Image(systemName: "info.circle")
+                            .foregroundColor(Color(.systemOrange))
+                        Text("Watch Cards v0.7.3")
+                            .foregroundColor(.white)
+                    }
+                    Button(action: {showSendFeedbackView = true}, label: {
+                        HStack {
+                            Image(systemName: "envelope")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Send feedback")
+                        }
                     })
                     .accentColor(.white)
                     .disabled(!MFMailComposeViewController.canSendMail())
@@ -37,13 +46,67 @@ struct SettingsView: View {
                         SendFeedbackView(isShowing: $showSendFeedbackView, result: $sendFeedbackResult)
                     }
                 } header: {
-                    HStack {
-                        Image(systemName: "info.circle")
-                        Text("About")
-                    }
+                    Text("About")
+                }
+                Section {
+                    Button(action: {showTutorialView = true}, label: {
+                        HStack {
+                            Image(systemName: "questionmark.circle")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Repeat tutorial")
+                        }
+                    })
+                    .accentColor(.white)
+                    Button(action: {
+                        if AppSettings.isPaidSubscription() {
+                            showSelectAppIconView = true
+                        } else {
+                            showSubscriptionView = true
+                        }
+                    }, label: {
+                        HStack {
+                            Image(systemName: "apps.iphone")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Change app icon")
+                        }
+                    })
+                    .accentColor(.white)
+                } header: {
+                    Text("Additional resources")
+                }
+                Section {
+                    Button(action: {}, label: {
+                        HStack {
+                            Image(systemName: "dollarsign.circle")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Restore purchases")
+                        }
+                    })
+                    .accentColor(.white)
+                    Button(action: {
+                        
+                    }, label: {
+                        HStack {
+                            Image(systemName: "checkmark.seal")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Terms of service")
+                        }
+                    })
+                    .accentColor(.white)
+                    Button(action: {
+                        
+                    }, label: {
+                        HStack {
+                            Image(systemName: "pencil.circle")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Third-party")
+                        }
+                    })
+                    .accentColor(.white)
+                } header: {
+                    Text("Support")
                 }
             }
-            .frame(maxHeight: 200)
             .onChange(of: sendFeedbackResult, perform: { value in
                 switch value {
                 case .success(_):
@@ -63,24 +126,6 @@ struct SettingsView: View {
             .alert(isPresented: $showSendFeedbackFailureAlertDialog) {
                 Alert(title: Text(""), message: Text("Error sending feedback email! Please try again"), dismissButton: .default(Text("Ok")))
             }
-            Button(action: {
-                showTutorialView = true
-            }) {
-                Text("Repeat tutorial")
-                    .fontWeight(.bold)
-            }
-            // test...
-            Button(action: {
-                if AppSettings.isPaidSubscription() {
-                    showSelectAppIconView = true
-                } else {
-                    showSubscriptionView = true
-                }
-            }) {
-                Text("Select alt icon")
-                    .fontWeight(.bold)
-            }
-            Spacer()
         }
         .alert(isPresented: $showSendFeedbackSuccessAlertDialog) {
             Alert(title: Text(""), message: Text("Feedback sent! Thank you!"), dismissButton: .default(Text("Ok")))

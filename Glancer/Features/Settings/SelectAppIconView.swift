@@ -77,11 +77,13 @@ struct SelectAppIconView: View {
     }
     
     private func activateSelectedIcon() {
-        UIApplication.shared.setAlternateIconName(selectedIcon) { error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                presentationMode.wrappedValue.dismiss()
+        if !selectedIcon.isEmpty {
+            UIApplication.shared.setAlternateIconName(selectedIcon) { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    presentationMode.wrappedValue.dismiss()
+                }
             }
         }
     }
