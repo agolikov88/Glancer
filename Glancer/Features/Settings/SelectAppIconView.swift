@@ -41,6 +41,19 @@ struct SelectAppIconView: View {
                     }
                     .padding(.horizontal)
                 }
+                .padding([.bottom], 36)
+                Button(action: {
+                    UIApplication.shared.setAlternateIconName(nil) { error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                    }
+                }) {
+                    Text("Use default icon")
+                        .fontWeight(.bold)
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
@@ -64,12 +77,10 @@ struct SelectAppIconView: View {
     }
     
     private func activateSelectedIcon() {
-        print(selectedIcon)
         UIApplication.shared.setAlternateIconName(selectedIcon) { error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                print("Success!")
                 presentationMode.wrappedValue.dismiss()
             }
         }

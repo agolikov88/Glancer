@@ -17,6 +17,7 @@ struct SettingsView: View {
     @State var showSendFeedbackFailureAlertDialog = false
     @State var showTutorialView = false
     @State var showSelectAppIconView = false
+    @State var showSubscriptionView = false
     
     var body: some View {
         VStack {
@@ -70,33 +71,13 @@ struct SettingsView: View {
             }
             // test...
             Button(action: {
-                showSelectAppIconView = true
+                if AppSettings.isPaidSubscription() {
+                    showSelectAppIconView = true
+                } else {
+                    showSubscriptionView = true
+                }
             }) {
                 Text("Select alt icon")
-                    .fontWeight(.bold)
-            }
-            Button(action: {
-                UIApplication.shared.setAlternateIconName("AppIcon_alt3") { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        print("Success!")
-                    }
-                }
-            }) {
-                Text("Set alt icon")
-                    .fontWeight(.bold)
-            }
-            Button(action: {
-                UIApplication.shared.setAlternateIconName(nil) { error in
-                    if let error = error {
-                        print(error.localizedDescription)
-                    } else {
-                        print("Success!")
-                    }
-                }
-            }) {
-                Text("Reset alt icon")
                     .fontWeight(.bold)
             }
             Spacer()
@@ -109,6 +90,9 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showSelectAppIconView) {
             SelectAppIconView(watchFaceCustomizationService: WatchFaceCustomizationWorker())
+        }
+        .sheet(isPresented: $showSubscriptionView) {
+            SubscriptionView(isShowing: $showSubscriptionView)
         }
         .accentColor(Color(.systemOrange))
     }
