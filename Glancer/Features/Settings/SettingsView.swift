@@ -18,6 +18,8 @@ struct SettingsView: View {
     @State var showTutorialView = false
     @State var showSelectAppIconView = false
     @State var showSubscriptionView = false
+    @State var showTermsOfServiceView = false
+    @State var showThirdPartyResourcesView = false
     
     var body: some View {
         VStack {
@@ -84,7 +86,7 @@ struct SettingsView: View {
                     })
                     .accentColor(.white)
                     Button(action: {
-                        
+                        showTermsOfServiceView = true
                     }, label: {
                         HStack {
                             Image(systemName: "checkmark.seal")
@@ -94,7 +96,7 @@ struct SettingsView: View {
                     })
                     .accentColor(.white)
                     Button(action: {
-                        
+                        showThirdPartyResourcesView = true
                     }, label: {
                         HStack {
                             Image(systemName: "pencil.circle")
@@ -138,6 +140,12 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showSubscriptionView) {
             SubscriptionView(isShowing: $showSubscriptionView)
+        }
+        .sheet(isPresented: $showTermsOfServiceView) {
+            LegalNoticesView(noticeType: .termsOfService)
+        }
+        .sheet(isPresented: $showThirdPartyResourcesView) {
+            LegalNoticesView(noticeType: .thirdParty)
         }
         .accentColor(Color(.systemOrange))
     }
