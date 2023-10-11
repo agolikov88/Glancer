@@ -36,6 +36,9 @@
 		C2844A4A2A6F57E300A5571F /* third_party.html in Resources */ = {isa = PBXBuildFile; fileRef = C2844A492A6F57E300A5571F /* third_party.html */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
+		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
+		C2DD7D7F2AD6463A004424C5 /* Watch Cards.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */; };
+		C2DD7D822AD6488A004424C5 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DD7D812AD6488A004424C5 /* Store.swift */; };
 		C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */; };
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
 		C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91029BEAC98001AC352 /* Assets.xcassets */; };
@@ -103,6 +106,9 @@
 		C2844A492A6F57E300A5571F /* third_party.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = third_party.html; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
+		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Watch Cards.storekit"; sourceTree = "<group>"; };
+		C2DD7D812AD6488A004424C5 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		C2ECC90929BEAC97001AC352 /* Watch Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Watch Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerApp.swift; sourceTree = "<group>"; };
 		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */,
 				C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 			);
@@ -239,6 +246,22 @@
 			path = Subscription;
 			sourceTree = "<group>";
 		};
+		C2DD7D7B2AD6407A004424C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2DD7D802AD64855004424C5 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C2DD7D812AD6488A004424C5 /* Store.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		C2ECC90029BEAC97001AC352 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +269,7 @@
 				C2ECC91C29BEAC98001AC352 /* GlancerTests */,
 				C2ECC92629BEAC98001AC352 /* GlancerUITests */,
 				C2ECC90A29BEAC97001AC352 /* Products */,
+				C2DD7D7B2AD6407A004424C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,6 +295,7 @@
 				C2ECC93629BEAE07001AC352 /* Info.plist */,
 				C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */,
 				C2ECC91229BEAC98001AC352 /* Preview Content */,
+				C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */,
 			);
 			path = Glancer;
 			sourceTree = "<group>";
@@ -303,6 +328,7 @@
 		C2ECC93729BEAFBB001AC352 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C2DD7D802AD64855004424C5 /* Store */,
 				C2ECC94729BEB324001AC352 /* Model */,
 				C2ECC93829BEB018001AC352 /* Domain */,
 				C218314F29DA1133009BD82B /* AppSettings.swift */,
@@ -549,6 +575,7 @@
 				C2ECC95629BEB5A7001AC352 /* no_borders_snapshot.png in Resources */,
 				C2ECC95329BEB5A7001AC352 /* snapshot.png in Resources */,
 				C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */,
+				C2DD7D7F2AD6463A004424C5 /* Watch Cards.storekit in Resources */,
 				C2844A4A2A6F57E300A5571F /* third_party.html in Resources */,
 				C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */,
 				C2ECC95529BEB5A7001AC352 /* face.json in Resources */,
@@ -607,6 +634,7 @@
 				C218316F29E3764A009BD82B /* CustomizationConfiguration.swift in Sources */,
 				C218316629E11306009BD82B /* Deprecated.swift in Sources */,
 				C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */,
+				C2DD7D822AD6488A004424C5 /* Store.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
