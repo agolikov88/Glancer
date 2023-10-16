@@ -67,7 +67,9 @@ struct SubscriptionView: View {
                     }
                     Button(action: {
                         //test... TODO: add product purchase logic here...
-                        
+                        Task {
+                            try await store.purchase(store.products[0])
+                        }
                         //AppSettings.enablePaidSubscription()
                         //showSubscriptionActivatedAlert = true
                     }) {
