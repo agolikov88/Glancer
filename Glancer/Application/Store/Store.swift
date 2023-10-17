@@ -45,11 +45,14 @@ import StoreKit
         case .success(let verificationResult):
             if let transaction = try? verificationResult.payloadValue {
                 activeTransactions.insert(transaction)
+                AppSettings.enablePaidSubscription()
                 await transaction.finish()
             }
         case .userCancelled:
+            print("user cancelled")
             break
         case .pending:
+            print("pending")
             break
         @unknown default:
             break

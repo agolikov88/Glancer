@@ -12,8 +12,6 @@ struct SubscriptionView: View {
     
     @Binding var isShowing: Bool
     
-    @State private var showSubscriptionActivatedAlert = false
-    
     @StateObject private var store = Store()
     
     let onSubscribtionActivated: (() -> Void)?
@@ -127,9 +125,12 @@ struct SubscriptionView: View {
             }
         }
         .padding([.leading, .trailing], 28)
-        .alert("Subscription activated!", isPresented: $showSubscriptionActivatedAlert, actions: {Button("OK", action: {
-            onSubscribtionActivated?()
-            isShowing = false})})
+        .onChange(of: store.activeTransactions, perform: {products in
+            if !store.activeTransactions.isEmpty {
+                onSubscribtionActivated?()
+                isShowing = false
+            }
+        })
         .task {
             await store.fetchProducts()
         }
