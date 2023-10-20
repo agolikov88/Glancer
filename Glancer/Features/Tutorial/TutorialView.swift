@@ -10,12 +10,17 @@ import SwiftUIPager
 
 struct TutorialView: View {
     
+    @EnvironmentObject private var store: Store
+    
     @Binding var isShowing: Bool
     
     @State var showSubscriptionView = false
     
     @StateObject var page: Page = .first()
-    var pages = AppSettings.isPaidSubscription() ? Array(0..<1) : Array(0..<2)
+    
+    var pages: [Int] {
+        return store.isPaidSubscription ? Array(0..<1) : Array(0..<2)
+    }
     
     var body: some View {
         VStack {

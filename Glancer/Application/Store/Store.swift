@@ -10,19 +10,18 @@ import StoreKit
 @MainActor final class Store: ObservableObject {
     
     @Published private(set) var products: [Product] = []
-    @Published private(set) var activeTransactions: Set<StoreKit.Transaction> = []
+    @Published private(set) var purchasedProductIDs = Set<String>()
+    
+    private let productIds = ["WatchCards_Monthly"]
     
     private var updates: Task<Void, Never>?
     
+    var isPaidSubscription: Bool {
+        return !self.purchasedProductIDs.isEmpty
+    }
+    
     init() {
-        updates = Task {
-            for await update in StoreKit.Transaction.updates {
-                if let transaction = try? update.payloadValue {
-                    activeTransactions.insert(transaction)
-                    await transaction.finish()
-                }
-            }
-        }
+        updates = observeTransactionUpdates()
     }
     
     deinit {
@@ -32,9 +31,10 @@ import StoreKit
     func fetchProducts() async {
         do {
             products = try await Product.products(
-                for: ["WatchCards_Monthly"]
+                for: productIds
             )
         } catch {
+            print("Unable to fetch products!")
             products = []
         }
     }
@@ -44,9 +44,8 @@ import StoreKit
         switch result {
         case .success(let verificationResult):
             if let transaction = try? verificationResult.payloadValue {
-                activeTransactions.insert(transaction)
-                AppSettings.enablePaidSubscription()
                 await transaction.finish()
+                await self.fetchActiveTransactions()
             }
         case .userCancelled:
             print("user cancelled")
@@ -60,14 +59,24 @@ import StoreKit
     }
     
     func fetchActiveTransactions() async {
-        var activeTransactions: Set<StoreKit.Transaction> = []
-        
-        for await entitlement in StoreKit.Transaction.currentEntitlements {
-            if let transaction = try? entitlement.payloadValue {
-                activeTransactions.insert(transaction)
+        for await result in Transaction.currentEntitlements {
+            guard case .verified(let transaction) = result else {
+                continue
+            }
+            
+            if transaction.revocationDate == nil {
+                self.purchasedProductIDs.insert(transaction.productID)
+            } else {
+                self.purchasedProductIDs.remove(transaction.productID)
             }
         }
-        
-        self.activeTransactions = activeTransactions
+    }
+    
+    private func observeTransactionUpdates() -> Task<Void, Never> {
+        Task(priority: .background) { [unowned self] in
+            for await _ in Transaction.updates {
+                await self.fetchActiveTransactions()
+            }
+        }
     }
 }

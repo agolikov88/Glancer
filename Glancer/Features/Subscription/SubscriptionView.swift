@@ -12,7 +12,7 @@ struct SubscriptionView: View {
     
     @Binding var isShowing: Bool
     
-    @StateObject private var store = Store()
+    @EnvironmentObject private var store: Store
     
     let onSubscribtionActivated: (() -> Void)?
     
@@ -66,10 +66,12 @@ struct SubscriptionView: View {
                     Button(action: {
                         //test... TODO: add product purchase logic here...
                         Task {
-                            try await store.purchase(store.products[0])
+                            do {
+                                try await store.purchase(store.products[0])
+                            } catch {
+                                print(error)
+                            }
                         }
-                        //AppSettings.enablePaidSubscription()
-                        //showSubscriptionActivatedAlert = true
                     }) {
                         VStack(alignment: .leading) {
                             Text("Monthly")
@@ -125,8 +127,8 @@ struct SubscriptionView: View {
             }
         }
         .padding([.leading, .trailing], 28)
-        .onChange(of: store.activeTransactions, perform: {products in
-            if !store.activeTransactions.isEmpty {
+        .onChange(of: store.isPaidSubscription, perform: {unlockedAll in
+            if unlockedAll {
                 onSubscribtionActivated?()
                 isShowing = false
             }

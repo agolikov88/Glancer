@@ -10,6 +10,8 @@ import SwiftUIPager
 
 struct MainView: View {
     
+    @EnvironmentObject private var store: Store
+    
     @ObservedObject var viewModel: MainViewModel
     
     @FocusState var isInputActive: Bool
@@ -41,7 +43,7 @@ struct MainView: View {
                     VStack {
                         CardsPreviewView(topicCard: viewModel.topicCards[page.index], currentBackgroundIndex: 0)
                             .onTapGesture {
-                                if AppSettings.isPaidSubscription() {
+                                if store.isPaidSubscription {
                                     SOCManager.present(isPresented: $showCustomizationView) {
                                         CustomizationView(viewModel: viewModel)
                                     }
@@ -132,13 +134,13 @@ struct MainView: View {
                                 }
                             }
                         }
-                        Text("\(viewModel.topicCards.count)/\(AppSettings.isPaidSubscription() ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
+                        Text("\(viewModel.topicCards.count)/\(store.isPaidSubscription ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
                             .foregroundColor(Color(.systemOrange))
                     },
                 trailing:
                     HStack {
                         Button(action: {
-                            if (!AppSettings.isPaidSubscription() && viewModel.topicCards.count == maxAllowedCardsNumber) {
+                            if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
                                 showSubscriptionView = true
                             } else {
                                 viewModel.currentPageIndex = viewModel.topicCards.count

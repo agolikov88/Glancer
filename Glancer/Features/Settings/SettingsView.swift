@@ -8,8 +8,11 @@
 
 import SwiftUI
 import MessageUI
+import StoreKit
 
 struct SettingsView: View {
+    
+    @EnvironmentObject private var store: Store
     
     @State var sendFeedbackResult: Result<MFMailComposeResult, MFMailComposeError>? = nil
     @State var showSendFeedbackView = false
@@ -32,7 +35,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v0.7.3")
+                        Text("Watch Cards v0.8.0")
                             .foregroundColor(.white)
                     }
                     Button(action: {showSendFeedbackView = true}, label: {
@@ -60,7 +63,7 @@ struct SettingsView: View {
                     })
                     .accentColor(.white)
                     Button(action: {
-                        if AppSettings.isPaidSubscription() {
+                        if store.isPaidSubscription {
                             showSelectAppIconView = true
                         } else {
                             showSubscriptionView = true
@@ -77,7 +80,15 @@ struct SettingsView: View {
                     Text("Additional resources")
                 }
                 Section {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        Task {
+                            do {
+                                try await AppStore.sync()
+                            } catch {
+                                print(error)
+                            }
+                        }
+                    }, label: {
                         HStack {
                             Image(systemName: "dollarsign.circle")
                                 .foregroundColor(Color(.systemOrange))
