@@ -74,7 +74,10 @@ import StoreKit
     
     private func observeTransactionUpdates() -> Task<Void, Never> {
         Task(priority: .background) { [unowned self] in
-            for await _ in Transaction.updates {
+            for await update in Transaction.updates {
+                if let transaction = try? update.payloadValue {
+                    await transaction.finish()
+                }
                 await self.fetchActiveTransactions()
             }
         }
