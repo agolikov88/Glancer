@@ -10,22 +10,19 @@ import SwiftUI
 @main
 struct GlancerApp: App {
     
+    @Environment(\.scenePhase) private var scenePhase
+    
     @StateObject private var store = Store()
     
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker()))
                 .environmentObject(store)
-                .task {
-                    await store.fetchActiveTransactions()
+                .task(id: scenePhase) {
+                    if scenePhase == .active {
+                        await store.fetchActiveTransactions()
+                    }
                 }
-//                .onChange(of: store.activeTransactions, perform: {activeTransactions in
-//                    if activeTransactions.isEmpty {
-//                        AppSettings.disablePaidSubscription()
-//                    } else {
-//                        AppSettings.enablePaidSubscription()
-//                    }
-//                })
         }
     }
 }

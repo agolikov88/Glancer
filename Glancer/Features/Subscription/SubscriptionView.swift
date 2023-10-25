@@ -10,9 +10,11 @@ import StoreKit
 
 struct SubscriptionView: View {
     
-    @Binding var isShowing: Bool
-    
     @EnvironmentObject private var store: Store
+    
+    @State var showPurchaseProgress  = false
+    
+    @Binding var isShowing: Bool
     
     let onSubscribtionActivated: (() -> Void)?
     
@@ -64,7 +66,7 @@ struct SubscriptionView: View {
                             .font(.system(size: 18, design: .default))
                     }
                     Button(action: {
-                        //test... TODO: add product purchase logic here...
+                        showPurchaseProgress = true
                         Task {
                             do {
                                 try await store.purchase(store.products[0])
@@ -82,10 +84,11 @@ struct SubscriptionView: View {
                         }
                         .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
                         .padding([.leading, .trailing])
-                        .background(LinearGradient(gradient: Gradient(colors: [Color("dark_green"), Color("light_green")]), startPoint: .leading, endPoint: .trailing))
+                        .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color("dark_green"), Color("light_green")]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(16)
                         .foregroundColor(.white)
                     }
+                    .disabled(showPurchaseProgress)
                     Button(action: {
                         
                     }) {
@@ -100,10 +103,11 @@ struct SubscriptionView: View {
                         }
                         .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
                         .padding()
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.mint]), startPoint: .leading, endPoint: .trailing))
+                        .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color.blue, Color.mint]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(16)
                         .foregroundColor(.white)
                     }
+                    .disabled(showPurchaseProgress)
                     Button(action: {
                         
                     }) {
@@ -118,10 +122,11 @@ struct SubscriptionView: View {
                         }
                         .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
                         .padding()
-                        .background(LinearGradient(gradient: Gradient(colors: [Color.orange, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                        .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color.orange, Color.purple]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(16)
                         .foregroundColor(.white)
                     }
+                    .disabled(showPurchaseProgress)
                 }
                 Spacer()
             }
@@ -131,6 +136,12 @@ struct SubscriptionView: View {
             if unlockedAll {
                 onSubscribtionActivated?()
                 isShowing = false
+            }
+        })
+        .onChange(of: store.isUserCancelled, perform: {userCancelled in
+            if userCancelled {
+                showPurchaseProgress = false
+                store.isUserCancelled = false
             }
         })
         .task {

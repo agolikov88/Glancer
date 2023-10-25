@@ -16,6 +16,8 @@ import StoreKit
     
     private var updates: Task<Void, Never>?
     
+    var isUserCancelled = false
+    
     var isPaidSubscription: Bool {
         return !self.purchasedProductIDs.isEmpty
     }
@@ -49,6 +51,7 @@ import StoreKit
             }
         case .userCancelled:
             print("user cancelled")
+            isUserCancelled = true
             break
         case .pending:
             print("pending")
