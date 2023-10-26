@@ -13,6 +13,7 @@ struct SubscriptionView: View {
     @EnvironmentObject private var store: Store
     
     @State var showPurchaseProgress  = false
+    @State var showPurchaseErrorAlert = false
     
     @Binding var isShowing: Bool
     
@@ -132,6 +133,7 @@ struct SubscriptionView: View {
             }
         }
         .padding([.leading, .trailing], 28)
+        .alert("Something went wrong, please try again!", isPresented: $showPurchaseErrorAlert, actions: {Button("OK", action: {})})
         .onChange(of: store.isPaidSubscription, perform: {unlockedAll in
             if unlockedAll {
                 onSubscribtionActivated?()

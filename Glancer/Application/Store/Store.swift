@@ -11,12 +11,11 @@ import StoreKit
     
     @Published private(set) var products: [Product] = []
     @Published private(set) var purchasedProductIDs = Set<String>()
+    @Published var isUserCancelled = false
     
     private let productIds = ["WatchCards_Monthly"]
     
     private var updates: Task<Void, Never>?
-    
-    var isUserCancelled = false
     
     var isPaidSubscription: Bool {
         return !self.purchasedProductIDs.isEmpty
