@@ -72,6 +72,8 @@ struct SubscriptionView: View {
                             do {
                                 try await store.purchase(store.products[0])
                             } catch {
+                                showPurchaseErrorAlert = true
+                                showPurchaseProgress = false
                                 print(error)
                             }
                         }
