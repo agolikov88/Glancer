@@ -67,16 +67,7 @@ struct SubscriptionView: View {
                             .font(.system(size: 18, design: .default))
                     }
                     Button(action: {
-                        showPurchaseProgress = true
-                        Task {
-                            do {
-                                try await store.purchase(store.products[0])
-                            } catch {
-                                showPurchaseErrorAlert = true
-                                showPurchaseProgress = false
-                                print(error)
-                            }
-                        }
+                        initiatePurchase(product: store.products[1])
                     }) {
                         VStack(alignment: .leading) {
                             Text("Monthly")
@@ -93,7 +84,7 @@ struct SubscriptionView: View {
                     }
                     .disabled(showPurchaseProgress)
                     Button(action: {
-                        
+                        initiatePurchase(product: store.products[2])
                     }) {
                         VStack(alignment: .leading) {
                             Text("Yearly")
@@ -112,7 +103,7 @@ struct SubscriptionView: View {
                     }
                     .disabled(showPurchaseProgress)
                     Button(action: {
-                        
+                        initiatePurchase(product: store.products[0])
                     }) {
                         VStack(alignment: .leading) {
                             Text("Lifetime")
@@ -150,6 +141,19 @@ struct SubscriptionView: View {
         })
         .task {
             await store.fetchProducts()
+        }
+    }
+    
+    private func initiatePurchase(product: Product) {
+        showPurchaseProgress = true
+        Task {
+            do {
+                try await store.purchase(product)
+            } catch {
+                showPurchaseErrorAlert = true
+                showPurchaseProgress = false
+                print(error)
+            }
         }
     }
 }
