@@ -67,7 +67,11 @@ struct SubscriptionView: View {
                             .font(.system(size: 18, design: .default))
                     }
                     Button(action: {
-                        initiatePurchase(product: store.products[1])
+                        if let product = store.products.first(where: {$0.id == "WatchCards_Monthly"}) {
+                            initiatePurchase(product: product)
+                        } else {
+                            showPurchaseErrorAlert = true
+                        }
                     }) {
                         VStack(alignment: .leading) {
                             Text("Monthly")
@@ -84,7 +88,11 @@ struct SubscriptionView: View {
                     }
                     .disabled(showPurchaseProgress)
                     Button(action: {
-                        initiatePurchase(product: store.products[2])
+                        if let product = store.products.first(where: {$0.id == "WatchCards_Yearly"}) {
+                            initiatePurchase(product: product)
+                        } else {
+                            showPurchaseErrorAlert = true
+                        }
                     }) {
                         VStack(alignment: .leading) {
                             Text("Yearly")
@@ -103,7 +111,11 @@ struct SubscriptionView: View {
                     }
                     .disabled(showPurchaseProgress)
                     Button(action: {
-                        initiatePurchase(product: store.products[0])
+                        if let product = store.products.first(where: {$0.id == "WatchCards_Lifetime"}) {
+                            initiatePurchase(product: product)
+                        } else {
+                            showPurchaseErrorAlert = true
+                        }
                     }) {
                         VStack(alignment: .leading) {
                             Text("Lifetime")

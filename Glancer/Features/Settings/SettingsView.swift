@@ -35,7 +35,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v0.8.0")
+                        Text("Watch Cards v0.8.1")
                             .foregroundColor(.white)
                     }
                     Button(action: {showSendFeedbackView = true}, label: {
