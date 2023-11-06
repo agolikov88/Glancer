@@ -13,13 +13,13 @@ import SwiftUI
 extension UIImage
 {
     
-    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 20, y: 20), color: String = "FFFFFF", font: String = "AvenirNextCondensed-Medium", overlay: Bool = true) -> UIImage?
+    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 24, y: 24), color: String = "FFFFFF", font: String = "AvenirNextCondensed-Medium", overlay: Bool = true) -> UIImage?
     {
         let defaultWatchScreenWidth: CGFloat = 396
         
         let imageSize = self.size
         
-        //test overlay...
+        //test parcial overlay...
 //        let gradientLayer = CAGradientLayer()
 //        gradientLayer.bounds = CGRect(x: 0, y: 180, width: imageSize.width, height: 304)
 //        gradientLayer.colors = [UIColor.black.withAlphaComponent(0.0).cgColor, UIColor.black.withAlphaComponent(0.3).cgColor, UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.black.withAlphaComponent(0.6).cgColor, UIColor.black.withAlphaComponent(0.8).cgColor]
