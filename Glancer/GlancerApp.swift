@@ -14,9 +14,11 @@ struct GlancerApp: App {
     
     @StateObject private var store = Store()
     
+    let viewModel = MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker())
+    
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker()))
+            MainView(viewModel: viewModel)
                 .environmentObject(store)
                 .task(id: scenePhase) {
                     if scenePhase == .active {
