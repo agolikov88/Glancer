@@ -10,17 +10,15 @@ import SwiftUI
 
 struct CardsPreviewView: View {
     
-    private var topicCard: TopicCard
+    private var cardImage: UIImage
     private var watchfaceFrame = "customization_frame"
     
     private let timer = Timer.publish(every: 0.4, on: .main, in: .common).autoconnect()
     
-    @State private var currentBackgroundIndex = 0
     @State private var showActivityIndicator = true
     
-    init(topicCard: TopicCard, currentBackgroundIndex: Int, watchfaceFrame: String = "customization_frame") {
-        self.topicCard = topicCard
-        self.currentBackgroundIndex = currentBackgroundIndex
+    init(cardImage: UIImage, watchfaceFrame: String = "customization_frame") {
+        self.cardImage = cardImage
         self.watchfaceFrame = watchfaceFrame
     }
     
@@ -29,7 +27,7 @@ struct CardsPreviewView: View {
             if (showActivityIndicator) {
                 ProgressView().padding()
             } else {
-                Image(uiImage: UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage())
+                Image(uiImage: cardImage)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 198)
@@ -56,6 +54,6 @@ struct CardsPreviewView: View {
 struct CardsPreviewView_Previews: PreviewProvider {
     
     static var previews: some View {
-        CardsPreviewView(topicCard: TopicCard(id: "0", topicId: "111", cardDefinition: ""), currentBackgroundIndex: 0)
+        CardsPreviewView(cardImage: UIImage())
     }
 }

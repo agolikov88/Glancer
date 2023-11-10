@@ -27,6 +27,7 @@ struct MainView: View {
     @StateObject var page: Page = .first()
     
     @State var maxAllowedCardsNumber = 2
+    @State private var cardsImages: [Int: UIImage] = [:]
     private let maxCardsNumberPerAlbum = 24
     
     init(viewModel: MainViewModel) {
@@ -41,7 +42,7 @@ struct MainView: View {
                       id: \.id,
                       content: { _ in
                     VStack {
-                        CardsPreviewView(topicCard: viewModel.topicCards[page.index], currentBackgroundIndex: 0)
+                        CardsPreviewView(cardImage: generateCardImage(topicCard: viewModel.topicCards[page.index], pageIndex: page.index, override: false))
                             .onTapGesture {
                                 if store.isPaidSubscription {
                                     SOCManager.present(isPresented: $showCustomizationView) {
@@ -60,6 +61,9 @@ struct MainView: View {
                             .focused($isInputActive)
                             .padding([.leading, .trailing], 1)
                     }
+                    .onChange(of: viewModel.topicCards[page.index], perform: {value in
+                        _ = generateCardImage(topicCard: value, pageIndex: page.index)
+                    })
                 })
                 .swipeInteractionArea(.allAvailable)
                 .itemSpacing(10)
@@ -192,6 +196,16 @@ struct MainView: View {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
+        }
+    }
+    
+    private func generateCardImage(topicCard: TopicCard, pageIndex: Int, override: Bool = true) -> UIImage {
+        if override == false, let cardImage = cardsImages[page.index] {
+            return cardImage
+        } else {
+            let cardImage = UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
+            cardsImages[pageIndex] = cardImage
+            return cardImage
         }
     }
 }
