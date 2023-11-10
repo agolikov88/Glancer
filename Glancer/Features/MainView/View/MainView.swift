@@ -68,8 +68,10 @@ struct MainView: View {
                 .swipeInteractionArea(.allAvailable)
                 .itemSpacing(10)
                 .onPageWillChange({ pageNumber in
-                    viewModel.currentPageIndex = pageNumber
                     isInputActive = false
+                })
+                .onPageChanged({pageNumber in
+                    viewModel.currentPageIndex = pageNumber
                 })
                 if !isInputActive {
                     PagerIndicator(currentPage: viewModel.currentPageIndex, pagesNumber: viewModel.topicCards.count)
