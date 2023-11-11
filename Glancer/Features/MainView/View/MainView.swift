@@ -40,21 +40,23 @@ struct MainView: View {
                 Pager(page: page,
                       data: viewModel.topicCards,
                       id: \.id,
-                      content: { _ in
+                      content: { currentTopicCard in
                     VStack {
-                        CardsPreviewView(cardImage: generateCardImage(topicCard: viewModel.topicCards[page.index], pageIndex: page.index, override: false))
-                            .onTapGesture {
-                                if store.isPaidSubscription {
-                                    SOCManager.present(isPresented: $showCustomizationView) {
-                                        CustomizationView(viewModel: viewModel)
+                        withAnimation {
+                            CardsPreviewView(cardImage: generateCardImage(topicCard: currentTopicCard, pageIndex: viewModel.topicCards.firstIndex(of: currentTopicCard) ?? page.index, override: false))
+                                .onTapGesture {
+                                    if store.isPaidSubscription {
+                                        SOCManager.present(isPresented: $showCustomizationView) {
+                                            CustomizationView(viewModel: viewModel)
+                                        }
+                                    } else {
+                                        showSubscriptionView = true
                                     }
-                                } else {
-                                    showSubscriptionView = true
                                 }
-                            }
-                            .padding(.top)
+                                .padding(.top)
+                        }
                         Spacer()
-                        TextField("Type your text here", text: $viewModel.topicCards[page.index].cardDefinition, axis: .vertical)
+                        TextField("Type your text here", text: $viewModel.topicCards[viewModel.topicCards.firstIndex(of: currentTopicCard) ?? page.index].cardDefinition, axis: .vertical)
                             .lineLimit(2, reservesSpace: true)
                             .padding(8)
                             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray))
@@ -202,7 +204,7 @@ struct MainView: View {
     }
     
     private func generateCardImage(topicCard: TopicCard, pageIndex: Int, override: Bool = true) -> UIImage {
-        if override == false, let cardImage = cardsImages[page.index] {
+        if override == false, let cardImage = cardsImages[pageIndex] {
             return cardImage
         } else {
             let cardImage = UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
