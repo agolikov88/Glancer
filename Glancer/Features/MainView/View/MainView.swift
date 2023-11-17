@@ -196,7 +196,11 @@ struct MainView: View {
     }
     
     private func launchWatchApp() {
-        if let url = URL(string: "itms-watchs://") {
+        var url = URL(string: "itms-watchs://bridge:root=GENERAL_LINK")
+        if #available(iOS 17, *) {
+            url = URL(string: "itms-watchs://")
+        }
+        if let url = url {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
