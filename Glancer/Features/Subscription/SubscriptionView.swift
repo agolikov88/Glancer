@@ -66,50 +66,10 @@ struct SubscriptionView: View {
                         Text("Choose from a selection of custom app icons")
                             .font(.system(size: 18, design: .default))
                     }
-                    Button(action: {
-                        if let product = store.products.first(where: {$0.id == "WatchCards_Monthly"}) {
-                            initiatePurchase(product: product)
-                        } else {
-                            showPurchaseErrorAlert = true
-                        }
-                    }) {
-                        VStack(alignment: .leading) {
-                            Text("Monthly")
-                                .font(.system(size: 22, weight: .medium, design: .default))
-                                .padding(.bottom, 1)
-                            Text("$2,99")
-                                .font(.system(size: 22, weight: .bold, design: .default))
-                        }
-                        .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
-                        .padding([.leading, .trailing])
-                        .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color("dark_green"), Color("light_green")]), startPoint: .leading, endPoint: .trailing))
-                        .cornerRadius(16)
-                        .foregroundColor(.white)
-                    }
-                    .disabled(showPurchaseProgress)
-                    Button(action: {
-                        if let product = store.products.first(where: {$0.id == "WatchCards_Yearly"}) {
-                            initiatePurchase(product: product)
-                        } else {
-                            showPurchaseErrorAlert = true
-                        }
-                    }) {
-                        VStack(alignment: .leading) {
-                            Text("Yearly")
-                                .font(.system(size: 22, weight: .medium, design: .default))
-                                .padding(.bottom, 1)
-                            Text("$14,99")
-                                .font(.system(size: 22, weight: .bold, design: .default))
-                            Text("Pay just $1,24 monthly")
-                                .font(.system(size: 18  , weight: .regular, design: .default))
-                        }
-                        .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
-                        .padding()
-                        .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color.blue, Color.mint]), startPoint: .leading, endPoint: .trailing))
-                        .cornerRadius(16)
-                        .foregroundColor(.white)
-                    }
-                    .disabled(showPurchaseProgress)
+                    CardsPreviewView(cardImage: UIImage(named: "background7")?.waterMarkedImage(text: "Customize your watch cards the way you want!", color: Color.yellow.toHex()!, font: "Papyrus", overlay: true) ?? UIImage(), watchfaceFrame: "customization_frame_gray")
+                        .frame(maxWidth: .infinity, minHeight: 80, alignment: .center)
+                        .padding(.top)
+                    Spacer()
                     Button(action: {
                         if let product = store.products.first(where: {$0.id == "WatchCards_Lifetime"}) {
                             initiatePurchase(product: product)
@@ -118,21 +78,19 @@ struct SubscriptionView: View {
                         }
                     }) {
                         VStack(alignment: .leading) {
-                            Text("Lifetime")
-                                .font(.system(size: 22, weight: .medium, design: .default))
-                                .padding(.bottom, 1)
-                            Text("$34,99")
+                            Text("$4,99")
                                 .font(.system(size: 22, weight: .bold, design: .default))
                             Text("One-time payment")
                                 .font(.system(size: 18  , weight: .regular, design: .default))
                         }
-                        .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
+                        .frame(maxWidth: .infinity, minHeight: 60, alignment: .leading)
                         .padding()
                         .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color.orange, Color.purple]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(16)
                         .foregroundColor(.white)
                     }
                     .disabled(showPurchaseProgress)
+                    .padding(.bottom)
                 }
                 Spacer()
             }
@@ -173,5 +131,6 @@ struct SubscriptionView: View {
 struct SubscriptionView_Previews: PreviewProvider {
     static var previews: some View {
         SubscriptionView(isShowing: .constant(true))
+            .environmentObject(Store())
     }
 }

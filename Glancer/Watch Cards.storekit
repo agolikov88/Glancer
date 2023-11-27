@@ -5,13 +5,13 @@
   ],
   "products" : [
     {
-      "displayPrice" : "34.99",
+      "displayPrice" : "4.99",
       "familyShareable" : true,
       "internalID" : "6471322270",
       "localizations" : [
         {
           "description" : "Billed once",
-          "displayName" : "Lifetime",
+          "displayName" : "Unlock all",
           "locale" : "en_US"
         }
       ],
@@ -29,7 +29,7 @@
     },
     "_developerTeamID" : "TKE7M524M9",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 720764399.26734698,
+    "_lastSynchronizedDate" : 722753452.07739305,
     "_locale" : "en_US",
     "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
@@ -92,65 +92,7 @@
     "_timeRate" : 1002
   },
   "subscriptionGroups" : [
-    {
-      "id" : "21397602",
-      "localizations" : [
 
-      ],
-      "name" : "Main group",
-      "subscriptions" : [
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "2.99",
-          "familyShareable" : true,
-          "groupNumber" : 1,
-          "internalID" : "6468977995",
-          "introductoryOffer" : null,
-          "localizations" : [
-            {
-              "description" : "Monthly subscription",
-              "displayName" : "Monthly",
-              "locale" : "en_US"
-            }
-          ],
-          "productID" : "WatchCards_Monthly",
-          "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly",
-          "subscriptionGroupID" : "21397602",
-          "type" : "RecurringSubscription"
-        },
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "14.99",
-          "familyShareable" : true,
-          "groupNumber" : 2,
-          "internalID" : "6471321776",
-          "introductoryOffer" : null,
-          "localizations" : [
-            {
-              "description" : "Yearly subscription",
-              "displayName" : "Yearly",
-              "locale" : "en_US"
-            }
-          ],
-          "productID" : "WatchCards_Yearly",
-          "recurringSubscriptionPeriod" : "P1Y",
-          "referenceName" : "Yearly",
-          "subscriptionGroupID" : "21397602",
-          "type" : "RecurringSubscription"
-        }
-      ]
-    }
   ],
   "version" : {
     "major" : 3,
