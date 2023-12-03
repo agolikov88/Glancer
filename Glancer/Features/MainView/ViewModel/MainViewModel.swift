@@ -24,6 +24,7 @@ final class MainViewModel: ObservableObject {
     @Published var topicCards = [TopicCard()]
     @Published var currentPageIndex = 0
     @Published var previousCardsNumber = 1
+    @Published var clearImagesCache = false
     
     @Published private(set) var watchFaceState: WatchFaceState = .initial
     
@@ -74,5 +75,6 @@ final class MainViewModel: ObservableObject {
         topicCards = [TopicCard()]
         currentPageIndex = 0
         previousCardsNumber = 1
+        clearImagesCache.toggle()
     }
 }

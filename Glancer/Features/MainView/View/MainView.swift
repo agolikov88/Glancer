@@ -179,6 +179,9 @@ struct MainView: View {
                 }
                 isInputActive = false
             })
+            .onChange(of: viewModel.clearImagesCache, perform: { _ in
+                cardsImages.removeAll()
+            })
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(viewModel: viewModel, isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
