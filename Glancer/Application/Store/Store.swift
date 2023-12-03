@@ -18,7 +18,6 @@ import StoreKit
     private var updates: Task<Void, Never>?
     
     var isPaidSubscription: Bool {
-        print(self.purchasedProductIDs)
         return !self.purchasedProductIDs.isEmpty
     }
     
