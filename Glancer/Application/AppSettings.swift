@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct AppSettings {
+enum AppSettings {
     
     private static let showTutorialKey = "show_tutorial"
-    private static let paidSubscription = "paid_subscription"
+    private static let attachLogsKey = "attach_logs"
     
     static func markTutorialViewed() {
         UserDefaults.standard.set(true, forKey: showTutorialKey)
@@ -18,5 +18,13 @@ struct AppSettings {
     
     static func isTutorialViewed() -> Bool {
         return UserDefaults.standard.bool(forKey: showTutorialKey)
+    }
+    
+    static func toggleAttachLogs() {
+        UserDefaults.standard.set(!isAttachLogsEnabled(), forKey: attachLogsKey)
+    }
+    
+    static func isAttachLogsEnabled() -> Bool {
+        return UserDefaults.standard.bool(forKey: attachLogsKey)
     }
 }

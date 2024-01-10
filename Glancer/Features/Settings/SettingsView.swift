@@ -18,11 +18,16 @@ struct SettingsView: View {
     @State var showSendFeedbackView = false
     @State var showSendFeedbackSuccessAlertDialog = false
     @State var showSendFeedbackFailureAlertDialog = false
+    @State var includeLogs = false
     @State var showTutorialView = false
     @State var showSelectAppIconView = false
     @State var showSubscriptionView = false
     @State var showTermsOfServiceView = false
     @State var showThirdPartyResourcesView = false
+    
+    init() {
+        _includeLogs = State(initialValue: AppSettings.isAttachLogsEnabled())
+    }
     
     var body: some View {
         VStack {
@@ -35,7 +40,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v1.0")
+                        Text("Watch Cards v1.1")
                             .foregroundColor(.white)
                     }
                     Button(action: {showSendFeedbackView = true}, label: {
@@ -48,8 +53,14 @@ struct SettingsView: View {
                     .accentColor(.white)
                     .disabled(!MFMailComposeViewController.canSendMail())
                     .sheet(isPresented: $showSendFeedbackView) {
-                        SendFeedbackView(isShowing: $showSendFeedbackView, result: $sendFeedbackResult)
+                        SendFeedbackView(isShowing: $showSendFeedbackView, attachLogs: includeLogs, result: $sendFeedbackResult)
                     }
+                    HStack {
+                        Image(systemName: "doc")
+                            .foregroundColor(Color(.systemOrange))
+                        Toggle("Include logs", isOn: $includeLogs)
+                    }
+                    .accentColor(.white)
                 } header: {
                     Text("About")
                 }
@@ -120,6 +131,9 @@ struct SettingsView: View {
                     Text("Support")
                 }
             }
+            .onChange(of: includeLogs, perform: { value in
+                AppSettings.toggleAttachLogs()
+            })
             .onChange(of: sendFeedbackResult, perform: { value in
                 switch value {
                 case .success(_):

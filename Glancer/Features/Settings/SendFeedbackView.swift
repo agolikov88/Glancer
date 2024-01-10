@@ -13,6 +13,7 @@ import MessageUI
 struct SendFeedbackView: UIViewControllerRepresentable {
 
     @Binding var isShowing: Bool
+    @State var attachLogs: Bool
     @Binding var result: Result<MFMailComposeResult, MFMailComposeError>?
 
     class Coordinator: NSObject, MFMailComposeViewControllerDelegate {
@@ -50,6 +51,9 @@ struct SendFeedbackView: UIViewControllerRepresentable {
         vc.setToRecipients([Bundle.main.object(forInfoDictionaryKey: "Feedback email") as? String ?? "watchcardsfeedback@gmail.com"])
         vc.setSubject("WatchCards Feedback")
         vc.setMessageBody("Please write your feedback below. Please feel free to attach any screenshots or any other information that will help us to improve the app!", isHTML: false)
+        if attachLogs, let data = NSData(contentsOfFile: Logger.logPath()?.path() ?? "") {
+            vc.addAttachmentData(data as Data, mimeType: "application/text" , fileName: "watch_cards.log")
+        }
         
         return vc
     }

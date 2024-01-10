@@ -30,6 +30,8 @@
 		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
 		C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220B63E2A41703600B346C1 /* SubscriptionView.swift */; };
 		C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */; };
+		C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */; };
+		C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF2B92B4E30E9006F41CB /* Logger.swift */; };
 		C2844A442A6C86A500A5571F /* LegalNoticesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844A432A6C86A500A5571F /* LegalNoticesView.swift */; };
 		C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844A452A6C8A8600A5571F /* WCWebView.swift */; };
 		C2844A482A6F566500A5571F /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = C2844A472A6F566500A5571F /* terms_of_service.html */; };
@@ -100,6 +102,7 @@
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C220B63E2A41703600B346C1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppIconView.swift; sourceTree = "<group>"; };
+		C27DF2B92B4E30E9006F41CB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C2844A432A6C86A500A5571F /* LegalNoticesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticesView.swift; sourceTree = "<group>"; };
 		C2844A452A6C8A8600A5571F /* WCWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCWebView.swift; sourceTree = "<group>"; };
 		C2844A472A6F566500A5571F /* terms_of_service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_of_service.html; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 				C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */,
 				C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
+				C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +250,14 @@
 			path = Subscription;
 			sourceTree = "<group>";
 		};
+		C27DF2B82B4E30B6006F41CB /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				C27DF2B92B4E30E9006F41CB /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		C2DD7D7B2AD6407A004424C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +340,7 @@
 		C2ECC93729BEAFBB001AC352 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C27DF2B82B4E30B6006F41CB /* Logger */,
 				C2DD7D802AD64855004424C5 /* Store */,
 				C2ECC94729BEB324001AC352 /* Model */,
 				C2ECC93829BEB018001AC352 /* Domain */,
@@ -479,6 +492,7 @@
 			packageProductDependencies = (
 				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
 				C218317929F2354E009BD82B /* SwiftUIPager */,
+				C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */,
 			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Watch Cards.app */;
@@ -555,6 +569,7 @@
 			packageReferences = (
 				C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
+				C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
@@ -632,6 +647,7 @@
 				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C218316F29E3764A009BD82B /* CustomizationConfiguration.swift in Sources */,
+				C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */,
 				C218316629E11306009BD82B /* Deprecated.swift in Sources */,
 				C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */,
 				C2DD7D822AD6488A004424C5 /* Store.swift in Sources */,
@@ -993,6 +1009,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -1008,6 +1032,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 		C2ECC94229BEB151001AC352 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;

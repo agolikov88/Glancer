@@ -16,6 +16,11 @@ struct GlancerApp: App {
     
     let viewModel = MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker())
     
+    init() {
+        Logger.configure()
+        Logger.info("Logging configured")
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView(viewModel: viewModel)
