@@ -51,8 +51,13 @@ struct SendFeedbackView: UIViewControllerRepresentable {
         vc.setToRecipients([Bundle.main.object(forInfoDictionaryKey: "Feedback email") as? String ?? "watchcardsfeedback@gmail.com"])
         vc.setSubject("WatchCards Feedback")
         vc.setMessageBody("Please write your feedback below. Please feel free to attach any screenshots or any other information that will help us to improve the app!", isHTML: false)
-        if attachLogs, let data = NSData(contentsOfFile: Logger.logPath()?.path() ?? "") {
-            vc.addAttachmentData(data as Data, mimeType: "application/text" , fileName: "watch_cards.log")
+        if attachLogs {
+            if let data = NSData(contentsOfFile: Logger.logPath()?.path() ?? "") {
+                vc.addAttachmentData(data as Data, mimeType: "application/text" , fileName: "watch_cards.log")
+            }
+            if let data = NSData(contentsOfFile: (Logger.logPath()?.path() ?? "")  + ".1") {
+                vc.addAttachmentData(data as Data, mimeType: "application/text" , fileName: "watch_cards1.log")
+            }
         }
         
         return vc

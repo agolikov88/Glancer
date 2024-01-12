@@ -18,15 +18,19 @@ import StoreKit
     private var updates: Task<Void, Never>?
     
     var isPaidSubscription: Bool {
-        return !self.purchasedProductIDs.isEmpty
+        let isPaidSubscription = !self.purchasedProductIDs.isEmpty
+        Logger.info("isPaidSubscription: \(isPaidSubscription)")
+        return isPaidSubscription
     }
     
     init() {
         updates = observeTransactionUpdates()
+        Logger.info("Store initialized")
     }
     
     deinit {
         updates?.cancel()
+        Logger.info("Store deinitialized")
     }
     
     func fetchProducts() async {
@@ -35,7 +39,7 @@ import StoreKit
                 for: productIds
             )
         } catch {
-            print("Unable to fetch products!")
+            Logger.error("Unable to fetch products!")
             products = []
         }
     }
@@ -49,11 +53,11 @@ import StoreKit
                 await self.fetchActiveTransactions()
             }
         case .userCancelled:
-            print("user cancelled")
+            Logger.info("user cancelled purchase")
             isUserCancelled = true
             break
         case .pending:
-            print("pending")
+            Logger.info("purchase pending")
             break
         @unknown default:
             break
@@ -67,8 +71,10 @@ import StoreKit
             }
             
             if transaction.revocationDate == nil {
+                Logger.info("Added active transaction: productID: \(transaction.productID) transactionID: \(transaction.id)")
                 self.purchasedProductIDs.insert(transaction.productID)
             } else {
+                Logger.info("Transaction revocation date is past due: productID: \(transaction.productID) transactionID: \(transaction.id)")
                 self.purchasedProductIDs.remove(transaction.productID)
             }
         }
@@ -77,7 +83,9 @@ import StoreKit
     private func observeTransactionUpdates() -> Task<Void, Never> {
         Task(priority: .background) { [unowned self] in
             for await update in Transaction.updates {
+                Logger.info("Transaction update detected: \(update)")
                 if let transaction = try? update.payloadValue {
+                    Logger.info("calling transaction finish(): productID: \(transaction.productID) transactionID: \(transaction.id)")
                     await transaction.finish()
                 }
                 await self.fetchActiveTransactions()
