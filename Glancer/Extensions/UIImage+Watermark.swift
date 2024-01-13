@@ -29,7 +29,7 @@ extension UIImage
         UIGraphicsBeginImageContext(imageSize)
         self.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
         
-        //test full overlay...
+        // full overlay
         if overlay {
             let gradientLayer = CALayer()
             gradientLayer.frame = CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height)

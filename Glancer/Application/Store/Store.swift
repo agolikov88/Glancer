@@ -45,11 +45,14 @@ import StoreKit
     }
     
     func purchase(_ product: Product) async throws {
+        Logger.info("Purchase initiated")
         let result = try await product.purchase()
         switch result {
         case .success(let verificationResult):
+            Logger.info("Purchase success")
             if let transaction = try? verificationResult.payloadValue {
                 await transaction.finish()
+                Logger.info("Purchase transaction finished")
                 await self.fetchActiveTransactions()
             }
         case .userCancelled:
@@ -83,7 +86,7 @@ import StoreKit
     private func observeTransactionUpdates() -> Task<Void, Never> {
         Task(priority: .background) { [unowned self] in
             for await update in Transaction.updates {
-                Logger.info("Transaction update detected: \(update)")
+                Logger.info("Transaction update detected")
                 if let transaction = try? update.payloadValue {
                     Logger.info("calling transaction finish(): productID: \(transaction.productID) transactionID: \(transaction.id)")
                     await transaction.finish()

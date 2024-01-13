@@ -56,8 +56,10 @@ final class ShareWatchfaceWorker {
                 imageNames.append(imageFileName)
             }
             catch {
+                Logger.error("createImagesWithText failed!")
             }
         }
+        Logger.info("images created: \(imageNames.count)")
         return imageNames
     }
     
@@ -85,13 +87,16 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
             DispatchQueue.global().async { [self] in
                 do {
                     let rootFolder = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                    Logger.info("rootFolder: \(rootFolder)")
                     let watchFaceFolder = rootFolder.appendingPathComponent(watchFaceFolderName)
+                    Logger.info("watchFaceFolder: \(watchFaceFolder)")
                     //TODO: check if directory already exists and clean it before proceeding...
                     try fileManager.createDirectory(at: watchFaceFolder, withIntermediateDirectories: false, attributes: nil)
                     defer {
                         try? fileManager.removeItem(at: watchFaceFolder)
                     }
                     let watchFaceResourcesFolder = watchFaceFolder.appendingPathComponent(watchFaceResourcesFolderName)
+                    Logger.info("watchFaceResourcesFolder: \(watchFaceResourcesFolder)")
                     try fileManager.createDirectory(at: watchFaceResourcesFolder, withIntermediateDirectories: false, attributes: nil)
                     
                     let bundleResourcesNames = ["face.json", "metadata.json", "no_borders_snapshot.png", "snapshot.png"]
@@ -100,11 +105,13 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                     try generateImagesPlist(imageNames: createImagesWithText(topicCards: topicCards, storeUrl: watchFaceResourcesFolder), storeUrl: watchFaceResourcesFolder)
                     
                     let watchFaceURL = rootFolder.appendingPathComponent(UUID().uuidString + ".watchface")
+                    Logger.info("watchFaceURL: \(watchFaceURL)")
                     try fileManager.zipItem(at: watchFaceFolder, to: watchFaceURL, shouldKeepParent: false, compressionMethod: .deflate)
-                    
+                    Logger.info("generateWatchFace completed")
                     promise(.success(watchFaceURL))
                 }
                 catch {
+                    Logger.error("Error creating watchface archive")
                     promise(.failure(ShareWatchfaceError.watchFaceCreationError(errorMessage: "Error creating watchface archive")))
                 }
             }
@@ -121,8 +128,10 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                 catch {
                 }
                 if let error = error {
+                    Logger.error("addWatchFace failed: \(error.localizedDescription)")
                     promise(.failure(ShareWatchfaceError.notSupportedOSWersion(errorMessage: error.localizedDescription)))
                 } else {
+                    Logger.info("addWatchFace success")
                     promise(.success(true))
                 }
             }
