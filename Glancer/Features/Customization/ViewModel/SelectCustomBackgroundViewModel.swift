@@ -40,26 +40,44 @@ final class SelectCustomBackgroundViewModel: ObservableObject {
     // test...
     func cropImage(_ inputImage: UIImage, toRect cropRect: CGRect, viewWidth: CGFloat, viewHeight: CGFloat) -> UIImage?
     {
-        let imageViewScale = max(inputImage.size.width / viewWidth,
-                                 inputImage.size.height / viewHeight)
+        var scaledWidth: CGFloat
+        var scaledHeight: CGFloat
         
-        
-        // Scale cropRect to handle images larger than shown-on-screen size
-        let cropZone = CGRect(x:cropRect.origin.x * imageViewScale,
-                              y:cropRect.origin.y * imageViewScale,
-                              width:cropRect.size.width * imageViewScale,
-                              height:cropRect.size.height * imageViewScale)
-        
-        
-        // Perform cropping in Core Graphics
-        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to:cropZone)
-        else {
-            return nil
+        if inputImage.size.width >= inputImage.size.height {
+            scaledHeight = 484
+            scaledWidth = inputImage.size.width * (scaledHeight / inputImage.size.height)
+        } else {
+            scaledWidth = 396
+            scaledHeight = inputImage.size.height * (scaledWidth / inputImage.size.width)
         }
         
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: scaledWidth, height: scaledHeight), true, 1.0)
+        inputImage.draw(in: CGRect(x: 0, y: 0, width: scaledWidth, height: scaledHeight))
+        let scaledImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
-        // Return image to UIImage
-        let croppedImage: UIImage = UIImage(cgImage: cutImageRef)
-        return croppedImage
+        return scaledImage
+        
+//        let imageViewScale = max(inputImage.size.width / viewWidth,
+//                                 inputImage.size.height / viewHeight)
+//        
+//        
+//        // Scale cropRect to handle images larger than shown-on-screen size
+//        let cropZone = CGRect(x:cropRect.origin.x * imageViewScale,
+//                              y:cropRect.origin.y * imageViewScale,
+//                              width:cropRect.size.width * imageViewScale,
+//                              height:cropRect.size.height * imageViewScale)
+//        
+//        
+//        // Perform cropping in Core Graphics
+//        guard let cutImageRef: CGImage = inputImage.cgImage?.cropping(to:cropZone)
+//        else {
+//            return nil
+//        }
+//        
+//        
+//        // Return image to UIImage
+//        let croppedImage: UIImage = UIImage(cgImage: cutImageRef)
+//        return croppedImage
     }
 }
