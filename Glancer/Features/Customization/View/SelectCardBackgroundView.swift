@@ -7,14 +7,18 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct SelectCardBackgroundView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @StateObject var viewModel = SelectCustomBackgroundViewModel()
+    
     private var backgrounds: [String]
     private var items: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
     
+    @State private var showPhotosPicker = false
     @State private var selectedBackgrounds: [String] = []
     
     let onBackgroundsSelected: (([String]) -> Void)?
@@ -28,6 +32,15 @@ struct SelectCardBackgroundView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: items, spacing: 24) {
+                    Button(action: {
+                        showPhotosPicker = true
+                    }, label: {
+                        Image("background18")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 120)
+                            .cornerRadius(8)
+                    })
                     ForEach(backgrounds, id: \.self) { background in
                         Button(action: {
                             if selectedBackgrounds.contains(background) {
@@ -51,6 +64,7 @@ struct SelectCardBackgroundView: View {
                     .padding(.horizontal)
                 }
             }
+            .photosPicker(isPresented: $showPhotosPicker, selection: $viewModel.selectedPhotos, maxSelectionCount: 1, matching: .images)
             .navigationBarTitle(Text("Select backgrounds"), displayMode: .inline)
             .navigationBarItems(
                 leading:
@@ -62,6 +76,10 @@ struct SelectCardBackgroundView: View {
             )
         }
         .accentColor(Color(.systemOrange))
+        .onChange(of: viewModel.selectedPhotos, perform: { _ in
+            Logger.info("Selected photo from PhotoLibrary")
+            viewModel.convertDataToImageFile()
+        })
     }
     
     private func closeWithoutSaving() {

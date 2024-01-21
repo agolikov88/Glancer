@@ -29,6 +29,7 @@
 		C218317729EE4D63009BD82B /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218317629EE4D63009BD82B /* Color+Hex.swift */; };
 		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
 		C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220B63E2A41703600B346C1 /* SubscriptionView.swift */; };
+		C24582F62B5C712300200C97 /* SelectCustomBackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */; };
 		C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */; };
 		C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */; };
 		C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF2B92B4E30E9006F41CB /* Logger.swift */; };
@@ -101,6 +102,7 @@
 		C218317429E50571009BD82B /* SelectCardBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCardBackgroundView.swift; sourceTree = "<group>"; };
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C220B63E2A41703600B346C1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCustomBackgroundViewModel.swift; sourceTree = "<group>"; };
 		C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppIconView.swift; sourceTree = "<group>"; };
 		C27DF2B92B4E30E9006F41CB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C2844A432A6C86A500A5571F /* LegalNoticesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticesView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		C218315629DFA6CC009BD82B /* Customization */ = {
 			isa = PBXGroup;
 			children = (
+				C24582F42B5C70BD00200C97 /* ViewModel */,
 				C218315729DFA703009BD82B /* View */,
 			);
 			path = Customization;
@@ -248,6 +251,14 @@
 				C220B63E2A41703600B346C1 /* SubscriptionView.swift */,
 			);
 			path = Subscription;
+			sourceTree = "<group>";
+		};
+		C24582F42B5C70BD00200C97 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		C27DF2B82B4E30B6006F41CB /* Logger */ = {
@@ -645,6 +656,7 @@
 				C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
 				C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */,
+				C24582F62B5C712300200C97 /* SelectCustomBackgroundViewModel.swift in Sources */,
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C218316F29E3764A009BD82B /* CustomizationConfiguration.swift in Sources */,
 				C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */,
@@ -814,7 +826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -833,7 +845,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -852,7 +864,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -871,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
