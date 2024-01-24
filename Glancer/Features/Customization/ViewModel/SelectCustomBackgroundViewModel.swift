@@ -56,7 +56,29 @@ final class SelectCustomBackgroundViewModel: ObservableObject {
         let scaledImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return scaledImage
+        guard let cropImage = scaledImage else {
+            return nil
+        }
+        
+        var cropZone: CGRect
+        
+        // TODO: optimize...
+        if cropImage.size.width >= cropImage.size.height {
+            cropZone = CGRect(x: Int((cropImage.size.width - 396)/2),
+                              y:0,
+                              width:396,
+                              height:484)
+        } else {
+            cropZone = CGRect(x: 0,
+                              y: Int((cropImage.size.height - 484)/2),
+                              width:396,
+                              height:484)
+        }
+        guard let cutImageRef = cropImage.cgImage?.cropping(to: cropZone) else {
+            return nil
+        }
+        
+        return UIImage(cgImage: cutImageRef)
         
 //        let imageViewScale = max(inputImage.size.width / viewWidth,
 //                                 inputImage.size.height / viewHeight)
