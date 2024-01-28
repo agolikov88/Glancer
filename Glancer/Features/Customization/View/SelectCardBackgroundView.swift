@@ -35,11 +35,14 @@ struct SelectCardBackgroundView: View {
                     Button(action: {
                         showPhotosPicker = true
                     }, label: {
-                        Image("background18")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 120)
-                            .cornerRadius(8)
+                        ZStack {
+                            Image("background18")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 120)
+                                .cornerRadius(8)
+                            Text("Select photo").foregroundColor(.blue)
+                        }
                     })
                     ForEach(backgrounds, id: \.self) { background in
                         Button(action: {
@@ -79,6 +82,18 @@ struct SelectCardBackgroundView: View {
         .onChange(of: viewModel.selectedPhotos, perform: { _ in
             Logger.info("Selected photo from PhotoLibrary")
             viewModel.convertDataToImageFile()
+        })
+        .onChange(of: viewModel.backgroundImageUrl, perform: { value in
+            if let backgroundImageUrl = value {
+                if !backgroundImageUrl.isEmpty {
+                    Logger.info("Background image url: \(backgroundImageUrl)")
+                    selectedBackgrounds.append(backgroundImageUrl)
+                    returnSelectedBackgrounds()
+                } else {
+                    Logger.warning("Image url is empty!")
+                }
+            }
+            viewModel.backgroundImageUrl = nil
         })
     }
     

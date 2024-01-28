@@ -11,6 +11,7 @@ import _PhotosUI_SwiftUI
 final class SelectCustomBackgroundViewModel: ObservableObject {
     
     @Published var selectedPhotos = [PhotosPickerItem]()
+    @Published var backgroundImageUrl: String?
     
     @MainActor
     func convertDataToImageFile() {
@@ -27,13 +28,16 @@ final class SelectCustomBackgroundViewModel: ObservableObject {
                             let imageFileUrl = FileManager.default.temporaryDirectory.appendingPathComponent(imageFileName)
                             Logger.info("Image file URL: \(imageFileUrl)")
                             try imageData.write(to: imageFileUrl)
+                            backgroundImageUrl = imageFileUrl.path()
+                            return
                         }
                         catch {
-                            Logger.error("Failed to save selected image to file!")
+                            Logger.warning("Failed to save selected image to file!")
                         }
                     }
                 }
             }
+            backgroundImageUrl = ""
         }
     }
     
@@ -44,7 +48,7 @@ final class SelectCustomBackgroundViewModel: ObservableObject {
         var scaledHeight: CGFloat
         
         if inputImage.size.width >= inputImage.size.height {
-            scaledHeight = 484
+            scaledHeight = 484  // use viewWidth argument...
             scaledWidth = inputImage.size.width * (scaledHeight / inputImage.size.height)
         } else {
             scaledWidth = 396

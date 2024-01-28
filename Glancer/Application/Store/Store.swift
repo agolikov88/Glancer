@@ -39,7 +39,7 @@ import StoreKit
                 for: productIds
             )
         } catch {
-            Logger.error("Unable to fetch products!")
+            Logger.warning("Unable to fetch products!")
             products = []
         }
     }

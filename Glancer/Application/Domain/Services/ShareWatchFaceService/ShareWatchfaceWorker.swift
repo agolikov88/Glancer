@@ -44,7 +44,8 @@ final class ShareWatchfaceWorker {
         for topicCard in topicCards {
             var image: UIImage?
             DispatchQueue.main.sync {
-                image = UIImage(named: topicCard.background)?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
+                let backgroundImage = topicCard.background.contains("/") ? UIImage(contentsOfFile: topicCard.background) : UIImage(named: topicCard.background)
+                image = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
             }
             guard let image = image, let imageData = image.jpegData(compressionQuality: 0.7) else {
                 continue
@@ -56,7 +57,7 @@ final class ShareWatchfaceWorker {
                 imageNames.append(imageFileName)
             }
             catch {
-                Logger.error("createImagesWithText failed!")
+                Logger.warning("createImagesWithText failed!")
             }
         }
         Logger.info("images created: \(imageNames.count)")
@@ -111,7 +112,7 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                     promise(.success(watchFaceURL))
                 }
                 catch {
-                    Logger.error("Error creating watchface archive")
+                    Logger.warning("Error creating watchface archive")
                     promise(.failure(ShareWatchfaceError.watchFaceCreationError(errorMessage: "Error creating watchface archive")))
                 }
             }
@@ -128,7 +129,7 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                 catch {
                 }
                 if let error = error {
-                    Logger.error("addWatchFace failed: \(error.localizedDescription)")
+                    Logger.warning("addWatchFace failed: \(error.localizedDescription)")
                     promise(.failure(ShareWatchfaceError.notSupportedOSWersion(errorMessage: error.localizedDescription)))
                 } else {
                     Logger.info("addWatchFace success")
