@@ -30,6 +30,8 @@
 		C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = C218317929F2354E009BD82B /* SwiftUIPager */; };
 		C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220B63E2A41703600B346C1 /* SubscriptionView.swift */; };
 		C24582F62B5C712300200C97 /* SelectCustomBackgroundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */; };
+		C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F72B71F64300200C97 /* AppDelegate.swift */; };
+		C24582FA2B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */; };
 		C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */; };
 		C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */; };
 		C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF2B92B4E30E9006F41CB /* Logger.swift */; };
@@ -103,6 +105,8 @@
 		C218317629EE4D63009BD82B /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 		C220B63E2A41703600B346C1 /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCustomBackgroundViewModel.swift; sourceTree = "<group>"; };
+		C24582F72B71F64300200C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+ClearTmpDirectory.swift"; sourceTree = "<group>"; };
 		C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppIconView.swift; sourceTree = "<group>"; };
 		C27DF2B92B4E30E9006F41CB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C2844A432A6C86A500A5571F /* LegalNoticesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticesView.swift; sourceTree = "<group>"; };
@@ -356,6 +360,7 @@
 				C2ECC94729BEB324001AC352 /* Model */,
 				C2ECC93829BEB018001AC352 /* Domain */,
 				C218314F29DA1133009BD82B /* AppSettings.swift */,
+				C24582F72B71F64300200C97 /* AppDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				C218317629EE4D63009BD82B /* Color+Hex.swift */,
 				C2ECC94529BEB207001AC352 /* UIImage+Watermark.swift */,
 				C2AB154629C1815500593D69 /* Color+CustomColors.swift */,
+				C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -636,6 +642,7 @@
 				C218316429E11306009BD82B /* Accessories.swift in Sources */,
 				C2ECC94029BEB09A001AC352 /* ShareWatchfaceWorker.swift in Sources */,
 				C2ECC95E29BEBC7A001AC352 /* CardsPreviewView.swift in Sources */,
+				C24582FA2B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift in Sources */,
 				C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */,
 				C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
@@ -646,6 +653,7 @@
 				C218316329E11306009BD82B /* Manager.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
+				C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */,
 				C218316729E11306009BD82B /* SlideOverCard.swift in Sources */,
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
 				C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */,

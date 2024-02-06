@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct GlancerApp: App {
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject private var store = Store()
