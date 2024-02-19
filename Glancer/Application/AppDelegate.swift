@@ -10,15 +10,26 @@ import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        Logger.info("App exit...")
-        // test...
-        //DispatchQueue.global().async {  // TODO: update to use structured concurrency...
-            do {
-                try FileManager.default.clearTmpDirectory()
-            } catch {
-                Logger.warning("Failed to cleanup tmp directory!")
-            }
-        //}
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Logger.info("App launched...")
+        let tmpCleaner = TmpDirectoryCleaner()
+        Task {
+            await tmpCleaner.clearTmpDirectory()
+        }
+        Logger.info("didFinishLaunchingWithOptions completed")
+        
+        return true
+    }    
+}
+
+actor TmpDirectoryCleaner {
+    
+    func clearTmpDirectory() async {
+        do {
+            try FileManager.default.clearTmpDirectory()
+            Logger.info("Tmp directory cleared")
+        } catch {
+            Logger.warning("Failed to cleanup tmp directory!")
+        }
     }
 }
