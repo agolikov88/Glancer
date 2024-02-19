@@ -19,6 +19,7 @@ struct SelectCardBackgroundView: View {
     private var items: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
     
     @State private var showPhotosPicker = false
+    @State private var showErrorAlert = false
     @State private var selectedBackgrounds: [String] = []
     
     let onBackgroundsSelected: (([String]) -> Void)?
@@ -91,10 +92,14 @@ struct SelectCardBackgroundView: View {
                     returnSelectedBackgrounds()
                 } else {
                     Logger.warning("Image url is empty!")
+                    showErrorAlert = true
                 }
             }
             viewModel.backgroundImageUrl = nil
         })
+        .alert("Something went wrong! Please try again or select another photo", isPresented: $showErrorAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
     
     private func closeWithoutSaving() {
