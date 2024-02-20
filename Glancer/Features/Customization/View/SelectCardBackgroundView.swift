@@ -37,12 +37,10 @@ struct SelectCardBackgroundView: View {
                         showPhotosPicker = true
                     }, label: {
                         ZStack {
-                            Image("background18")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 120)
+                            Image("camera_icon")
+                                .frame(width: 120, height: 147)
+                                .background(.black)
                                 .cornerRadius(8)
-                            Text("Select photo").foregroundColor(.blue)
                         }
                     })
                     ForEach(backgrounds, id: \.self) { background in
