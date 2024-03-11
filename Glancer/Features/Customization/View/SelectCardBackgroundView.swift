@@ -51,6 +51,7 @@ struct SelectCardBackgroundView: View {
                                 selectedBackgrounds.removeAll()
                                 selectedBackgrounds.append(background)
                             }
+                            returnSelectedBackgrounds()
                         }, label: {
                             Image(background)
                                 .resizable()
@@ -69,12 +70,7 @@ struct SelectCardBackgroundView: View {
             .photosPicker(isPresented: $showPhotosPicker, selection: $viewModel.selectedPhotos, maxSelectionCount: 1, matching: .images)
             .navigationBarTitle(Text("Select backgrounds"), displayMode: .inline)
             .navigationBarItems(
-                leading:
-                    Button(action: closeWithoutSaving, label: { Text("Cancel") }),
-                trailing:
-                    HStack {
-                        Button(action: returnSelectedBackgrounds, label: { Text("Done") })
-                    }
+                leading: Button(action: closeWithoutSaving, label: { Text("Cancel") })
             )
         }
         .accentColor(Color(.systemOrange))

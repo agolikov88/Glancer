@@ -15,7 +15,7 @@ extension UIImage
     
     func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 24, y: 24), color: String = "FFFFFF", font: String = "AvenirNextCondensed-Medium", overlay: Bool = true) -> UIImage?
     {
-        let defaultWatchScreenWidth: CGFloat = 396
+        let defaultWatchScreenWidth: CGFloat = Dimensions.watchFaceWidth
         
         let imageSize = self.size
         
