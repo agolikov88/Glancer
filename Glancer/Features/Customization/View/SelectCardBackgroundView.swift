@@ -11,6 +11,8 @@ import PhotosUI
 
 struct SelectCardBackgroundView: View {
     
+    @EnvironmentObject private var store: Store
+    
     @Environment(\.presentationMode) var presentationMode
     
     @StateObject var viewModel = SelectCustomBackgroundViewModel()
@@ -21,6 +23,7 @@ struct SelectCardBackgroundView: View {
     @State private var showPhotosPicker = false
     @State private var showErrorAlert = false
     @State private var selectedBackgrounds: [String] = []
+    @State private var showSubscriptionView = false
     
     let onBackgroundsSelected: (([String]) -> Void)?
     
@@ -34,7 +37,11 @@ struct SelectCardBackgroundView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: items, spacing: 24) {
                     Button(action: {
-                        showPhotosPicker = true
+                        if store.isPaidSubscription {
+                            showPhotosPicker = true
+                        } else {
+                            showSubscriptionView = true
+                        }
                     }, label: {
                         ZStack {
                             Image("camera_icon")
@@ -66,6 +73,9 @@ struct SelectCardBackgroundView: View {
                     }
                     .padding(.horizontal)
                 }
+            }
+            .sheet(isPresented: $showSubscriptionView) {
+                SubscriptionView(isShowing: $showSubscriptionView)
             }
             .photosPicker(isPresented: $showPhotosPicker, selection: $viewModel.selectedPhotos, maxSelectionCount: 1, matching: .images)
             .navigationBarTitle(Text("Select backgrounds"), displayMode: .inline)

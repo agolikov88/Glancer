@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct CustomizationView: View {
+    
+    @EnvironmentObject private var store: Store
     
     @ObservedObject var viewModel: MainViewModel
     
@@ -17,6 +20,7 @@ struct CustomizationView: View {
     
     @State private var showSelectBackgroundView = false
     @State private var enableImageOverlay = true
+    @State private var showSubscriptionView = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -74,33 +78,52 @@ struct CustomizationView: View {
                     }
                 }
             }
-            HStack {
-                Image(systemName: "textformat")
-                    .font(.system(size: 24, design: .default))
-                Spacer()
-                Picker("Font", selection: $font) {
-                    ForEach(Array(viewModel.customizationConfiguration.supportedFonts.keys).sorted(), id: \.self) {
-                        Text($0)
+            if store.isPaidSubscription {
+                HStack {
+                    Image(systemName: "textformat")
+                        .font(.system(size: 24, design: .default))
+                    Spacer()
+                    Picker("Font", selection: $font) {
+                        ForEach(Array(viewModel.customizationConfiguration.supportedFonts.keys).sorted(), id: \.self) {
+                            Text($0)
+                        }
                     }
                 }
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: 32)
-            .padding()
-            .background(Color(.systemGray5))
-            .cornerRadius(16)
-            Slider(value: $fontStyle, in: 0...2, step: 1)   // TODO: use actual number of supported styles depending on selected font...
                 .frame(maxWidth: .infinity)
                 .frame(height: 32)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(16)
-            HorizontalColorPicker(selectedColor: $fontColor)
-                .frame(maxWidth: .infinity)
-                .frame(height: 32)
-                .padding([.top, .bottom])
-                .background(Color(.systemGray5))
-                .cornerRadius(16)
+                Slider(value: $fontStyle, in: 0...2, step: 1)   // TODO: use actual number of supported styles depending on selected font...
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 32)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(16)
+                HorizontalColorPicker(selectedColor: $fontColor)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 32)
+                    .padding([.top, .bottom])
+                    .background(Color(.systemGray5))
+                    .cornerRadius(16)
+            } else {
+                Button(action: {showSubscriptionView = true}, label: {
+                    Text("Unlock All")
+                        .font(.custom("Cookie-Regular", size: 36))
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding()
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [.orange, .red, .purple],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                })
+            }
+        }
+        .sheet(isPresented: $showSubscriptionView) {
+            SubscriptionView(isShowing: $showSubscriptionView)
         }
         .onChange(of: font, perform: {fontValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[fontValue]![Int(fontStyle)] {

@@ -45,13 +45,14 @@ struct MainView: View {
                         withAnimation {
                             CardsPreviewView(cardImage: generateCardImage(topicCard: currentTopicCard, pageIndex: viewModel.topicCards.firstIndex(of: currentTopicCard) ?? page.index, override: false))
                                 .onTapGesture {
-                                    if store.isPaidSubscription {
+                                    //if store.isPaidSubscription {
                                         SOCManager.present(isPresented: $showCustomizationView) {
                                             CustomizationView(viewModel: viewModel)
+                                                .environmentObject(store)
                                         }
-                                    } else {
-                                        showSubscriptionView = true
-                                    }
+//                                    } else {
+//                                        showSubscriptionView = true
+//                                    }
                                 }
                                 .padding(.top)
                         }
