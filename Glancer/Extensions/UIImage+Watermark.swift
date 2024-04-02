@@ -55,6 +55,9 @@ extension UIImage
             }
         }
         
+        // test...
+        textView.frame = CGRect(x: margin.x, y: 200 + margin.y + (284 - margin.y*2 - textHeight), width: defaultWatchScreenWidth - margin.x*2, height: textHeight)
+        
         textView.text.draw(in: textView.frame, withAttributes:[NSAttributedString.Key.font: textView.font!, NSAttributedString.Key.foregroundColor: textView.textColor!])
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
