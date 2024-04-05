@@ -20,6 +20,7 @@ struct CustomizationView: View {
     
     @State private var showSelectBackgroundView = false
     @State private var enableImageOverlay = true
+    @State private var textOnTop = true
     @State private var showSubscriptionView = false
     
     init(viewModel: MainViewModel) {
@@ -53,6 +54,28 @@ struct CustomizationView: View {
                 }, label: {
                     HStack {
                         Image(systemName: enableImageOverlay ? "square.2.layers.3d.top.filled" : "square.2.layers.3d")
+                            .font(.system(size: 28, design: .default))
+                            .foregroundColor(Color(.systemOrange))
+                    }
+                    .frame(height: 32)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(16)
+                    .foregroundColor(.white)
+                })
+                .frame(height: 32)
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color(.systemGray5))
+                .cornerRadius(16)
+                .foregroundColor(.white)
+                Button(action: {
+                    textOnTop.toggle()
+                    viewModel.topicCards[viewModel.currentPageIndex].textOnTop = textOnTop
+                }, label: {
+                    HStack {
+                        Image(systemName: textOnTop ? "text.line.first.and.arrowtriangle.forward" : "text.line.last.and.arrowtriangle.forward")
                             .font(.system(size: 28, design: .default))
                             .foregroundColor(Color(.systemOrange))
                     }

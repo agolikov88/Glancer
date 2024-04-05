@@ -45,7 +45,7 @@ final class ShareWatchfaceWorker {
             var image: UIImage?
             DispatchQueue.main.sync {
                 let backgroundImage = topicCard.background.contains("/") ? UIImage(contentsOfFile: topicCard.background) : UIImage(named: topicCard.background)
-                image = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
+                image = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay, textOnTop: topicCard.textOnTop) ?? UIImage()
             }
             guard let image = image, let imageData = image.jpegData(compressionQuality: 0.7) else {
                 continue

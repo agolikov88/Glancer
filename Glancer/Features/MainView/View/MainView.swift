@@ -216,7 +216,7 @@ struct MainView: View {
             return cardImage
         } else {
             let backgroundImage = topicCard.background.contains("/") ? UIImage(contentsOfFile: topicCard.background) : UIImage(named: topicCard.background)
-            let cardImage = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay) ?? UIImage()
+            let cardImage = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay, textOnTop: topicCard.textOnTop) ?? UIImage()
             cardsImages[pageIndex] = cardImage
             return cardImage
         }

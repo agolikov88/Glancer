@@ -13,7 +13,7 @@ import SwiftUI
 extension UIImage
 {
     
-    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 24, y: 24), color: String = "FFFFFF", font: String = "AvenirNextCondensed-Medium", overlay: Bool = true) -> UIImage?
+    func waterMarkedImage(text: String, margin: CGPoint = CGPoint(x: 24, y: 24), color: String = "FFFFFF", font: String = "AvenirNextCondensed-Medium", overlay: Bool = true, textOnTop: Bool = true) -> UIImage?
     {
         let defaultWatchScreenWidth: CGFloat = Dimensions.watchFaceWidth
         
@@ -44,19 +44,18 @@ extension UIImage
         textView.font = UIFont(name: font.isEmpty ? "AvenirNextCondensed-Medium" : font, size: 40)
         var textHeight = text.height(withConstrainedWidth: defaultWatchScreenWidth - margin.x*2, font: textView.font!)
 
-        textView.frame = CGRect(x: margin.x, y: 200 + margin.y, width: defaultWatchScreenWidth - margin.x*2, height: 284 - margin.y*2)
+        let textMaxHeight = 284 - margin.y*2
         
-        if (textHeight > textView.frame.size.height) {
+        if (textHeight > textMaxHeight) {
             var fontIncrement = 1;
-            while (textHeight > textView.frame.size.height) {
+            while (textHeight > textMaxHeight) {
                 textView.font = UIFont(name: font, size: CGFloat((40 - fontIncrement)))
                 textHeight = text.height(withConstrainedWidth: defaultWatchScreenWidth - margin.x*2, font: textView.font!)
                 fontIncrement += 1
             }
         }
         
-        // test...
-        textView.frame = CGRect(x: margin.x, y: 200 + margin.y + (284 - margin.y*2 - textHeight), width: defaultWatchScreenWidth - margin.x*2, height: textHeight)
+        textView.frame = CGRect(x: margin.x, y: textOnTop ? 200 + margin.y : 200 + margin.y + (278 - margin.y*2 - textHeight), width: defaultWatchScreenWidth - margin.x*2, height: textHeight)
         
         textView.text.draw(in: textView.frame, withAttributes:[NSAttributedString.Key.font: textView.font!, NSAttributedString.Key.foregroundColor: textView.textColor!])
         let image = UIGraphicsGetImageFromCurrentImageContext()
