@@ -22,6 +22,7 @@ struct CustomizationView: View {
     @State private var enableImageOverlay = true
     @State private var textOnTop = true
     @State private var showSubscriptionView = false
+    @State private var showFontPickerView = false
     
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
@@ -102,18 +103,20 @@ struct CustomizationView: View {
                 }
             }
             if store.isPaidSubscription {
-                HStack {
-                    Image(systemName: "textformat")
-                        .font(.system(size: 24, design: .default))
-                    Spacer()
-                    Picker("Font", selection: $font) {
-                        ForEach(Array(viewModel.customizationConfiguration.supportedFonts.keys).sorted(), id: \.self) {
-                            Text($0)
+                Button(action: { showFontPickerView = true }, label: {
+                    HStack {
+                        Image(systemName: "textformat")
+                            .font(.system(size: 24, design: .default))
+                        Spacer()
+                        if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyle)] {
+                            Text(font).font(.custom(fontStyle.isEmpty ? "\(font)" : "\(font)-\(fontStyle)", size: 16)).animation(nil)
+                        } else {
+                            Text(font).animation(nil)
                         }
                     }
-                }
-                .frame(maxWidth: .infinity)
+                })
                 .frame(height: 32)
+                .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(16)
@@ -143,6 +146,13 @@ struct CustomizationView: View {
                             )
                         )
                 })
+            }
+        }
+        .sheet(isPresented: $showFontPickerView) {
+            FontPickerView(fonts: viewModel.customizationConfiguration.supportedFonts) { selectedFont in
+                if !selectedFont.isEmpty {
+                    font = selectedFont
+                }
             }
         }
         .sheet(isPresented: $showSubscriptionView) {
