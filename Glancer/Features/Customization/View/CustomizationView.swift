@@ -104,15 +104,17 @@ struct CustomizationView: View {
             }
             if store.isPaidSubscription {
                 Button(action: { showFontPickerView = true }, label: {
-                    HStack {
+                    HStack(alignment: .lastTextBaseline) {
                         Image(systemName: "textformat")
                             .font(.system(size: 24, design: .default))
-                        Spacer()
+                            .foregroundColor(.white)
+                            .padding(.trailing, 32)
                         if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyle)] {
-                            Text(font).font(.custom(fontStyle.isEmpty ? "\(font)" : "\(font)-\(fontStyle)", size: 16)).animation(nil)
+                            Text(font).font(.custom(fontStyle.isEmpty ? "\(font)" : "\(font)-\(fontStyle)", size: 18)).animation(nil)
                         } else {
                             Text(font).animation(nil)
                         }
+                        Spacer()
                     }
                 })
                 .frame(height: 32)

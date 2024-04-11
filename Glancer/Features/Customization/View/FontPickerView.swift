@@ -23,6 +23,7 @@ struct FontPickerView: View {
                         Button(action: {returnSelectedFont(font: font)}, label: {
                             Text(font).font(.custom(fontStyle.isEmpty ? "\(font)" : "\(font)-\(fontStyle)", size: 24))
                         })
+                        .frame(height: 48)
                     }
                 }
             }
