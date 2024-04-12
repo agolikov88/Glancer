@@ -43,6 +43,22 @@ struct SettingsView: View {
                         Text("Watch Cards v1.2")
                             .foregroundColor(.white)
                     }
+                    ShareLink(item: URL(string: "https://apps.apple.com/us/app/watch-cards/id6450130685")!) {
+                        HStack {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("Share with friends")
+                                .foregroundColor(.white)
+                        }
+                    }
+                    Button(action: {rateApp()}, label: {
+                        HStack {
+                            Image(systemName: "star.bubble")
+                                .foregroundColor(Color(.systemOrange))
+                            Text("How are we doing?")
+                        }
+                    })
+                    .accentColor(.white)
                     Button(action: {showSendFeedbackView = true}, label: {
                         HStack {
                             Image(systemName: "envelope")
@@ -173,6 +189,15 @@ struct SettingsView: View {
             LegalNoticesView(noticeType: .thirdParty)
         }
         .accentColor(Color(.systemOrange))
+    }
+    
+    private func rateApp() {
+        let url = URL(string: "itms-apps:itunes.apple.com/us/app/apple-store/id6450130685?mt=8&action=write-review")
+        if let url = url {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }
 
