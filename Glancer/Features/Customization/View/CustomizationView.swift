@@ -27,6 +27,7 @@ struct CustomizationView: View {
     init(viewModel: MainViewModel) {
         self.viewModel = viewModel
         _enableImageOverlay = State(initialValue: viewModel.topicCards[viewModel.currentPageIndex].overlay)
+        _textOnTop = State(initialValue: viewModel.topicCards[viewModel.currentPageIndex].textOnTop)
         _font = State(initialValue: viewModel.topicCards[viewModel.currentPageIndex].fontName)
         _fontStyle = State(initialValue: Float(viewModel.customizationConfiguration.supportedFonts[viewModel.topicCards[viewModel.currentPageIndex].fontName]!.first(where: { $1 == viewModel.topicCards[viewModel.currentPageIndex].fontStyle })!.key))
         _fontColor = State(initialValue: Color(hex: viewModel.topicCards[viewModel.currentPageIndex].fontColor) ?? Color.white)
