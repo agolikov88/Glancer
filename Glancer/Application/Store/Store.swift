@@ -50,6 +50,7 @@ import StoreKit
         switch result {
         case .success(let verificationResult):
             Logger.info("Purchase success")
+            AnalyticsManager.purchaseSuccessEvent()
             if let transaction = try? verificationResult.payloadValue {
                 await transaction.finish()
                 Logger.info("Purchase transaction finished")
@@ -57,10 +58,12 @@ import StoreKit
             }
         case .userCancelled:
             Logger.info("user cancelled purchase")
+            AnalyticsManager.purchaseCancelledEvent()
             isUserCancelled = true
             break
         case .pending:
             Logger.info("purchase pending")
+            AnalyticsManager.purchasePendingEvent()
             break
         @unknown default:
             break

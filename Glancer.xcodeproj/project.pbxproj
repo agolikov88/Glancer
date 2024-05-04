@@ -35,7 +35,11 @@
 		C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F72B71F64300200C97 /* AppDelegate.swift */; };
 		C24582FA2B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */; };
 		C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */; };
+		C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26874D42BE60BF9009805FA /* AnalyticsManager.swift */; };
 		C27AF7D12BC6217000948879 /* FontPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AF7D02BC6217000948879 /* FontPickerView.swift */; };
+		C27AF7D32BE2016600948879 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27AF7D22BE2016600948879 /* GoogleService-Info.plist */; };
+		C27AF7D62BE2036100948879 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C27AF7D52BE2036100948879 /* FirebaseAnalytics */; };
+		C27AF7D82BE60A0300948879 /* FirebaseConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AF7D72BE60A0300948879 /* FirebaseConfigurator.swift */; };
 		C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */; };
 		C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DF2B92B4E30E9006F41CB /* Logger.swift */; };
 		C2844A442A6C86A500A5571F /* LegalNoticesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844A432A6C86A500A5571F /* LegalNoticesView.swift */; };
@@ -113,7 +117,10 @@
 		C24582F72B71F64300200C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+ClearTmpDirectory.swift"; sourceTree = "<group>"; };
 		C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppIconView.swift; sourceTree = "<group>"; };
+		C26874D42BE60BF9009805FA /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		C27AF7D02BC6217000948879 /* FontPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerView.swift; sourceTree = "<group>"; };
+		C27AF7D22BE2016600948879 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C27AF7D72BE60A0300948879 /* FirebaseConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfigurator.swift; sourceTree = "<group>"; };
 		C27DF2B92B4E30E9006F41CB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		C2844A432A6C86A500A5571F /* LegalNoticesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegalNoticesView.swift; sourceTree = "<group>"; };
 		C2844A452A6C8A8600A5571F /* WCWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCWebView.swift; sourceTree = "<group>"; };
@@ -156,6 +163,7 @@
 				C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */,
 				C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
+				C27AF7D62BE2036100948879 /* FirebaseAnalytics in Frameworks */,
 				C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +288,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		C26874D32BE60BDF009805FA /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C26874D42BE60BF9009805FA /* AnalyticsManager.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		C27DF2B82B4E30B6006F41CB /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +352,7 @@
 				C2ECC94429BEB1DC001AC352 /* Extensions */,
 				C2ECC93729BEAFBB001AC352 /* Application */,
 				C2ECC93629BEAE07001AC352 /* Info.plist */,
+				C27AF7D22BE2016600948879 /* GoogleService-Info.plist */,
 				C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */,
 				C2ECC91229BEAC98001AC352 /* Preview Content */,
 				C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */,
@@ -371,12 +388,14 @@
 		C2ECC93729BEAFBB001AC352 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C26874D32BE60BDF009805FA /* Analytics */,
 				C27DF2B82B4E30B6006F41CB /* Logger */,
 				C2DD7D802AD64855004424C5 /* Store */,
 				C2ECC94729BEB324001AC352 /* Model */,
 				C2ECC93829BEB018001AC352 /* Domain */,
 				C218314F29DA1133009BD82B /* AppSettings.swift */,
 				C24582F72B71F64300200C97 /* AppDelegate.swift */,
+				C27AF7D72BE60A0300948879 /* FirebaseConfigurator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -527,6 +546,7 @@
 				C2ECC94229BEB151001AC352 /* ZIPFoundation */,
 				C218317929F2354E009BD82B /* SwiftUIPager */,
 				C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */,
+				C27AF7D52BE2036100948879 /* FirebaseAnalytics */,
 			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Watch Cards.app */;
@@ -604,6 +624,7 @@
 				C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
 				C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 				C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
+				C27AF7D42BE2036100948879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
@@ -626,6 +647,7 @@
 				C218315229DA2FE8009BD82B /* Cookie-Regular.ttf in Resources */,
 				C2DD7D7F2AD6463A004424C5 /* Watch Cards.storekit in Resources */,
 				C2844A4A2A6F57E300A5571F /* third_party.html in Resources */,
+				C27AF7D32BE2016600948879 /* GoogleService-Info.plist in Resources */,
 				C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */,
 				C2ECC95529BEB5A7001AC352 /* face.json in Resources */,
 				C2844A482A6F566500A5571F /* terms_of_service.html in Resources */,
@@ -692,7 +714,9 @@
 				C27AF7D12BC6217000948879 /* FontPickerView.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
+				C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */,
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
+				C27AF7D82BE60A0300948879 /* FirebaseConfigurator.swift in Sources */,
 				C22B71E72B9ED51900BD6513 /* Dimensions.swift in Sources */,
 				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
@@ -854,7 +878,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -873,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -893,7 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -912,7 +936,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1051,6 +1075,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C27AF7D42BE2036100948879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
+			};
+		};
 		C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver.git";
@@ -1074,6 +1106,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
 			productName = SwiftUIPager;
+		};
+		C27AF7D52BE2036100948879 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C27AF7D42BE2036100948879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 		C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */ = {
 			isa = XCSwiftPackageProductDependency;

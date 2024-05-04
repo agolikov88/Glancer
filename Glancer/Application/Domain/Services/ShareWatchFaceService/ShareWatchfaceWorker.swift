@@ -109,6 +109,7 @@ extension ShareWatchfaceWorker: ShareWatchfaceService {
                     Logger.info("watchFaceURL: \(watchFaceURL)")
                     try fileManager.zipItem(at: watchFaceFolder, to: watchFaceURL, shouldKeepParent: false, compressionMethod: .deflate)
                     Logger.info("generateWatchFace completed")
+                    AnalyticsManager.watchFaceCreatedEvent()
                     promise(.success(watchFaceURL))
                 }
                 catch {

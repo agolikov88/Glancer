@@ -12,6 +12,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Logger.info("App launched...")
+        Logger.info("Configuring Firebase Analytics...")
+        FirebaseConfigurator.configureFirebase()
         let tmpCleaner = TmpDirectoryCleaner()
         Task {
             await tmpCleaner.clearTmpDirectory()
