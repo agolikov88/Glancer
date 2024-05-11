@@ -13,6 +13,17 @@ enum AnalyticsEvent {
     case purchaseCancelled
     case purchasePending
     case watchFaceCreated
+    case customizationViewOpened
+    case selectBackgroundViewOpened
+    case backgroundChanged
+    case textPositionChanged
+    case overlayChanged
+    case fontChanged
+    case fontSizeChanged
+    case textColorChanged
+    case cardAdded
+    case cardRemoved
+    case manageWatchfacesTapped
     
     var name: String {
         switch self {
@@ -24,6 +35,28 @@ enum AnalyticsEvent {
             return "purchase_pending"
         case .watchFaceCreated:
             return "watchface_created"
+        case .customizationViewOpened:
+            return "customization_view_opened"
+        case .selectBackgroundViewOpened:
+            return "select_background_view_opened"
+        case .backgroundChanged:
+            return "background_changed"
+        case .textPositionChanged:
+            return "text_position_changed"
+        case .overlayChanged:
+            return "overlay_changed"
+        case .fontChanged:
+            return "font_changed"
+        case .fontSizeChanged:
+            return "font__size_changed"
+        case .textColorChanged:
+            return "text_color_changed"
+        case .cardAdded:
+            return "card_added"
+        case .cardRemoved:
+            return "card_removed"
+        case .manageWatchfacesTapped:
+            return "manage_watchface_tapped"
         }
     }
 }
