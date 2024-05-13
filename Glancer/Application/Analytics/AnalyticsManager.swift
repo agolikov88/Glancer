@@ -85,4 +85,48 @@ extension AnalyticsManager {
     class func watchFaceCreatedEvent() {
         event(with: .watchFaceCreated)
     }
+    
+    class func customizationViewOpened() {
+        event(with: .customizationViewOpened)
+    }
+    
+    class func selectBackgroundViewOpened() {
+        event(with: .selectBackgroundViewOpened)
+    }
+    
+    class func backgroundChanged() {
+        event(with: .backgroundChanged)
+    }
+    
+    class func textPositionChanged() {
+        event(with: .textPositionChanged)
+    }
+    
+    class func overlayChanged() {
+        event(with: .overlayChanged)
+    }
+    
+    class func fontChanged() {
+        event(with: .fontChanged)
+    }
+    
+    class func fontSizeChanged() {
+        event(with: .fontSizeChanged)
+    }
+    
+    class func textColorChanged() {
+        event(with: .textColorChanged)
+    }
+    
+    class func cardAdded(cardsNumber: Int) {
+        event(with: .cardAdded, parameters: ["cards_number": cardsNumber])
+    }
+    
+    class func cardRemoved(cardsNumber: Int) {
+        event(with: .cardRemoved, parameters: ["cards_number": cardsNumber])
+    }
+    
+    class func manageWatchfacesTapped() {
+        event(with: .manageWatchfacesTapped)
+    }
 }

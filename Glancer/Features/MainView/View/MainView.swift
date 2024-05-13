@@ -45,14 +45,11 @@ struct MainView: View {
                         withAnimation {
                             CardsPreviewView(cardImage: generateCardImage(topicCard: currentTopicCard, pageIndex: viewModel.topicCards.firstIndex(of: currentTopicCard) ?? page.index, override: false))
                                 .onTapGesture {
-                                    //if store.isPaidSubscription {
-                                        SOCManager.present(isPresented: $showCustomizationView) {
-                                            CustomizationView(viewModel: viewModel)
-                                                .environmentObject(store)
-                                        }
-//                                    } else {
-//                                        showSubscriptionView = true
-//                                    }
+                                    AnalyticsManager.customizationViewOpened()
+                                    SOCManager.present(isPresented: $showCustomizationView) {
+                                        CustomizationView(viewModel: viewModel)
+                                            .environmentObject(store)
+                                    }
                                 }
                                 .padding(.top)
                         }
@@ -100,6 +97,7 @@ struct MainView: View {
                     .disabled(viewModel.watchFaceState == .generating)
                     .padding(.bottom)
                     Button(action: {
+                        AnalyticsManager.manageWatchfacesTapped()
                         launchWatchApp()
                     }) {
                         Text("Manage Watch Faces")
@@ -140,6 +138,7 @@ struct MainView: View {
                                         viewModel.currentPageIndex -= 1
                                     }
                                     viewModel.previousCardsNumber = viewModel.topicCards.count
+                                    AnalyticsManager.cardRemoved(cardsNumber: viewModel.topicCards.count)
                                 }
                             }
                         }
@@ -155,6 +154,7 @@ struct MainView: View {
                                 viewModel.currentPageIndex = viewModel.topicCards.count
                                 viewModel.previousCardsNumber = viewModel.topicCards.count
                                 viewModel.topicCards.append(TopicCard())
+                                AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
                             }
                         }, label: { Image(systemName: "plus")
                         })

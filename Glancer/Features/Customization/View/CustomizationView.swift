@@ -37,7 +37,7 @@ struct CustomizationView: View {
         VStack {
             Text("Customize")
             HStack {
-                Button(action: {showSelectBackgroundView = true}, label: {
+                Button(action: {AnalyticsManager.selectBackgroundViewOpened(); showSelectBackgroundView = true}, label: {
                     HStack {
                         Image(systemName: "photo")
                             .font(.system(size: 28, design: .default))
@@ -51,6 +51,7 @@ struct CustomizationView: View {
                     .foregroundColor(.white)
                 })
                 Button(action: {
+                    AnalyticsManager.overlayChanged()
                     enableImageOverlay.toggle()
                     viewModel.topicCards[viewModel.currentPageIndex].overlay = enableImageOverlay
                 }, label: {
@@ -73,6 +74,7 @@ struct CustomizationView: View {
                 .cornerRadius(16)
                 .foregroundColor(.white)
                 Button(action: {
+                    AnalyticsManager.textPositionChanged()
                     textOnTop.toggle()
                     viewModel.topicCards[viewModel.currentPageIndex].textOnTop = textOnTop
                 }, label: {
@@ -99,6 +101,7 @@ struct CustomizationView: View {
             .sheet(isPresented: $showSelectBackgroundView) {
                 SelectCardBackgroundView(backgrounds: viewModel.customizationConfiguration.supportedBackgrounds) { selectedBackgrounds in
                     if !selectedBackgrounds.isEmpty {
+                        AnalyticsManager.backgroundChanged()
                         viewModel.topicCards[viewModel.currentPageIndex].background = selectedBackgrounds[0]
                     }
                 }
@@ -163,16 +166,19 @@ struct CustomizationView: View {
         }
         .onChange(of: font, perform: {fontValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[fontValue]![Int(fontStyle)] {
+                AnalyticsManager.fontChanged()
                 viewModel.topicCards[viewModel.currentPageIndex].fontName = fontValue
                 viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
         })
         .onChange(of: fontStyle, perform: {fontStyleValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyleValue)] {
+                AnalyticsManager.fontSizeChanged()
                 viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
         })
         .onChange(of: fontColor, perform: {fontColorValue in
+            AnalyticsManager.textColorChanged()
             viewModel.topicCards[viewModel.currentPageIndex].fontColor =  fontColorValue.toHex() ?? "0xFFFFFF"
         })
         .accentColor(Color(.systemOrange))

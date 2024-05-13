@@ -40,7 +40,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v1.2")
+                        Text("Watch Cards v1.3")
                             .foregroundColor(.white)
                     }
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app/watch-cards/id6450130685")!) {
@@ -55,7 +55,7 @@ struct SettingsView: View {
                         HStack {
                             Image(systemName: "star.bubble")
                                 .foregroundColor(Color(.systemOrange))
-                            Text("How are we doing?")
+                            Text("Rate the app")
                         }
                     })
                     .accentColor(.white)
