@@ -11,6 +11,7 @@ import SwiftUIPager
 struct MainView: View {
     
     @EnvironmentObject private var store: Store
+    @Environment(\.requestReview) private var requestReview
     
     @ObservedObject var viewModel: MainViewModel
     
@@ -183,6 +184,11 @@ struct MainView: View {
             .onChange(of: viewModel.clearImagesCache, perform: { _ in
                 cardsImages.removeAll()
             })
+            .onChange(of: showTutorialView, perform: { value in
+                if !value {
+                    presentReviewRequest()
+                }
+            })
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(viewModel: viewModel, isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
@@ -219,6 +225,21 @@ struct MainView: View {
             let cardImage = backgroundImage?.waterMarkedImage(text: topicCard.cardDefinition.isEmpty ? "Tap on this preview to customize appearance" : topicCard.cardDefinition, color: topicCard.fontColor, font: topicCard.completeFontName(), overlay: topicCard.overlay, textOnTop: topicCard.textOnTop) ?? UIImage()
             cardsImages[pageIndex] = cardImage
             return cardImage
+        }
+    }
+    
+    private func presentReviewRequest() {
+        guard let currentAppVersion = Bundle.currentAppVersion else {
+            return
+        }
+        if currentAppVersion != AppSettings.getLastVersionReviewRequested() {
+            Task {
+                // Delay for two seconds to avoid interrupting the person using the app.
+                try await Task.sleep(for: .seconds(2))
+                requestReview()
+                AnalyticsManager.reviewRequestShown()
+            }
+            AppSettings.setLastVersionReviewRequested(updatedVersionReviewRequested: currentAppVersion)
         }
     }
 }

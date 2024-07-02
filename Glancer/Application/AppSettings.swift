@@ -11,6 +11,7 @@ enum AppSettings {
     
     private static let showTutorialKey = "show_tutorial"
     private static let attachLogsKey = "attach_logs"
+    private static let lastVersionReviewRequested = "last_version_review_requested"
     
     static func markTutorialViewed() {
         UserDefaults.standard.set(true, forKey: showTutorialKey)
@@ -26,5 +27,13 @@ enum AppSettings {
     
     static func isAttachLogsEnabled() -> Bool {
         return UserDefaults.standard.bool(forKey: attachLogsKey)
+    }
+    
+    static func getLastVersionReviewRequested() -> String {
+        return UserDefaults.standard.string(forKey: lastVersionReviewRequested) ?? ""
+    }
+    
+    static func setLastVersionReviewRequested(updatedVersionReviewRequested: String) {
+        UserDefaults.standard.set(updatedVersionReviewRequested, forKey: lastVersionReviewRequested)
     }
 }

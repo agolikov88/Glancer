@@ -13,6 +13,7 @@ import StoreKit
 struct SettingsView: View {
     
     @EnvironmentObject private var store: Store
+    @Environment(\.requestReview) private var requestReview
     
     @State var sendFeedbackResult: Result<MFMailComposeResult, MFMailComposeError>? = nil
     @State var showSendFeedbackView = false
@@ -40,7 +41,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v1.3")
+                        Text("Watch Cards v1.4")
                             .foregroundColor(.white)
                     }
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app/watch-cards/id6450130685")!) {
@@ -166,6 +167,11 @@ struct SettingsView: View {
                     break
                 }
             })
+            .onChange(of: showTutorialView, perform: { value in
+                if !value {
+                    presentReviewRequest()
+                }
+            })
             .alert(isPresented: $showSendFeedbackFailureAlertDialog) {
                 Alert(title: Text(""), message: Text("Error sending feedback email! Please try again"), dismissButton: .default(Text("Ok")))
             }
@@ -197,6 +203,21 @@ struct SettingsView: View {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
+        }
+    }
+    
+    private func presentReviewRequest() {
+        guard let currentAppVersion = Bundle.currentAppVersion else {
+            return
+        }
+        if currentAppVersion != AppSettings.getLastVersionReviewRequested() {
+            Task {
+                // Delay for two seconds to avoid interrupting the person using the app.
+                try await Task.sleep(for: .seconds(2))
+                requestReview()
+                AnalyticsManager.reviewRequestShown()
+            }
+            AppSettings.setLastVersionReviewRequested(updatedVersionReviewRequested: currentAppVersion)
         }
     }
 }

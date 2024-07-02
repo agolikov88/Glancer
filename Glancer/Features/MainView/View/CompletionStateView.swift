@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CompletionStateView: View {
     
+    @Environment(\.requestReview) private var requestReview
+    
     @ObservedObject var viewModel: MainViewModel
     
     @Binding var isShowing: Bool
@@ -28,6 +30,9 @@ struct CompletionStateView: View {
             Spacer()
             Button(action: {
                 isShowing = false
+                if succesful {
+                    presentReviewRequest()
+                }
             }) {
                 Text("Okay")
                     .fontWeight(.bold)
@@ -41,6 +46,9 @@ struct CompletionStateView: View {
             Button(action: {
                 viewModel.clearCards()
                 isShowing = false
+                if succesful {
+                    presentReviewRequest()
+                }
             }) {
                 Text("Start fresh")
                     .fontWeight(.bold)
@@ -48,6 +56,21 @@ struct CompletionStateView: View {
         }
         .padding()
         .accentColor(Color(.systemOrange))
+    }
+    
+    private func presentReviewRequest() {
+        guard let currentAppVersion = Bundle.currentAppVersion else {
+            return
+        }
+        if currentAppVersion != AppSettings.getLastVersionReviewRequested() {
+            Task {
+                // Delay for two seconds to avoid interrupting the person using the app.
+                try await Task.sleep(for: .seconds(2))
+                requestReview()
+                AnalyticsManager.reviewRequestShown()
+            }
+            AppSettings.setLastVersionReviewRequested(updatedVersionReviewRequested: currentAppVersion)
+        }
     }
 }
 

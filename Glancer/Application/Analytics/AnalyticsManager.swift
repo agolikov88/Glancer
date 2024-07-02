@@ -24,6 +24,7 @@ enum AnalyticsEvent {
     case cardAdded
     case cardRemoved
     case manageWatchfacesTapped
+    case reviewRequestShown
     
     var name: String {
         switch self {
@@ -57,6 +58,8 @@ enum AnalyticsEvent {
             return "card_removed"
         case .manageWatchfacesTapped:
             return "manage_watchface_tapped"
+        case .reviewRequestShown:
+            return "review_request_shown"
         }
     }
 }
@@ -128,5 +131,9 @@ extension AnalyticsManager {
     
     class func manageWatchfacesTapped() {
         event(with: .manageWatchfacesTapped)
+    }
+    
+    class func reviewRequestShown() {
+        event(with: .reviewRequestShown)
     }
 }

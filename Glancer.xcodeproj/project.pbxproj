@@ -46,6 +46,7 @@
 		C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2844A452A6C8A8600A5571F /* WCWebView.swift */; };
 		C2844A482A6F566500A5571F /* terms_of_service.html in Resources */ = {isa = PBXBuildFile; fileRef = C2844A472A6F566500A5571F /* terms_of_service.html */; };
 		C2844A4A2A6F57E300A5571F /* third_party.html in Resources */ = {isa = PBXBuildFile; fileRef = C2844A492A6F57E300A5571F /* third_party.html */; };
+		C2A6CC3C2C3344CC00E334AB /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -126,6 +127,7 @@
 		C2844A452A6C8A8600A5571F /* WCWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCWebView.swift; sourceTree = "<group>"; };
 		C2844A472A6F566500A5571F /* terms_of_service.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = terms_of_service.html; sourceTree = "<group>"; };
 		C2844A492A6F57E300A5571F /* third_party.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = third_party.html; sourceTree = "<group>"; };
+		C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -435,6 +437,7 @@
 				C2AB154629C1815500593D69 /* Color+CustomColors.swift */,
 				C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */,
 				C22B71E32B9ED27900BD6513 /* UIImage+Crop.swift */,
+				C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -699,6 +702,7 @@
 				C2ECC96029BEDB37001AC352 /* MainViewModel.swift in Sources */,
 				C218317529E50571009BD82B /* SelectCardBackgroundView.swift in Sources */,
 				C218316A29E26CDD009BD82B /* HorizontalColorPicker.swift in Sources */,
+				C2A6CC3C2C3344CC00E334AB /* Bundle+AppVersion.swift in Sources */,
 				C218314E29D8CFB1009BD82B /* TutorialView.swift in Sources */,
 				C218317329E390C2009BD82B /* WatchFaceCustomizationWorker.swift in Sources */,
 				C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */,
@@ -897,7 +901,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -936,7 +940,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
