@@ -160,7 +160,7 @@ struct MainView: View {
                         }, label: { Image(systemName: "plus")
                         })
                         .disabled(viewModel.topicCards.count == maxCardsNumberPerAlbum)
-                        Button(action: {showSettingsView = true}, label: { Image(systemName: "info.circle")
+                        Button(action: {showSettingsView = true}, label: { Image(systemName: "gear")
                         })
                         if isInputActive {
                             Button(action: {isInputActive = false}, label: { Text("Done") })
