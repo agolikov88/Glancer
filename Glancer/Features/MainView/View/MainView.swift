@@ -24,6 +24,7 @@ struct MainView: View {
     @State var showCustomizationView = false
     @State var showCardDeleteConfirmation = false
     @State var showSubscriptionView = false
+    @State var showAddNewCardConfirmation = false
     
     @StateObject var page: Page = .first()
     
@@ -149,16 +150,36 @@ struct MainView: View {
                 trailing:
                     HStack {
                         Button(action: {
-                            if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
-                                showSubscriptionView = true
-                            } else {
-                                viewModel.currentPageIndex = viewModel.topicCards.count
-                                viewModel.previousCardsNumber = viewModel.topicCards.count
-                                viewModel.topicCards.append(TopicCard())
-                                AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
-                            }
+//                            if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
+//                                showSubscriptionView = true
+//                            } else {
+//                                viewModel.currentPageIndex = viewModel.topicCards.count
+//                                viewModel.previousCardsNumber = viewModel.topicCards.count
+//                                viewModel.topicCards.append(TopicCard())
+//                                AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
+//                            }
+                            showAddNewCardConfirmation = true
                         }, label: { Image(systemName: "plus")
                         })
+                        .confirmationDialog(
+                            "Add new card",
+                            isPresented: $showAddNewCardConfirmation,
+                            titleVisibility: .visible
+                        ) {
+                            Button("Custom text") {
+                                if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
+                                    showSubscriptionView = true
+                                } else {
+                                    viewModel.currentPageIndex = viewModel.topicCards.count
+                                    viewModel.previousCardsNumber = viewModel.topicCards.count
+                                    viewModel.topicCards.append(TopicCard())
+                                    AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
+                                }
+                            }
+                            Button("Events & reminders") {
+                                
+                            }
+                        }
                         .disabled(viewModel.topicCards.count == maxCardsNumberPerAlbum)
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "gear")
                         })
