@@ -48,6 +48,9 @@
 		C2844A4A2A6F57E300A5571F /* third_party.html in Resources */ = {isa = PBXBuildFile; fileRef = C2844A492A6F57E300A5571F /* third_party.html */; };
 		C2A6CC3C2C3344CC00E334AB /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */; };
 		C2A6CC412C4C573700E334AB /* EventKitStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC402C4C573700E334AB /* EventKitStore.swift */; };
+		C2A6CC432C58834400E334AB /* EventKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC422C58834400E334AB /* EventKitError.swift */; };
+		C2A6CC452C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */; };
+		C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC462C588C1400E334AB /* Reminder.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -130,6 +133,9 @@
 		C2844A492A6F57E300A5571F /* third_party.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = third_party.html; sourceTree = "<group>"; };
 		C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
 		C2A6CC402C4C573700E334AB /* EventKitStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitStore.swift; sourceTree = "<group>"; };
+		C2A6CC422C58834400E334AB /* EventKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitError.swift; sourceTree = "<group>"; };
+		C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+AsyncFetchReminders.swift"; sourceTree = "<group>"; };
+		C2A6CC462C588C1400E334AB /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -312,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A6CC402C4C573700E334AB /* EventKitStore.swift */,
+				C2A6CC422C58834400E334AB /* EventKitError.swift */,
 			);
 			path = CalendarStore;
 			sourceTree = "<group>";
@@ -449,6 +456,7 @@
 				C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */,
 				C22B71E32B9ED27900BD6513 /* UIImage+Crop.swift */,
 				C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */,
+				C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -457,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				C2ECC94929BEB33B001AC352 /* TopicCard.swift */,
+				C2A6CC462C588C1400E334AB /* Reminder.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -700,12 +709,14 @@
 				C218315929DFA71C009BD82B /* CustomizationView.swift in Sources */,
 				C2ECC93F29BEB09A001AC352 /* ShareWatchfaceService.swift in Sources */,
 				C2844A442A6C86A500A5571F /* LegalNoticesView.swift in Sources */,
+				C2A6CC452C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift in Sources */,
 				C218316D29E372EC009BD82B /* WatchFaceCustomizationService.swift in Sources */,
 				C218316229E11306009BD82B /* Previews.swift in Sources */,
 				C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */,
 				C218316329E11306009BD82B /* Manager.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
+				C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */,
 				C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */,
 				C218316729E11306009BD82B /* SlideOverCard.swift in Sources */,
 				C2ECC94B29BEB33B001AC352 /* TopicCard.swift in Sources */,
@@ -730,6 +741,7 @@
 				C27AF7D12BC6217000948879 /* FontPickerView.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
+				C2A6CC432C58834400E334AB /* EventKitError.swift in Sources */,
 				C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */,
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
 				C27AF7D82BE60A0300948879 /* FirebaseConfigurator.swift in Sources */,

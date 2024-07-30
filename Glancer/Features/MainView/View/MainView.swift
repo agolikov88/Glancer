@@ -150,14 +150,6 @@ struct MainView: View {
                 trailing:
                     HStack {
                         Button(action: {
-//                            if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
-//                                showSubscriptionView = true
-//                            } else {
-//                                viewModel.currentPageIndex = viewModel.topicCards.count
-//                                viewModel.previousCardsNumber = viewModel.topicCards.count
-//                                viewModel.topicCards.append(TopicCard())
-//                                AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
-//                            }
                             showAddNewCardConfirmation = true
                         }, label: { Image(systemName: "plus")
                         })
