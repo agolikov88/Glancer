@@ -15,6 +15,7 @@ struct GlancerApp: App {
     @Environment(\.scenePhase) private var scenePhase
     
     @StateObject private var store = Store()
+    @StateObject private var eventKitStore = EventKitStore()
     
     let viewModel = MainViewModel(shareWatchFaceService: ShareWatchfaceWorker(), watchFaceCustomizationService: WatchFaceCustomizationWorker())
     
@@ -27,6 +28,7 @@ struct GlancerApp: App {
         WindowGroup {
             MainView(viewModel: viewModel)
                 .environmentObject(store)
+                .environmentObject(eventKitStore)
                 .task(id: scenePhase) {
                     if scenePhase == .active {
                         await store.fetchActiveTransactions()

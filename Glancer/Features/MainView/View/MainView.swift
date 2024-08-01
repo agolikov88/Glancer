@@ -25,6 +25,7 @@ struct MainView: View {
     @State var showCardDeleteConfirmation = false
     @State var showSubscriptionView = false
     @State var showAddNewCardConfirmation = false
+    @State var showRemindersView = false
     
     @StateObject var page: Page = .first()
     
@@ -169,7 +170,11 @@ struct MainView: View {
                                 }
                             }
                             Button("Events & reminders") {
-                                
+                                if !store.isPaidSubscription {
+                                    showSubscriptionView = true
+                                } else {
+                                    showRemindersView = true
+                                }
                             }
                         }
                         .disabled(viewModel.topicCards.count == maxCardsNumberPerAlbum)
@@ -213,6 +218,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showSubscriptionView) {
                 SubscriptionView(isShowing: $showSubscriptionView)
+            }
+            .sheet(isPresented: $showRemindersView) {
+                RemindersView()
             }
             .accentColor(Color(.systemOrange))
         }

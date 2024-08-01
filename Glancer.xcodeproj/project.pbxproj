@@ -51,6 +51,7 @@
 		C2A6CC432C58834400E334AB /* EventKitError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC422C58834400E334AB /* EventKitError.swift */; };
 		C2A6CC452C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */; };
 		C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC462C588C1400E334AB /* Reminder.swift */; };
+		C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4B2C5B688800E334AB /* RemindersView.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -136,6 +137,7 @@
 		C2A6CC422C58834400E334AB /* EventKitError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitError.swift; sourceTree = "<group>"; };
 		C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+AsyncFetchReminders.swift"; sourceTree = "<group>"; };
 		C2A6CC462C588C1400E334AB /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		C2A6CC4B2C5B688800E334AB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -323,6 +325,30 @@
 			path = CalendarStore;
 			sourceTree = "<group>";
 		};
+		C2A6CC482C5B64D400E334AB /* RemindersIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				C2A6CC4A2C5B668700E334AB /* ViewModel */,
+				C2A6CC492C5B667C00E334AB /* View */,
+			);
+			path = RemindersIntegration;
+			sourceTree = "<group>";
+		};
+		C2A6CC492C5B667C00E334AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2A6CC4B2C5B688800E334AB /* RemindersView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C2A6CC4A2C5B668700E334AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C2DD7D7B2AD6407A004424C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +523,7 @@
 		C2ECC95729BEB61D001AC352 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C2A6CC482C5B64D400E334AB /* RemindersIntegration */,
 				C220B63D2A416FF300B346C1 /* Subscription */,
 				C218314C29D8CF94009BD82B /* Tutorial */,
 				C218314729D8AD39009BD82B /* Settings */,
@@ -716,6 +743,7 @@
 				C218316329E11306009BD82B /* Manager.swift in Sources */,
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
+				C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */,
 				C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */,
 				C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */,
 				C218316729E11306009BD82B /* SlideOverCard.swift in Sources */,
