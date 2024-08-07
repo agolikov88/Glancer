@@ -9,11 +9,20 @@ import SwiftUI
 
 struct RemindersView: View {
     
+    @EnvironmentObject private var eventKitStore: EventKitStore
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    var viewModel: RemindersViewModel
+    
     var body: some View {
         Text("Reminders View")
+            .onAppear {
+                viewModel.loadReminders()
+            }
     }
 }
 
 #Preview {
-    RemindersView()
+    RemindersView(viewModel: RemindersViewModel(eventStore: EventKitStore()))
 }

@@ -11,6 +11,7 @@ import SwiftUIPager
 struct MainView: View {
     
     @EnvironmentObject private var store: Store
+    @EnvironmentObject private var eventKitStore: EventKitStore
     @Environment(\.requestReview) private var requestReview
     
     @ObservedObject var viewModel: MainViewModel
@@ -220,7 +221,7 @@ struct MainView: View {
                 SubscriptionView(isShowing: $showSubscriptionView)
             }
             .sheet(isPresented: $showRemindersView) {
-                RemindersView()
+                RemindersView(viewModel: RemindersViewModel(eventStore: eventKitStore))
             }
             .accentColor(Color(.systemOrange))
         }

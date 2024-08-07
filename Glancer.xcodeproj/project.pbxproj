@@ -52,6 +52,7 @@
 		C2A6CC452C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */; };
 		C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC462C588C1400E334AB /* Reminder.swift */; };
 		C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4B2C5B688800E334AB /* RemindersView.swift */; };
+		C2A6CC4E2C5DEA8F00E334AB /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -138,6 +139,7 @@
 		C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+AsyncFetchReminders.swift"; sourceTree = "<group>"; };
 		C2A6CC462C588C1400E334AB /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		C2A6CC4B2C5B688800E334AB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
+		C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModel.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -345,6 +347,7 @@
 		C2A6CC4A2C5B668700E334AB /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				C2A6CC432C58834400E334AB /* EventKitError.swift in Sources */,
 				C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */,
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
+				C2A6CC4E2C5DEA8F00E334AB /* RemindersViewModel.swift in Sources */,
 				C27AF7D82BE60A0300948879 /* FirebaseConfigurator.swift in Sources */,
 				C22B71E72B9ED51900BD6513 /* Dimensions.swift in Sources */,
 				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
@@ -942,6 +946,7 @@
 				INFOPLIST_FILE = Glancer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Cards";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Use your recent reminders with Watch Cards";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -981,6 +986,7 @@
 				INFOPLIST_FILE = Glancer/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Watch Cards";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSRemindersUsageDescription = "Use your recent reminders with Watch Cards";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
