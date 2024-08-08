@@ -11,7 +11,6 @@ enum EventKitError: LocalizedError {
     case accessDenied
     case accessRestricted
     case failedFetchingReminders
-    case reminderWithoutDueDate
     case unknown
     
     var errorDescription: String? {
@@ -25,9 +24,6 @@ enum EventKitError: LocalizedError {
         case .failedFetchingReminders:
             return NSLocalizedString(
                 "Failed to fetch reminders.", comment: "Failed fetching reminders error")
-        case .reminderWithoutDueDate:
-            return NSLocalizedString(
-                "A reminder has no due date.", comment: "Reminder has no due date error")
         case .unknown:
             return NSLocalizedString("An unknown error occurred.", comment: "Unknown error")
         }

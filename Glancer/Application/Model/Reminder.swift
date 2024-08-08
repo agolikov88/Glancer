@@ -11,21 +11,14 @@ import EventKit
 struct Reminder: Equatable, Identifiable {
     var id: String = UUID().uuidString
     var title: String
-    var dueDate: Date
-    var notes: String? = nil
-    var isComplete: Bool = false
+    var dueDate: Date? = nil
 }
 
 extension Reminder {
     
-    init(with ekReminder: EKReminder) throws {
-        guard let dueDate = ekReminder.alarms?.first?.absoluteDate else {
-            throw EventKitError.reminderWithoutDueDate
-        }
+    init(with ekReminder: EKReminder) {
         id = ekReminder.calendarItemIdentifier
         title = ekReminder.title
-        self.dueDate = dueDate
-        notes = ekReminder.notes
-        isComplete = ekReminder.isCompleted
+        dueDate = ekReminder.dueDateComponents?.date
     }
 }

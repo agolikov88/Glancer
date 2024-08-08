@@ -12,14 +12,6 @@ final class EventKitStore: ObservableObject {
     
     private let eventStore = EKEventStore()
     
-    init() {
-        
-    }
-    
-    deinit {
-        
-    }
-    
     func loadReminders() async throws -> [Reminder] {
         guard isAuthorized() else {
             throw EventKitError.accessDenied
@@ -27,12 +19,19 @@ final class EventKitStore: ObservableObject {
         
         let predicate = eventStore.predicateForReminders(in: nil)
         let ekReminders = try await eventStore.reminders(matching: predicate)
-        let reminders: [Reminder] = try ekReminders.compactMap { ekReminder in
-            do {
-                return try Reminder(with: ekReminder)
-            } catch EventKitError.reminderWithoutDueDate {
-                return nil
+        let sortedReminders = ekReminders.sorted {
+            if let dueDate1 = $0.dueDateComponents?.date, let dueDate2 = $1.dueDateComponents?.date {
+                return dueDate1 > dueDate2
+            } else if $0.dueDateComponents?.date != nil {
+                return true
+            } else if $1.dueDateComponents?.date != nil {
+                return false
+            } else {
+                return $0.creationDate ?? Date.distantPast > $1.creationDate ?? Date.distantPast
             }
+        }
+        let reminders: [Reminder] = sortedReminders.compactMap { ekReminder in
+            return Reminder(with: ekReminder)
         }
         return reminders
     }

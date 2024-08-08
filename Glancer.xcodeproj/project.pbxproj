@@ -53,6 +53,7 @@
 		C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC462C588C1400E334AB /* Reminder.swift */; };
 		C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4B2C5B688800E334AB /* RemindersView.swift */; };
 		C2A6CC4E2C5DEA8F00E334AB /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */; };
+		C2A6CC502C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -140,6 +141,7 @@
 		C2A6CC462C588C1400E334AB /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		C2A6CC4B2C5B688800E334AB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModel.swift; sourceTree = "<group>"; };
+		C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+RemindersPredicates.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -486,6 +488,7 @@
 				C22B71E32B9ED27900BD6513 /* UIImage+Crop.swift */,
 				C2A6CC3B2C3344CC00E334AB /* Bundle+AppVersion.swift */,
 				C2A6CC442C58862800E334AB /* EKEventStore+AsyncFetchReminders.swift */,
+				C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -764,6 +767,7 @@
 				C2ECC94629BEB207001AC352 /* UIImage+Watermark.swift in Sources */,
 				C2A6CC412C4C573700E334AB /* EventKitStore.swift in Sources */,
 				C218316F29E3764A009BD82B /* CustomizationConfiguration.swift in Sources */,
+				C2A6CC502C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift in Sources */,
 				C27DF2BA2B4E30E9006F41CB /* Logger.swift in Sources */,
 				C22B71E42B9ED27900BD6513 /* UIImage+Crop.swift in Sources */,
 				C218316629E11306009BD82B /* Deprecated.swift in Sources */,

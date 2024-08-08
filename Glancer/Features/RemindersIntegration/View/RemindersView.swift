@@ -13,13 +13,40 @@ struct RemindersView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    var viewModel: RemindersViewModel
+    @StateObject var viewModel: RemindersViewModel
+    
+    @State private var showActivityIndicator = true
     
     var body: some View {
-        Text("Reminders View")
-            .onAppear {
-                viewModel.loadReminders()
+        NavigationView {
+            VStack {
+                if showActivityIndicator {
+                    ProgressView().padding()
+                } else if viewModel.remindersState == .accessDenied {
+                    Text("Please allow access to reminders!")
+                } else {
+                    Text(viewModel.reminders.isEmpty ? "There are no recent reminders:(" : "Reminders loaded")
+                }
             }
+            .navigationBarTitle(Text("Select reminders"), displayMode: .inline)
+            .navigationBarItems(
+                leading: Button(action: closeWithoutSaving, label: { Text("Cancel") }),
+                trailing: Button(action: {}, label: { Text("Done") })
+            )
+        }
+        .accentColor(Color(.systemOrange))
+        .onAppear {
+            viewModel.loadReminders()
+        }
+        .onChange(of: viewModel.remindersState, perform: {state in
+            if state != .initial {
+                showActivityIndicator = false
+            }
+        })
+    }
+    
+    private func closeWithoutSaving() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
