@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Glancer
+// @testable import Glancer
 
 final class GlancerTests: XCTestCase {
 

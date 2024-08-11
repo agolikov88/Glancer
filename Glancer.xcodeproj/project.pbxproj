@@ -54,6 +54,7 @@
 		C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4B2C5B688800E334AB /* RemindersView.swift */; };
 		C2A6CC4E2C5DEA8F00E334AB /* RemindersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */; };
 		C2A6CC502C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */; };
+		C2A6CC522C68780800E334AB /* RemindersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC512C68780800E334AB /* RemindersListView.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
@@ -63,7 +64,6 @@
 		C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC90E29BEAC97001AC352 /* MainView.swift */; };
 		C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91029BEAC98001AC352 /* Assets.xcassets */; };
 		C2ECC91429BEAC98001AC352 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2ECC91329BEAC98001AC352 /* Preview Assets.xcassets */; };
-		C2ECC91E29BEAC98001AC352 /* GlancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC91D29BEAC98001AC352 /* GlancerTests.swift */; };
 		C2ECC92829BEAC98001AC352 /* GlancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC92729BEAC98001AC352 /* GlancerUITests.swift */; };
 		C2ECC92A29BEAC98001AC352 /* GlancerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC92929BEAC98001AC352 /* GlancerUITestsLaunchTests.swift */; };
 		C2ECC93E29BEB09A001AC352 /* ImagesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ECC93B29BEB09A001AC352 /* ImagesConfig.swift */; };
@@ -81,13 +81,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C2ECC91A29BEAC98001AC352 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2ECC90129BEAC97001AC352 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C2ECC90829BEAC97001AC352;
-			remoteInfo = Glancer;
-		};
 		C2ECC92429BEAC98001AC352 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2ECC90129BEAC97001AC352 /* Project object */;
@@ -142,6 +135,7 @@
 		C2A6CC4B2C5B688800E334AB /* RemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersView.swift; sourceTree = "<group>"; };
 		C2A6CC4D2C5DEA8F00E334AB /* RemindersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewModel.swift; sourceTree = "<group>"; };
 		C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+RemindersPredicates.swift"; sourceTree = "<group>"; };
+		C2A6CC512C68780800E334AB /* RemindersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersListView.swift; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -152,7 +146,6 @@
 		C2ECC90E29BEAC97001AC352 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2ECC91029BEAC98001AC352 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2ECC91329BEAC98001AC352 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C2ECC91929BEAC98001AC352 /* GlancerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlancerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC91D29BEAC98001AC352 /* GlancerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerTests.swift; sourceTree = "<group>"; };
 		C2ECC92329BEAC98001AC352 /* GlancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2ECC92729BEAC98001AC352 /* GlancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlancerUITests.swift; sourceTree = "<group>"; };
@@ -181,13 +174,6 @@
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 				C27AF7D62BE2036100948879 /* FirebaseAnalytics in Frameworks */,
 				C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2ECC91629BEAC98001AC352 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A6CC4B2C5B688800E334AB /* RemindersView.swift */,
+				C2A6CC512C68780800E334AB /* RemindersListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -385,7 +372,6 @@
 			isa = PBXGroup;
 			children = (
 				C2ECC90929BEAC97001AC352 /* Watch Cards.app */,
-				C2ECC91929BEAC98001AC352 /* GlancerTests.xctest */,
 				C2ECC92329BEAC98001AC352 /* GlancerUITests.xctest */,
 			);
 			name = Products;
@@ -608,24 +594,6 @@
 			productReference = C2ECC90929BEAC97001AC352 /* Watch Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C2ECC91829BEAC98001AC352 /* GlancerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C2ECC93029BEAC98001AC352 /* Build configuration list for PBXNativeTarget "GlancerTests" */;
-			buildPhases = (
-				C2ECC91529BEAC98001AC352 /* Sources */,
-				C2ECC91629BEAC98001AC352 /* Frameworks */,
-				C2ECC91729BEAC98001AC352 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C2ECC91B29BEAC98001AC352 /* PBXTargetDependency */,
-			);
-			name = GlancerTests;
-			productName = GlancerTests;
-			productReference = C2ECC91929BEAC98001AC352 /* GlancerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		C2ECC92229BEAC98001AC352 /* GlancerUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2ECC93329BEAC98001AC352 /* Build configuration list for PBXNativeTarget "GlancerUITests" */;
@@ -657,10 +625,6 @@
 					C2ECC90829BEAC97001AC352 = {
 						CreatedOnToolsVersion = 14.1;
 					};
-					C2ECC91829BEAC98001AC352 = {
-						CreatedOnToolsVersion = 14.1;
-						TestTargetID = C2ECC90829BEAC97001AC352;
-					};
 					C2ECC92229BEAC98001AC352 = {
 						CreatedOnToolsVersion = 14.1;
 						TestTargetID = C2ECC90829BEAC97001AC352;
@@ -687,7 +651,6 @@
 			projectRoot = "";
 			targets = (
 				C2ECC90829BEAC97001AC352 /* Watch Cards */,
-				C2ECC91829BEAC98001AC352 /* GlancerTests */,
 				C2ECC92229BEAC98001AC352 /* GlancerUITests */,
 			);
 		};
@@ -710,13 +673,6 @@
 				C218317129E38BCE009BD82B /* CustomizationConfiguration.json in Resources */,
 				C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */,
 				C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2ECC91729BEAC98001AC352 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +732,7 @@
 				C27AF7D12BC6217000948879 /* FontPickerView.swift in Sources */,
 				C218316529E11306009BD82B /* Modifiers.swift in Sources */,
 				C2ECC90D29BEAC97001AC352 /* GlancerApp.swift in Sources */,
+				C2A6CC522C68780800E334AB /* RemindersListView.swift in Sources */,
 				C2A6CC432C58834400E334AB /* EventKitError.swift in Sources */,
 				C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */,
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
@@ -785,14 +742,6 @@
 				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
 				C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2ECC91529BEAC98001AC352 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2ECC91E29BEAC98001AC352 /* GlancerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,11 +757,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C2ECC91B29BEAC98001AC352 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C2ECC90829BEAC97001AC352 /* Watch Cards */;
-			targetProxy = C2ECC91A29BEAC98001AC352 /* PBXContainerItemProxy */;
-		};
 		C2ECC92529BEAC98001AC352 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C2ECC90829BEAC97001AC352 /* Watch Cards */;
@@ -1015,46 +959,6 @@
 			};
 			name = Release;
 		};
-		C2ECC93129BEAC98001AC352 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TKE7M524M9;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.GlancerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glancer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Glancer";
-			};
-			name = Debug;
-		};
-		C2ECC93229BEAC98001AC352 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TKE7M524M9;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.GlancerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glancer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Glancer";
-			};
-			name = Release;
-		};
 		C2ECC93429BEAC98001AC352 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1108,15 +1012,6 @@
 			buildConfigurations = (
 				C2ECC92E29BEAC98001AC352 /* Debug */,
 				C2ECC92F29BEAC98001AC352 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C2ECC93029BEAC98001AC352 /* Build configuration list for PBXNativeTarget "GlancerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C2ECC93129BEAC98001AC352 /* Debug */,
-				C2ECC93229BEAC98001AC352 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

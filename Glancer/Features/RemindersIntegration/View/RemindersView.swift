@@ -16,6 +16,7 @@ struct RemindersView: View {
     @StateObject var viewModel: RemindersViewModel
     
     @State private var showActivityIndicator = true
+    @State private var multiSelection = Set<UUID>()
     
     var body: some View {
         NavigationView {
@@ -24,8 +25,12 @@ struct RemindersView: View {
                     ProgressView().padding()
                 } else if viewModel.remindersState == .accessDenied {
                     Text("Please allow access to reminders!")
+                } else if viewModel.reminders.isEmpty {
+                    Text("There are no recent reminders:(")
                 } else {
-                    Text(viewModel.reminders.isEmpty ? "There are no recent reminders:(" : "Reminders loaded")
+                    List(viewModel.reminders, selection: $multiSelection) { reminder in
+                        Text(reminder.title)
+                    }
                 }
             }
             .navigationBarTitle(Text("Select reminders"), displayMode: .inline)
