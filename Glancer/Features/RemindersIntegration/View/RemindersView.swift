@@ -16,7 +16,7 @@ struct RemindersView: View {
     @StateObject var viewModel: RemindersViewModel
     
     @State private var showActivityIndicator = true
-    @State private var multiSelection = Set<UUID>()
+    @State private var selectedReminders: [Reminder] = []
     
     var body: some View {
         NavigationView {
@@ -28,8 +28,29 @@ struct RemindersView: View {
                 } else if viewModel.reminders.isEmpty {
                     Text("There are no recent reminders:(")
                 } else {
-                    List(viewModel.reminders, selection: $multiSelection) { reminder in
-                        Text(reminder.title)
+                    List(viewModel.reminders) { reminder in
+                        Button(action: {
+                            if selectedReminders.contains(reminder) {
+                                selectedReminders.removeAll { $0 == reminder}
+                            } else {
+                                selectedReminders.append(reminder)
+                            }
+                        }, label: {
+                            HStack {
+                                Image(systemName: selectedReminders.contains(reminder) ? "circle.fill" : "circle")
+                                    .foregroundColor(selectedReminders.contains(reminder) ? Color(.systemOrange) : Color(.white))
+                                VStack(alignment: .leading) {
+                                    Text(reminder.title)
+                                        .foregroundColor(Color(.white))
+                                    if reminder.dueDate != nil {    // TODO: properly unwrap with if let, check why was failing to compile...
+                                        Text(UniversalDateFormatter.formatDateBasedOnLocale(date: reminder.dueDate!))
+                                            .foregroundColor(Color(.systemOrange))
+                                    }
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                        })
                     }
                 }
             }
