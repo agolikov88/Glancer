@@ -25,7 +25,6 @@ struct MainView: View {
     @State var showCustomizationView = false
     @State var showCardDeleteConfirmation = false
     @State var showSubscriptionView = false
-    @State var showAddNewCardConfirmation = false
     @State var showRemindersView = false
     
     @StateObject var page: Page = .first()
@@ -148,36 +147,25 @@ struct MainView: View {
                         }
                         Text("\(viewModel.topicCards.count)/\(store.isPaidSubscription ? maxCardsNumberPerAlbum : maxAllowedCardsNumber)")
                             .foregroundColor(Color(.systemOrange))
+                        Button(action: {
+                            if !store.isPaidSubscription {
+                                showSubscriptionView = true
+                            } else {
+                                showRemindersView = true
+                            }
+                        }, label: { Image(systemName: "calendar.badge.plus")
+                        })
                     },
                 trailing:
                     HStack {
                         Button(action: {
-                            showAddNewCardConfirmation = true
+                            if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
+                                showSubscriptionView = true
+                            } else {
+                                addNewCard()
+                            }
                         }, label: { Image(systemName: "plus")
                         })
-                        .confirmationDialog(
-                            "Add new card",
-                            isPresented: $showAddNewCardConfirmation,
-                            titleVisibility: .visible
-                        ) {
-                            Button("Custom text") {
-                                if (!store.isPaidSubscription && viewModel.topicCards.count == maxAllowedCardsNumber) {
-                                    showSubscriptionView = true
-                                } else {
-                                    viewModel.currentPageIndex = viewModel.topicCards.count
-                                    viewModel.previousCardsNumber = viewModel.topicCards.count
-                                    viewModel.topicCards.append(TopicCard())
-                                    AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
-                                }
-                            }
-                            Button("Events & reminders") {
-                                if !store.isPaidSubscription {
-                                    showSubscriptionView = true
-                                } else {
-                                    showRemindersView = true
-                                }
-                            }
-                        }
                         .disabled(viewModel.topicCards.count == maxCardsNumberPerAlbum)
                         Button(action: {showSettingsView = true}, label: { Image(systemName: "gear")
                         })
@@ -221,7 +209,11 @@ struct MainView: View {
                 SubscriptionView(isShowing: $showSubscriptionView)
             }
             .sheet(isPresented: $showRemindersView) {
-                RemindersView(viewModel: RemindersViewModel(eventStore: eventKitStore))
+                RemindersView(viewModel: RemindersViewModel(eventStore: eventKitStore)) { selectedReminders in
+                    if !selectedReminders.isEmpty {
+                        viewModel.topicCards[viewModel.currentPageIndex].cardDefinition = formatRemindersText(reminders: selectedReminders)
+                    }
+                }
             }
             .accentColor(Color(.systemOrange))
         }
@@ -263,6 +255,22 @@ struct MainView: View {
             }
             AppSettings.setLastVersionReviewRequested(updatedVersionReviewRequested: currentAppVersion)
         }
+    }
+    
+    private func addNewCard() {
+        viewModel.currentPageIndex = viewModel.topicCards.count
+        viewModel.previousCardsNumber = viewModel.topicCards.count
+        viewModel.topicCards.append(TopicCard())
+        AnalyticsManager.cardAdded(cardsNumber: viewModel.topicCards.count)
+    }
+    
+    private func formatRemindersText(reminders: [Reminder]) -> String {
+        var formattedText = ""
+        for reminder in reminders {
+            formattedText.append("\u{2022}\(reminder.title)\n")
+        }
+        
+        return formattedText
     }
 }
 

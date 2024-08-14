@@ -18,6 +18,8 @@ struct RemindersView: View {
     @State private var showActivityIndicator = true
     @State private var selectedReminders: [Reminder] = []
     
+    let onRemindersSelected: (([Reminder]) -> Void)?
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -42,8 +44,8 @@ struct RemindersView: View {
                                 VStack(alignment: .leading) {
                                     Text(reminder.title)
                                         .foregroundColor(Color(.white))
-                                    if reminder.dueDate != nil {    // TODO: properly unwrap with if let, check why was failing to compile...
-                                        Text(UniversalDateFormatter.formatDateBasedOnLocale(date: reminder.dueDate!))
+                                    if let dueDate = reminder.dueDate {
+                                        Text(UniversalDateFormatter.formatDateBasedOnLocale(date: dueDate))
                                             .foregroundColor(Color(.systemOrange))
                                     }
                                 }
@@ -57,7 +59,10 @@ struct RemindersView: View {
             .navigationBarTitle(Text("Select reminders"), displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: closeWithoutSaving, label: { Text("Cancel") }),
-                trailing: Button(action: {}, label: { Text("Done") })
+                trailing: Button(action: {
+                    onRemindersSelected?(selectedReminders)
+                    presentationMode.wrappedValue.dismiss()
+                }, label: { Text("Done") })
             )
         }
         .accentColor(Color(.systemOrange))
@@ -77,5 +82,5 @@ struct RemindersView: View {
 }
 
 #Preview {
-    RemindersView(viewModel: RemindersViewModel(eventStore: EventKitStore()))
+    RemindersView(viewModel: RemindersViewModel(eventStore: EventKitStore()), onRemindersSelected: nil)
 }
