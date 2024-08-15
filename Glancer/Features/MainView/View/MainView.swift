@@ -266,8 +266,8 @@ struct MainView: View {
     
     private func formatRemindersText(reminders: [Reminder]) -> String {
         var formattedText = ""
-        for reminder in reminders {
-            formattedText.append("\u{2022}\(reminder.title)\n")
+        for i in 0..<reminders.count {
+            formattedText.append("\u{2022}\(reminders[i].title)" + (i == reminders.count - 1 ? "" : "\n"))
         }
         
         return formattedText
