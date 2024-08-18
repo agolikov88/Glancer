@@ -27,8 +27,25 @@ struct RemindersView: View {
                     ProgressView().padding()
                 } else if viewModel.remindersState == .accessDenied {
                     Text("Please allow access to reminders!")
+                        .padding()
+                    Image(systemName: "exclamationmark.octagon")
+                        .font(.system(size: 96, weight: .bold, design: .default))
+                        .foregroundColor(Color(.systemOrange))
+                        .padding()
+                    Button(action: {
+                        if let url = URL(string:UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }) {
+                        Text("Open app settings")
+                            .fontWeight(.bold)
+                    }
                 } else if viewModel.reminders.isEmpty {
                     Text("There are no recent reminders:(")
+                        .padding()
+                    Image(systemName: "checklist.unchecked")
+                        .font(.system(size: 96, weight: .bold, design: .default))
+                        .foregroundColor(Color(.systemOrange))
                 } else {
                     List(viewModel.reminders) { reminder in
                         Button(action: {
