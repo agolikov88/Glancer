@@ -89,6 +89,17 @@ struct RemindersView: View {
         .onChange(of: viewModel.remindersState, perform: {state in
             if state != .initial {
                 showActivityIndicator = false
+                // Analytics
+                switch state {
+                case .accessDenied:
+                    AnalyticsManager.remindersAccessDenied()
+                    return
+                case .loaded:
+                    viewModel.reminders.isEmpty ? AnalyticsManager.remindersAreEmpty() : AnalyticsManager.remindersLoaded(remindersNumber: viewModel.reminders.count)
+                    return
+                case .initial:
+                    return
+                }
             }
         })
     }

@@ -25,6 +25,10 @@ enum AnalyticsEvent {
     case cardRemoved
     case manageWatchfacesTapped
     case reviewRequestShown
+    case selectRemindersViewOpened
+    case remindersAccessDenied
+    case remindersAreEmpty
+    case remindersLoaded
     
     var name: String {
         switch self {
@@ -60,6 +64,14 @@ enum AnalyticsEvent {
             return "manage_watchface_tapped"
         case .reviewRequestShown:
             return "review_request_shown"
+        case .selectRemindersViewOpened:
+            return "select_reminders_view_opened"
+        case .remindersAccessDenied:
+            return "reminders_access_denied"
+        case .remindersAreEmpty:
+            return "reminders_are_empty"
+        case .remindersLoaded:
+            return "reminders_loaded"
         }
     }
 }
@@ -135,5 +147,21 @@ extension AnalyticsManager {
     
     class func reviewRequestShown() {
         event(with: .reviewRequestShown)
+    }
+    
+    class func selectRemindersViewOpened() {
+        event(with: .selectRemindersViewOpened)
+    }
+    
+    class func remindersAccessDenied() {
+        event(with: .remindersAccessDenied)
+    }
+    
+    class func remindersAreEmpty() {
+        event(with: .remindersAreEmpty)
+    }
+    
+    class func remindersLoaded(remindersNumber: Int) {
+        event(with: .remindersLoaded, parameters: ["reminders_number": remindersNumber])
     }
 }

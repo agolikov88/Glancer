@@ -32,7 +32,6 @@ final class RemindersViewModel: ObservableObject {
                 try await eventStore.requestAccess()
                 reminders = try await eventStore.loadReminders()
                 remindersState = .loaded
-                print("Loaded reminders: \(reminders)")
             } catch {
                 remindersState = .accessDenied
                 Logger.warning("Error accessing reminders: \(error.localizedDescription)")

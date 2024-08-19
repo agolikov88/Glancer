@@ -151,6 +151,7 @@ struct MainView: View {
                             if !store.isPaidSubscription {
                                 showSubscriptionView = true
                             } else {
+                                AnalyticsManager.selectRemindersViewOpened()
                                 showRemindersView = true
                             }
                         }, label: { Image(systemName: "calendar.badge.plus")
