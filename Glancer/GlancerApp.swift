@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RevenueCat
 
 @main
 struct GlancerApp: App {
@@ -22,6 +23,9 @@ struct GlancerApp: App {
     init() {
         Logger.configure()
         Logger.info("Logging configured")
+        
+        Purchases.logLevel = .debug // For testing only...
+        Purchases.configure(withAPIKey: "appl_cQtUGYdPjGsJllVoEIqNtsdoMgj")
     }
     
     var body: some Scene {

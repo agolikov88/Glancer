@@ -56,6 +56,8 @@
 		C2A6CC502C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2AD16652C6B05C100BE261B /* UniversalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD16642C6B05C100BE261B /* UniversalDateFormatter.swift */; };
+		C2AD16682C7C22B500BE261B /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = C2AD16672C7C22B500BE261B /* RevenueCat */; };
+		C2AD166A2C7C22B500BE261B /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = C2AD16692C7C22B500BE261B /* RevenueCatUI */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
 		C2DD7D7F2AD6463A004424C5 /* Watch Cards.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */; };
@@ -171,6 +173,8 @@
 			files = (
 				C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */,
 				C218317A29F2354E009BD82B /* SwiftUIPager in Frameworks */,
+				C2AD166A2C7C22B500BE261B /* RevenueCatUI in Frameworks */,
+				C2AD16682C7C22B500BE261B /* RevenueCat in Frameworks */,
 				C2ECC94329BEB151001AC352 /* ZIPFoundation in Frameworks */,
 				C27AF7D62BE2036100948879 /* FirebaseAnalytics in Frameworks */,
 				C27DF2B62B4E0A11006F41CB /* SwiftyBeaver in Frameworks */,
@@ -597,6 +601,8 @@
 				C218317929F2354E009BD82B /* SwiftUIPager */,
 				C27DF2B52B4E0A11006F41CB /* SwiftyBeaver */,
 				C27AF7D52BE2036100948879 /* FirebaseAnalytics */,
+				C2AD16672C7C22B500BE261B /* RevenueCat */,
+				C2AD16692C7C22B500BE261B /* RevenueCatUI */,
 			);
 			productName = Glancer;
 			productReference = C2ECC90929BEAC97001AC352 /* Watch Cards.app */;
@@ -653,6 +659,7 @@
 				C218317829F2354E009BD82B /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 				C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 				C27AF7D42BE2036100948879 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C2AD16662C7C22B500BE261B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			productRefGroup = C2ECC90A29BEAC97001AC352 /* Products */;
 			projectDirPath = "";
@@ -894,7 +901,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -914,7 +921,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -934,7 +941,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_PREVIEWS = YES;
@@ -954,7 +961,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1060,6 +1067,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C2AD16662C7C22B500BE261B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
 		C2ECC94129BEB151001AC352 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/weichsel/ZIPFoundation.git";
@@ -1085,6 +1100,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C27DF2B42B4E0A11006F41CB /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
 			productName = SwiftyBeaver;
+		};
+		C2AD16672C7C22B500BE261B /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2AD16662C7C22B500BE261B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCat;
+		};
+		C2AD16692C7C22B500BE261B /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2AD16662C7C22B500BE261B /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
+			productName = RevenueCatUI;
 		};
 		C2ECC94229BEB151001AC352 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
