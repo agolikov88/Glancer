@@ -23,7 +23,7 @@ struct LegalNoticesView: View {
     var body: some View {
         WCWebView(url: Bundle.main.url(forResource: noticeType == .termsOfService ? "terms_of_service" : "third_party", withExtension: "html")!)
             .ignoresSafeArea()
-            .navigationTitle("Sarunw")
+            .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
     }
 }
