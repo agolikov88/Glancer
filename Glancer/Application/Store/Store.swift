@@ -13,7 +13,7 @@ import StoreKit
     @Published private(set) var purchasedProductIDs = Set<String>()
     @Published var isUserCancelled = false
     
-    private let productIds = ["WatchCards_Lifetime"]
+    private let productIds = ["WatchCards_Monthly_New", "WatchCards_Yearly_New", "WatchCards_Lifetime"]
     
     private var updates: Task<Void, Never>?
     
