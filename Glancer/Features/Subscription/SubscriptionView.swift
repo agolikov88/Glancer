@@ -67,7 +67,7 @@ struct SubscriptionView: View {
                             .font(.system(size: 18, design: .default))
                     }
                     Button(action: {
-                        if let product = store.products.first(where: {$0.id == "WatchCards_Monthly"}) {
+                        if let product = store.products.first(where: {$0.id == "WatchCards_Monthly_New"}) {
                             initiatePurchase(product: product)
                         } else {
                             showPurchaseErrorAlert = true
@@ -88,7 +88,7 @@ struct SubscriptionView: View {
                     }
                     .disabled(showPurchaseProgress)
                     Button(action: {
-                        if let product = store.products.first(where: {$0.id == "WatchCards_Yearly"}) {
+                        if let product = store.products.first(where: {$0.id == "WatchCards_Yearly_New"}) {
                             initiatePurchase(product: product)
                         } else {
                             showPurchaseErrorAlert = true
@@ -121,7 +121,7 @@ struct SubscriptionView: View {
                             Text("Lifetime")
                                 .font(.system(size: 22, weight: .medium, design: .default))
                                 .padding(.bottom, 1)
-                            Text("$34,99")
+                            Text("$4,99")   // Current test pricing, should be $34,99 when released to production...
                                 .font(.system(size: 22, weight: .bold, design: .default))
                             Text("One-time payment")
                                 .font(.system(size: 18  , weight: .regular, design: .default))
