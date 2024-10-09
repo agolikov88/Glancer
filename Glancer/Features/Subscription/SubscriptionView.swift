@@ -15,6 +15,8 @@ struct SubscriptionView: View {
     @State var showPurchaseProgress  = false
     @State var showPurchaseErrorAlert = false
     
+    @State var isEligibleForFreeTrial = false
+    
     @Binding var isShowing: Bool
     
     let onSubscribtionActivated: (() -> Void)?
@@ -79,9 +81,13 @@ struct SubscriptionView: View {
                                 .padding(.bottom, 1)
                             Text("$2,99")
                                 .font(.system(size: 22, weight: .bold, design: .default))
+                            if isEligibleForFreeTrial {
+                                Text("Try FREE for 7 days!")
+                                    .font(.system(size: 18  , weight: .bold, design: .default))
+                            }
                         }
                         .frame(maxWidth: .infinity, minHeight: 80, alignment: .leading)
-                        .padding([.leading, .trailing])
+                        .padding()
                         .background(LinearGradient(gradient: showPurchaseProgress ? Gradient(colors: [Color.gray, Color.gray]) : Gradient(colors: [Color("dark_green"), Color("light_green")]), startPoint: .leading, endPoint: .trailing))
                         .cornerRadius(16)
                         .foregroundColor(.white)
@@ -153,6 +159,7 @@ struct SubscriptionView: View {
         })
         .task {
             await store.fetchProducts()
+            isEligibleForFreeTrial = await store.checkFreeTrialEligibility()
         }
     }
     

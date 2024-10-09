@@ -35,6 +35,7 @@
 		C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F72B71F64300200C97 /* AppDelegate.swift */; };
 		C24582FA2B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */; };
 		C24BCEE02A67955400806C17 /* SelectAppIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */; };
+		C24CA4162CB61FE3000EC06E /* Watch Cards Local.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C24CA4152CB61FE3000EC06E /* Watch Cards Local.storekit */; };
 		C26874D52BE60BF9009805FA /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26874D42BE60BF9009805FA /* AnalyticsManager.swift */; };
 		C27AF7D12BC6217000948879 /* FontPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27AF7D02BC6217000948879 /* FontPickerView.swift */; };
 		C27AF7D32BE2016600948879 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C27AF7D22BE2016600948879 /* GoogleService-Info.plist */; };
@@ -118,6 +119,7 @@
 		C24582F72B71F64300200C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C24582F92B71FC1500200C97 /* FileManager+ClearTmpDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+ClearTmpDirectory.swift"; sourceTree = "<group>"; };
 		C24BCEDF2A67955400806C17 /* SelectAppIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppIconView.swift; sourceTree = "<group>"; };
+		C24CA4152CB61FE3000EC06E /* Watch Cards Local.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Watch Cards Local.storekit"; sourceTree = "<group>"; };
 		C26874D42BE60BF9009805FA /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		C27AF7D02BC6217000948879 /* FontPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontPickerView.swift; sourceTree = "<group>"; };
 		C27AF7D22BE2016600948879 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -400,6 +402,7 @@
 				C2ECC90C29BEAC97001AC352 /* GlancerApp.swift */,
 				C2ECC91229BEAC98001AC352 /* Preview Content */,
 				C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */,
+				C24CA4152CB61FE3000EC06E /* Watch Cards Local.storekit */,
 			);
 			path = Glancer;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				C218317129E38BCE009BD82B /* CustomizationConfiguration.json in Resources */,
 				C2ECC95429BEB5A7001AC352 /* metadata.json in Resources */,
 				C2ECC91129BEAC98001AC352 /* Assets.xcassets in Resources */,
+				C24CA4162CB61FE3000EC06E /* Watch Cards Local.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,7 +898,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_DEBUG_DYLIB = YES;
@@ -935,7 +939,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_DEBUG_DYLIB = YES;

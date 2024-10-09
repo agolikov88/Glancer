@@ -14,6 +14,7 @@ import StoreKit
     @Published var isUserCancelled = false
     
     private let productIds = ["WatchCards_Monthly_New", "WatchCards_Yearly_New", "WatchCards_Lifetime"]
+    private let subscriptionGroupId = "21529655"    //test groupid "DAF3D6D6"
     
     private var updates: Task<Void, Never>?
     
@@ -84,6 +85,12 @@ import StoreKit
                 self.purchasedProductIDs.remove(transaction.productID)
             }
         }
+    }
+    
+    func checkFreeTrialEligibility() async -> Bool {
+        let eligibility = await Product.SubscriptionInfo.isEligibleForIntroOffer(for: subscriptionGroupId)
+        Logger.info("Free trial eligibility: \(eligibility)")
+        return eligibility
     }
     
     private func observeTransactionUpdates() -> Task<Void, Never> {
