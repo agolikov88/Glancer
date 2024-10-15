@@ -127,7 +127,7 @@ struct SubscriptionView: View {
                             Text("Lifetime")
                                 .font(.system(size: 22, weight: .medium, design: .default))
                                 .padding(.bottom, 1)
-                            Text("$4,99")   // Current test pricing, should be $34,99 when released to production...
+                            Text("$34,99")   // Pricing updated to production version...
                                 .font(.system(size: 22, weight: .bold, design: .default))
                             Text("One-time payment")
                                 .font(.system(size: 18  , weight: .regular, design: .default))
