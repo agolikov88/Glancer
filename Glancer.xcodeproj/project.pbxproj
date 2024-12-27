@@ -57,6 +57,7 @@
 		C2A6CC502C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */; };
 		C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB154629C1815500593D69 /* Color+CustomColors.swift */; };
 		C2AD16652C6B05C100BE261B /* UniversalDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AD16642C6B05C100BE261B /* UniversalDateFormatter.swift */; };
+		C2BA17C32D1F679B00D07682 /* ImagePlaygroundAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BA17C22D1F679B00D07682 /* ImagePlaygroundAvailability.swift */; };
 		C2CAA45D2A259569008F3DE0 /* PagerIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */; };
 		C2DD7D7D2AD6407B004424C5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */; };
 		C2DD7D7F2AD6463A004424C5 /* Watch Cards.storekit in Resources */ = {isa = PBXBuildFile; fileRef = C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */; };
@@ -139,6 +140,7 @@
 		C2A6CC4F2C644AAA00E334AB /* EKEventStore+RemindersPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EKEventStore+RemindersPredicates.swift"; sourceTree = "<group>"; };
 		C2AB154629C1815500593D69 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C2AD16642C6B05C100BE261B /* UniversalDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalDateFormatter.swift; sourceTree = "<group>"; };
+		C2BA17C22D1F679B00D07682 /* ImagePlaygroundAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePlaygroundAvailability.swift; sourceTree = "<group>"; };
 		C2CAA45C2A259569008F3DE0 /* PagerIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerIndicator.swift; sourceTree = "<group>"; };
 		C2DD7D7C2AD6407A004424C5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C2DD7D7E2AD6463A004424C5 /* Watch Cards.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Watch Cards.storekit"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				C24582F52B5C712300200C97 /* SelectCustomBackgroundViewModel.swift */,
+				C2BA17C22D1F679B00D07682 /* ImagePlaygroundAvailability.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				C2ECC90F29BEAC97001AC352 /* MainView.swift in Sources */,
 				C2AB154729C1815500593D69 /* Color+CustomColors.swift in Sources */,
 				C2A6CC4C2C5B688800E334AB /* RemindersView.swift in Sources */,
+				C2BA17C32D1F679B00D07682 /* ImagePlaygroundAvailability.swift in Sources */,
 				C2A6CC472C588C1400E334AB /* Reminder.swift in Sources */,
 				C24582F82B71F64300200C97 /* AppDelegate.swift in Sources */,
 				C218316729E11306009BD82B /* SlideOverCard.swift in Sources */,
@@ -914,12 +918,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -955,12 +959,12 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.1;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

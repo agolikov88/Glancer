@@ -21,6 +21,7 @@ struct SelectCardBackgroundView: View {
     private var items: [GridItem] = Array(repeating: .init(.adaptive(minimum: 120)), count: 2)
     
     @State private var showPhotosPicker = false
+    @State private var showImagePlayground = false
     @State private var showErrorAlert = false
     @State private var selectedBackgrounds: [String] = []
     @State private var showSubscriptionView = false
@@ -50,6 +51,33 @@ struct SelectCardBackgroundView: View {
                                 .cornerRadius(8)
                         }
                     })
+                    if #available(iOS 18.1, *) {
+                        Button(action: {
+                            if store.isPaidSubscription {
+                                showImagePlayground = true
+                            } else {
+                                showSubscriptionView = true
+                            }
+                        }, label: {
+                            ZStack {
+                                Image("generate_image_icon")
+                                    .frame(width: 120, height: 147)
+                                    .background(.black)
+                                    .cornerRadius(8)
+                            }
+                        })
+                        .disabled(!ImagePlaygroundAvailability.imagePlaygroundSupported())
+                        .imagePlaygroundSheet(
+                                    isPresented: $showImagePlayground,
+                                    concepts: [
+                                    ],
+                                    //sourceImage: Image("image"),
+                                    onCompletion: { url in
+                                        //resultImage = Image(uiImage: UIImage(contentsOfFile: url.relativePath)!)
+                                    },
+                                    onCancellation: {}
+                                )
+                    }
                     ForEach(backgrounds, id: \.self) { background in
                         Button(action: {
                             if selectedBackgrounds.contains(background) {
