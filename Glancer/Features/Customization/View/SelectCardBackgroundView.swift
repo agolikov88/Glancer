@@ -69,11 +69,9 @@ struct SelectCardBackgroundView: View {
                         .disabled(!ImagePlaygroundAvailability.imagePlaygroundSupported())
                         .imagePlaygroundSheet(
                                     isPresented: $showImagePlayground,
-                                    concepts: [
-                                    ],
-                                    //sourceImage: Image("image"),
                                     onCompletion: { url in
-                                        //resultImage = Image(uiImage: UIImage(contentsOfFile: url.relativePath)!)
+                                        Logger.info("Generated image from Image Playground")
+                                        viewModel.createBackgroundImage(image: UIImage(contentsOfFile: url.relativePath))
                                     },
                                     onCancellation: {}
                                 )
@@ -112,11 +110,11 @@ struct SelectCardBackgroundView: View {
             )
         }
         .accentColor(Color(.systemOrange))
-        .onChange(of: viewModel.selectedPhotos, perform: { _ in
+        .onChange(of: viewModel.selectedPhotos) {
             Logger.info("Selected photo from PhotoLibrary")
             viewModel.convertDataToImageFile()
-        })
-        .onChange(of: viewModel.backgroundImageUrl, perform: { value in
+        }
+        .onChange(of: viewModel.backgroundImageUrl) { _, value in
             if let backgroundImageUrl = value {
                 if !backgroundImageUrl.isEmpty {
                     Logger.info("Background image url: \(backgroundImageUrl)")
@@ -128,7 +126,7 @@ struct SelectCardBackgroundView: View {
                 }
             }
             viewModel.backgroundImageUrl = nil
-        })
+        }
         .alert("Something went wrong! Please try again or select another photo", isPresented: $showErrorAlert) {
             Button("OK", role: .cancel) { }
         }
