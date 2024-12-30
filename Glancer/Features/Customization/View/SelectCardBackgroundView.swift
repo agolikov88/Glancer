@@ -8,6 +8,7 @@
 
 import SwiftUI
 import PhotosUI
+import ImagePlayground
 
 struct SelectCardBackgroundView: View {
     
@@ -66,7 +67,6 @@ struct SelectCardBackgroundView: View {
                                     .cornerRadius(8)
                             }
                         })
-                        .disabled(!ImagePlaygroundAvailability.imagePlaygroundSupported())
                         .imagePlaygroundSheet(
                                     isPresented: $showImagePlayground,
                                     onCompletion: { url in
