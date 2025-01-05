@@ -26,6 +26,7 @@ struct MainView: View {
     @State var showCardDeleteConfirmation = false
     @State var showSubscriptionView = false
     @State var showRemindersView = false
+    @State var showNewFeatureTutorialView = !AppSettings.isNewFeatureViewed()
     
     @StateObject var page: Page = .first()
     
@@ -64,9 +65,9 @@ struct MainView: View {
                             .focused($isInputActive)
                             .padding([.leading, .trailing], 1)
                     }
-                    .onChange(of: viewModel.topicCards[page.index], perform: {value in
+                    .onChange(of: viewModel.topicCards[page.index]) { _, value in
                         _ = generateCardImage(topicCard: value, pageIndex: page.index)
-                    })
+                    }
                 })
                 .swipeInteractionArea(.allAvailable)
                 .itemSpacing(10)
@@ -176,27 +177,27 @@ struct MainView: View {
                     }
             )
             .disabled(showCustomizationView)
-            .onChange(of: viewModel.watchFaceState, perform: { value in
+            .onChange(of: viewModel.watchFaceState) {  _, value in
                 if (viewModel.watchFaceState == .created || viewModel.watchFaceState == .failed) {
                     showCompletionStateView = true
                 }
-            })
-            .onChange(of: viewModel.topicCards.count, perform: { value in
+            }
+            .onChange(of: viewModel.topicCards.count) {  _, value in
                 withAnimation {
                     if viewModel.previousCardsNumber < viewModel.topicCards.count {
                         page.update(.moveToLast)
                     }
                 }
                 isInputActive = false
-            })
-            .onChange(of: viewModel.clearImagesCache, perform: { _ in
+            }
+            .onChange(of: viewModel.clearImagesCache) {  _, _ in
                 cardsImages.removeAll()
-            })
-            .onChange(of: showTutorialView, perform: { value in
+            }
+            .onChange(of: showTutorialView) {  _, value in
                 if !value {
                     presentReviewRequest()
                 }
-            })
+            }
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(viewModel: viewModel, isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
@@ -217,6 +218,14 @@ struct MainView: View {
                 }
             }
             .accentColor(Color(.systemOrange))
+        }
+        .onAppear {
+            if showNewFeatureTutorialView {
+                // test...
+                SOCManager.present(isPresented: $showNewFeatureTutorialView) {
+                    ImagePlaygroundTutorialView()
+                }
+            }
         }
     }
     

@@ -10,6 +10,7 @@ import Foundation
 enum AppSettings {
     
     private static let showTutorialKey = "show_tutorial"
+    private static let showImagePlaygroundFeatureKey = "show_image_playground_tutorial"
     private static let attachLogsKey = "attach_logs"
     private static let lastVersionReviewRequested = "last_version_review_requested"
     
@@ -19,6 +20,14 @@ enum AppSettings {
     
     static func isTutorialViewed() -> Bool {
         return UserDefaults.standard.bool(forKey: showTutorialKey)
+    }
+    
+    static func markNewFeatureViewed() {
+        UserDefaults.standard.set(true, forKey: showImagePlaygroundFeatureKey)
+    }
+    
+    static func isNewFeatureViewed() -> Bool {
+        return UserDefaults.standard.bool(forKey: showImagePlaygroundFeatureKey)
     }
     
     static func toggleAttachLogs() {

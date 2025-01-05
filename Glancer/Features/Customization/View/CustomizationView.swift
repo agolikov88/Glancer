@@ -164,23 +164,23 @@ struct CustomizationView: View {
         .sheet(isPresented: $showSubscriptionView) {
             SubscriptionView(isShowing: $showSubscriptionView)
         }
-        .onChange(of: font, perform: {fontValue in
+        .onChange(of: font) { _, fontValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[fontValue]![Int(fontStyle)] {
                 AnalyticsManager.fontChanged()
                 viewModel.topicCards[viewModel.currentPageIndex].fontName = fontValue
                 viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
-        })
-        .onChange(of: fontStyle, perform: {fontStyleValue in
+        }
+        .onChange(of: fontStyle) { _, fontStyleValue in
             if let fontStyle = viewModel.customizationConfiguration.supportedFonts[font]![Int(fontStyleValue)] {
                 AnalyticsManager.fontSizeChanged()
                 viewModel.topicCards[viewModel.currentPageIndex].fontStyle = fontStyle
             }
-        })
-        .onChange(of: fontColor, perform: {fontColorValue in
+        }
+        .onChange(of: fontColor) { _, fontColorValue in
             AnalyticsManager.textColorChanged()
             viewModel.topicCards[viewModel.currentPageIndex].fontColor =  fontColorValue.toHex() ?? "0xFFFFFF"
-        })
+        }
         .accentColor(Color(.systemOrange))
     }
 }
