@@ -27,7 +27,11 @@ enum AppSettings {
     }
     
     static func isNewFeatureViewed() -> Bool {
-        return UserDefaults.standard.bool(forKey: showImagePlaygroundFeatureKey)
+        if #available(iOS 18.1, *) {
+            return UserDefaults.standard.bool(forKey: showImagePlaygroundFeatureKey)
+        } else {
+            return true
+        }
     }
     
     static func toggleAttachLogs() {

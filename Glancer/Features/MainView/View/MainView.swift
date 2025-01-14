@@ -217,15 +217,10 @@ struct MainView: View {
                     }
                 }
             }
-            .accentColor(Color(.systemOrange))
-        }
-        .onAppear {
-            if showNewFeatureTutorialView {
-                // test...
-                SOCManager.present(isPresented: $showNewFeatureTutorialView) {
-                    ImagePlaygroundTutorialView()
-                }
+            .sheet(isPresented: $showNewFeatureTutorialView) {
+                ImagePlaygroundTutorialView(isShowing: $showNewFeatureTutorialView)
             }
+            .accentColor(Color(.systemOrange))
         }
     }
     
