@@ -118,7 +118,7 @@ struct ImagePlaygroundTutorialView: View {
                                 .font(.system(size: 28, design: .default))
                                 .foregroundColor(Color.mint)
                                 .padding(.trailing)
-                            Text("Feature is ONLY supported on iPhone 15 Pro and up")
+                            Text("This feature is only supported on iPhone 15 Pro and up. You will need to enable Apple Intelligence in system settings")
                                 .font(.system(size: 22, design: .default))
                         }
                         if !store.isPaidSubscription {
@@ -126,7 +126,7 @@ struct ImagePlaygroundTutorialView: View {
                                 showSubscriptionView = true
                             }) {
                                 VStack() {
-                                    Text("Unlock this feature!")
+                                    Text("Unlock all app features!")
                                         .font(.custom("Cookie-Regular", size: 32))
                                 }
                                 .frame(maxWidth: .infinity, minHeight: 60, alignment: .center)
