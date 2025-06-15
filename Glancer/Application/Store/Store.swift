@@ -21,7 +21,7 @@ import StoreKit
     var isPaidSubscription: Bool {
         let isPaidSubscription = !self.purchasedProductIDs.isEmpty
         Logger.info("isPaidSubscription: \(isPaidSubscription)")
-        return isPaidSubscription
+        return true //isPaidSubscription
     }
     
     init() {

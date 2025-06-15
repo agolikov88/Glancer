@@ -41,7 +41,7 @@ struct SettingsView: View {
                     HStack {
                         Image(systemName: "info.circle")
                             .foregroundColor(Color(.systemOrange))
-                        Text("Watch Cards v1.7")
+                        Text("Watch Cards v1.8")
                             .foregroundColor(.white)
                     }
                     ShareLink(item: URL(string: "https://apps.apple.com/us/app/watch-cards/id6450130685")!) {
@@ -108,22 +108,6 @@ struct SettingsView: View {
                     Text("Additional resources")
                 }
                 Section {
-                    Button(action: {
-                        Task {
-                            do {
-                                try await AppStore.sync()
-                            } catch {
-                                print(error)
-                            }
-                        }
-                    }, label: {
-                        HStack {
-                            Image(systemName: "dollarsign.circle")
-                                .foregroundColor(Color(.systemOrange))
-                            Text("Restore purchases")
-                        }
-                    })
-                    .accentColor(.white)
                     Button(action: {
                         showTermsOfServiceView = true
                     }, label: {
