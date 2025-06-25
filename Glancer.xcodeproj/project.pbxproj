@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2055A7A2DFFC5F90050AA77 /* InAppEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2055A792DFFC5F90050AA77 /* InAppEventView.swift */; };
 		C218314629D3DBEC009BD82B /* CompletionStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314529D3DBEC009BD82B /* CompletionStateView.swift */; };
 		C218314A29D8AD97009BD82B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314829D8AD97009BD82B /* SettingsView.swift */; };
 		C218314B29D8AD97009BD82B /* SendFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C218314929D8AD97009BD82B /* SendFeedbackView.swift */; };
@@ -93,6 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2055A792DFFC5F90050AA77 /* InAppEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppEventView.swift; sourceTree = "<group>"; };
 		C218314529D3DBEC009BD82B /* CompletionStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionStateView.swift; sourceTree = "<group>"; };
 		C218314829D8AD97009BD82B /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C218314929D8AD97009BD82B /* SendFeedbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendFeedbackView.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				C218314D29D8CFB1009BD82B /* TutorialView.swift */,
 				C2890FD32D2A6F6200E71A63 /* ImagePlaygroundTutorialView.swift */,
+				C2055A792DFFC5F90050AA77 /* InAppEventView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				C2844A462A6C8A8600A5571F /* WCWebView.swift in Sources */,
 				C2A6CC4E2C5DEA8F00E334AB /* RemindersViewModel.swift in Sources */,
 				C27AF7D82BE60A0300948879 /* FirebaseConfigurator.swift in Sources */,
+				C2055A7A2DFFC5F90050AA77 /* InAppEventView.swift in Sources */,
 				C22B71E72B9ED51900BD6513 /* Dimensions.swift in Sources */,
 				C220B63F2A41703600B346C1 /* SubscriptionView.swift in Sources */,
 				C218315029DA1133009BD82B /* AppSettings.swift in Sources */,
@@ -902,7 +906,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_DEBUG_DYLIB = YES;
@@ -923,7 +927,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -943,7 +947,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Glancer/Preview Content\"";
 				DEVELOPMENT_TEAM = TKE7M524M9;
 				ENABLE_DEBUG_DYLIB = YES;
@@ -964,7 +968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.agolikov.wcards;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

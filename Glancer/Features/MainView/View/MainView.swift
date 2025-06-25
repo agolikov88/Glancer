@@ -27,6 +27,7 @@ struct MainView: View {
     @State var showSubscriptionView = false
     @State var showRemindersView = false
     @State var showNewFeatureTutorialView = !AppSettings.isNewFeatureViewed()
+    @State var showInAppEventView = false
     
     @StateObject var page: Page = .first()
     
@@ -198,6 +199,9 @@ struct MainView: View {
                     presentReviewRequest()
                 }
             }
+            .onOpenURL {url in
+                handleInAppEventURL(url: url)
+            }
             .sheet(isPresented: $showCompletionStateView) {
                 CompletionStateView(viewModel: viewModel, isShowing: $showCompletionStateView, succesful: viewModel.watchFaceState == .created)
             }
@@ -219,6 +223,9 @@ struct MainView: View {
             }
             .sheet(isPresented: $showNewFeatureTutorialView) {
                 ImagePlaygroundTutorialView(isShowing: $showNewFeatureTutorialView)
+            }
+            .sheet(isPresented: $showInAppEventView) {
+                InAppEventView(isShowing: $showInAppEventView)
             }
             .accentColor(Color(.systemOrange))
         }
@@ -276,6 +283,15 @@ struct MainView: View {
         }
         
         return formattedText
+    }
+    
+    private func handleInAppEventURL(url: URL) {
+        switch url.host {
+        case "event":
+            showInAppEventView = true
+        default:
+            break
+        }
     }
 }
 
